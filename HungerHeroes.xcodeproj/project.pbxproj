@@ -16,6 +16,24 @@
 		AB782340289AED640075746B /* HungerHeroesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB78233F289AED640075746B /* HungerHeroesTests.swift */; };
 		AB78234A289AED640075746B /* HungerHeroesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782349289AED640075746B /* HungerHeroesUITests.swift */; };
 		AB78234C289AED640075746B /* HungerHeroesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB78234B289AED640075746B /* HungerHeroesUITestsLaunchTests.swift */; };
+		AB78235A289AFBEB0075746B /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782359289AFBEB0075746B /* Hero.swift */; };
+		AB78235B289AFC050075746B /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782359289AFBEB0075746B /* Hero.swift */; };
+		AB78235C289AFC090075746B /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782359289AFBEB0075746B /* Hero.swift */; };
+		AB782363289AFE7E0075746B /* ZoneMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782362289AFE7E0075746B /* ZoneMap.swift */; };
+		AB782364289AFE7E0075746B /* ZoneMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782362289AFE7E0075746B /* ZoneMap.swift */; };
+		AB782365289AFE7E0075746B /* ZoneMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782362289AFE7E0075746B /* ZoneMap.swift */; };
+		AB782367289B00210075746B /* Artifact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782366289B00210075746B /* Artifact.swift */; };
+		AB782368289B00210075746B /* Artifact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782366289B00210075746B /* Artifact.swift */; };
+		AB782369289B00210075746B /* Artifact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782366289B00210075746B /* Artifact.swift */; };
+		AB782371289B012C0075746B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782370289B012C0075746B /* Player.swift */; };
+		AB782372289B012C0075746B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782370289B012C0075746B /* Player.swift */; };
+		AB782373289B012C0075746B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782370289B012C0075746B /* Player.swift */; };
+		AB782375289B0D0B0075746B /* MapNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782374289B0D0B0075746B /* MapNode.swift */; };
+		AB782376289B0D0B0075746B /* MapNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782374289B0D0B0075746B /* MapNode.swift */; };
+		AB782377289B0D0B0075746B /* MapNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782374289B0D0B0075746B /* MapNode.swift */; };
+		AB782379289B117F0075746B /* MainPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782378289B117F0075746B /* MainPlayer.swift */; };
+		AB78237A289B117F0075746B /* MainPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782378289B117F0075746B /* MainPlayer.swift */; };
+		AB78237B289B117F0075746B /* MainPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782378289B117F0075746B /* MainPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +67,12 @@
 		AB782345289AED640075746B /* HungerHeroesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HungerHeroesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB782349289AED640075746B /* HungerHeroesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HungerHeroesUITests.swift; sourceTree = "<group>"; };
 		AB78234B289AED640075746B /* HungerHeroesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HungerHeroesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AB782359289AFBEB0075746B /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		AB782362289AFE7E0075746B /* ZoneMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneMap.swift; sourceTree = "<group>"; };
+		AB782366289B00210075746B /* Artifact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artifact.swift; sourceTree = "<group>"; };
+		AB782370289B012C0075746B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		AB782374289B0D0B0075746B /* MapNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNode.swift; sourceTree = "<group>"; };
+		AB782378289B117F0075746B /* MainPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +123,7 @@
 		AB782327289AED620075746B /* HungerHeroes */ = {
 			isa = PBXGroup;
 			children = (
+				AB782358289AFBD60075746B /* Models */,
 				AB782328289AED620075746B /* AppDelegate.swift */,
 				AB78232A289AED620075746B /* SceneDelegate.swift */,
 				AB78232C289AED620075746B /* ViewController.swift */,
@@ -125,6 +150,19 @@
 				AB78234B289AED640075746B /* HungerHeroesUITestsLaunchTests.swift */,
 			);
 			path = HungerHeroesUITests;
+			sourceTree = "<group>";
+		};
+		AB782358289AFBD60075746B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AB782359289AFBEB0075746B /* Hero.swift */,
+				AB782370289B012C0075746B /* Player.swift */,
+				AB782362289AFE7E0075746B /* ZoneMap.swift */,
+				AB782366289B00210075746B /* Artifact.swift */,
+				AB782374289B0D0B0075746B /* MapNode.swift */,
+				AB782378289B117F0075746B /* MainPlayer.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +296,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB782363289AFE7E0075746B /* ZoneMap.swift in Sources */,
+				AB782379289B117F0075746B /* MainPlayer.swift in Sources */,
+				AB782367289B00210075746B /* Artifact.swift in Sources */,
 				AB78232D289AED620075746B /* ViewController.swift in Sources */,
 				AB782329289AED620075746B /* AppDelegate.swift in Sources */,
+				AB782375289B0D0B0075746B /* MapNode.swift in Sources */,
+				AB782371289B012C0075746B /* Player.swift in Sources */,
 				AB78232B289AED620075746B /* SceneDelegate.swift in Sources */,
+				AB78235A289AFBEB0075746B /* Hero.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +312,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB782376289B0D0B0075746B /* MapNode.swift in Sources */,
 				AB782340289AED640075746B /* HungerHeroesTests.swift in Sources */,
+				AB782368289B00210075746B /* Artifact.swift in Sources */,
+				AB78237A289B117F0075746B /* MainPlayer.swift in Sources */,
+				AB782364289AFE7E0075746B /* ZoneMap.swift in Sources */,
+				AB782372289B012C0075746B /* Player.swift in Sources */,
+				AB78235B289AFC050075746B /* Hero.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +327,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB78234A289AED640075746B /* HungerHeroesUITests.swift in Sources */,
+				AB782369289B00210075746B /* Artifact.swift in Sources */,
 				AB78234C289AED640075746B /* HungerHeroesUITestsLaunchTests.swift in Sources */,
+				AB78235C289AFC090075746B /* Hero.swift in Sources */,
+				AB782373289B012C0075746B /* Player.swift in Sources */,
+				AB78237B289B117F0075746B /* MainPlayer.swift in Sources */,
+				AB782365289AFE7E0075746B /* ZoneMap.swift in Sources */,
+				AB782377289B0D0B0075746B /* MapNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
