@@ -12,10 +12,12 @@ class Hero: MapNode {
 
     let player: Player
     let health: Int
+    let ammo: Int
     
-    internal init(player: Player, health: Int) {
+    internal init(player: Player, health: Int, ammo: Int) {
         self.player = player
         self.health = health
+        self.ammo = ammo
         super.init(location: .zero)
     }
 }
