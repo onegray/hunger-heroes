@@ -1,4 +1,5 @@
-/HungerHeroes.xcodeproj/project.xcworkspace/
-/HungerHeroes.xcodeproj/xcuserdata/
+project.xcworkspace/
+xcuserdata/
+xcshareddata/
+/.idea/
 .DS_Store
-
