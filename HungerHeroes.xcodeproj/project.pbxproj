@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB71BB3128A7FAF100FD24C1 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB71BB3028A7FAF100FD24C1 /* HTTPClient.swift */; };
-		AB71BB3228A7FAF100FD24C1 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB71BB3028A7FAF100FD24C1 /* HTTPClient.swift */; };
-		AB71BB3428A7FB1800FD24C1 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB71BB3328A7FB1800FD24C1 /* HTTPRequest.swift */; };
-		AB71BB3528A7FB1800FD24C1 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB71BB3328A7FB1800FD24C1 /* HTTPRequest.swift */; };
-		AB71BB3728A7FB2300FD24C1 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB71BB3628A7FB2300FD24C1 /* HTTPResponse.swift */; };
-		AB71BB3828A7FB2300FD24C1 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB71BB3628A7FB2300FD24C1 /* HTTPResponse.swift */; };
+		AB71BB3128A7FAF100FD24C1 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB71BB3028A7FAF100FD24C1 /* HttpClient.swift */; };
+		AB71BB3228A7FAF100FD24C1 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB71BB3028A7FAF100FD24C1 /* HttpClient.swift */; };
+		AB71BB3428A7FB1800FD24C1 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB71BB3328A7FB1800FD24C1 /* HttpRequest.swift */; };
+		AB71BB3528A7FB1800FD24C1 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB71BB3328A7FB1800FD24C1 /* HttpRequest.swift */; };
+		AB71BB3728A7FB2300FD24C1 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB71BB3628A7FB2300FD24C1 /* HttpResponse.swift */; };
+		AB71BB3828A7FB2300FD24C1 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB71BB3628A7FB2300FD24C1 /* HttpResponse.swift */; };
 		AB782329289AED620075746B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782328289AED620075746B /* AppDelegate.swift */; };
 		AB78232B289AED620075746B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB78232A289AED620075746B /* SceneDelegate.swift */; };
 		AB78232D289AED620075746B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB78232C289AED620075746B /* ViewController.swift */; };
@@ -69,9 +69,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AB71BB3028A7FAF100FD24C1 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
-		AB71BB3328A7FB1800FD24C1 /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
-		AB71BB3628A7FB2300FD24C1 /* HTTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponse.swift; sourceTree = "<group>"; };
+		AB71BB3028A7FAF100FD24C1 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		AB71BB3328A7FB1800FD24C1 /* HttpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		AB71BB3628A7FB2300FD24C1 /* HttpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		AB782325289AED620075746B /* HungerHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HungerHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB782328289AED620075746B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB78232A289AED620075746B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,19 +134,19 @@
 		AB71BB2E28A7F87300FD24C1 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				AB71BB2F28A7F88300FD24C1 /* HTTPClient */,
+				AB71BB2F28A7F88300FD24C1 /* Http */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
 		};
-		AB71BB2F28A7F88300FD24C1 /* HTTPClient */ = {
+		AB71BB2F28A7F88300FD24C1 /* Http */ = {
 			isa = PBXGroup;
 			children = (
-				AB71BB3028A7FAF100FD24C1 /* HTTPClient.swift */,
-				AB71BB3328A7FB1800FD24C1 /* HTTPRequest.swift */,
-				AB71BB3628A7FB2300FD24C1 /* HTTPResponse.swift */,
+				AB71BB3028A7FAF100FD24C1 /* HttpClient.swift */,
+				AB71BB3328A7FB1800FD24C1 /* HttpRequest.swift */,
+				AB71BB3628A7FB2300FD24C1 /* HttpResponse.swift */,
 			);
-			path = HTTPClient;
+			path = Http;
 			sourceTree = "<group>";
 		};
 		AB78231C289AED620075746B = {
@@ -377,13 +377,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB782363289AFE7E0075746B /* ZoneMap.swift in Sources */,
-				AB71BB3428A7FB1800FD24C1 /* HTTPRequest.swift in Sources */,
+				AB71BB3428A7FB1800FD24C1 /* HttpRequest.swift in Sources */,
 				AB782379289B117F0075746B /* MainPlayer.swift in Sources */,
 				AB782367289B00210075746B /* Artifact.swift in Sources */,
 				AB78232D289AED620075746B /* ViewController.swift in Sources */,
 				AB782329289AED620075746B /* AppDelegate.swift in Sources */,
-				AB71BB3728A7FB2300FD24C1 /* HTTPResponse.swift in Sources */,
-				AB71BB3128A7FAF100FD24C1 /* HTTPClient.swift in Sources */,
+				AB71BB3728A7FB2300FD24C1 /* HttpResponse.swift in Sources */,
+				AB71BB3128A7FAF100FD24C1 /* HttpClient.swift in Sources */,
 				AB78237F289DA6330075746B /* PlayerProfileView.swift in Sources */,
 				AB782375289B0D0B0075746B /* MapNode.swift in Sources */,
 				AB782371289B012C0075746B /* Player.swift in Sources */,
@@ -404,11 +404,11 @@
 				AB78237A289B117F0075746B /* MainPlayer.swift in Sources */,
 				AB782364289AFE7E0075746B /* ZoneMap.swift in Sources */,
 				AB782372289B012C0075746B /* Player.swift in Sources */,
-				AB71BB3828A7FB2300FD24C1 /* HTTPResponse.swift in Sources */,
-				AB71BB3528A7FB1800FD24C1 /* HTTPRequest.swift in Sources */,
+				AB71BB3828A7FB2300FD24C1 /* HttpResponse.swift in Sources */,
+				AB71BB3528A7FB1800FD24C1 /* HttpRequest.swift in Sources */,
 				ABCCCC7128AA94A40005B768 /* HTTPRequestTests.swift in Sources */,
 				AB78235B289AFC050075746B /* Hero.swift in Sources */,
-				AB71BB3228A7FAF100FD24C1 /* HTTPClient.swift in Sources */,
+				AB71BB3228A7FAF100FD24C1 /* HttpClient.swift in Sources */,
 				B1489866490FF36DE85A5557 /* Collection+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

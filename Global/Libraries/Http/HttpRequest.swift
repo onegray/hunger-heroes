@@ -1,5 +1,5 @@
 //
-//  HTTPRequest.swift
+//  HttpRequest.swift
 //  HungerHeroes
 //
 //  Created by onegray on 15.08.22.
@@ -7,23 +7,32 @@
 
 import Foundation
 
-class HTTPRequest {
+class HttpRequest {
 
-    var path: String
-    var method: HTTPMethod
+    let responseType: HttpResponse.Type
+    let path: String
+    let method: HttpMethod
+    let handler: (HttpResponse) -> Void
+
     var headers: [String: String]?
     var params: [String: String]?
     var paramsEncoding: ParamsEncoding?
 
-    init(path: String, method: HTTPMethod) {
+    init(path: String, method: HttpMethod,
+         handler: @escaping (HttpResponse) -> Void,
+         responseType: HttpResponse.Type)
+    {
         self.path = path
         self.method = method
+        self.handler = handler
+        self.responseType = responseType
     }
 }
 
-extension HTTPRequest {
+extension HttpRequest {
 
-    enum HTTPMethod: String {
+    enum HttpMethod: String {
+        case head = "HEAD"
         case get = "GET"
         case post = "POST"
         case put = "PUT"
@@ -35,14 +44,14 @@ extension HTTPRequest {
         case jsonEncoding
     }
 
-    enum HTTPRequestError: Error {
+    enum FormationError: Error {
         case malformedUrl
         case malformedParams
         case encodingError
     }
 }
 
-extension HTTPRequest {
+extension HttpRequest {
 
     func createUrlRequest(baseUrl: URL, defaultHeaders: [String:String]?,
                           defaultParamsEncoding: ParamsEncoding?) throws -> URLRequest {
@@ -55,16 +64,16 @@ extension HTTPRequest {
 
     func prepareUrl(baseUrl: URL) throws -> URL {
         guard let url = URL(string: self.path, relativeTo: baseUrl) else {
-            throw HTTPRequestError.malformedUrl
+            throw FormationError.malformedUrl
         }
 
-        if self.method != .post && self.method != .put && self.params?.isNotEmpty == true {
+        if let params = self.params, !params.isEmpty, self.method != .post, self.method != .put {
             guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
-                throw HTTPRequestError.malformedUrl
+                throw FormationError.malformedUrl
             }
             components.queryItems = self.prepareQueryItems()
             guard let urlWithParams = components.url(relativeTo: baseUrl) else {
-                throw HTTPRequestError.malformedParams
+                throw FormationError.malformedParams
             }
             return urlWithParams
         } else {
@@ -97,10 +106,10 @@ extension HTTPRequest {
             var components = URLComponents()
             components.queryItems = queryItems
             guard let queryString = components.query else {
-                throw HTTPRequestError.malformedParams
+                throw FormationError.malformedParams
             }
             guard let data = queryString.data(using: .utf8) else {
-                throw HTTPRequestError.encodingError
+                throw FormationError.encodingError
             }
             return data
         }
