@@ -47,8 +47,12 @@
 		AB782388289DB6710075746B /* PlayerProfileRes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB782386289DB6710075746B /* PlayerProfileRes.xcassets */; };
 		AB782389289DB6710075746B /* PlayerProfileRes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB782386289DB6710075746B /* PlayerProfileRes.xcassets */; };
 		ABCCCC7128AA94A40005B768 /* HTTPRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */; };
+		B14895919470A9A8384A7941 /* GetPlayerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489F94C5C930E6DA9AA29F /* GetPlayerProfile.swift */; };
 		B14895FD6C02768819612609 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */; };
+		B148966E588D5B994AE3BC1A /* GetPlayerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489F94C5C930E6DA9AA29F /* GetPlayerProfile.swift */; };
+		B14896A71BAA98EBC12D9721 /* RemoteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489C81D18AB1343C0D6ED8 /* RemoteClient.swift */; };
 		B1489866490FF36DE85A5557 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */; };
+		B1489B7B46885BA804BF928B /* RemoteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489C81D18AB1343C0D6ED8 /* RemoteClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +99,8 @@
 		AB782386289DB6710075746B /* PlayerProfileRes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PlayerProfileRes.xcassets; sourceTree = "<group>"; };
 		ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestTests.swift; sourceTree = "<group>"; };
 		B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
+		B1489C81D18AB1343C0D6ED8 /* RemoteClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteClient.swift; sourceTree = "<group>"; };
+		B1489F94C5C930E6DA9AA29F /* GetPlayerProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPlayerProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +188,7 @@
 				AB782331289AED630075746B /* Assets.xcassets */,
 				AB782333289AED630075746B /* LaunchScreen.storyboard */,
 				AB782336289AED630075746B /* Info.plist */,
+				B1489D0EF17380D1EB8916AC /* Remote */,
 			);
 			path = HungerHeroes;
 			sourceTree = "<group>";
@@ -234,12 +241,29 @@
 			path = PlayerProfile;
 			sourceTree = "<group>";
 		};
+		B1489144D9F39BB90C298C22 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B1489C81D18AB1343C0D6ED8 /* RemoteClient.swift */,
+				B1489F94C5C930E6DA9AA29F /* GetPlayerProfile.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		B1489AAF66B4680F0EF4425B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B1489D0EF17380D1EB8916AC /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				B1489144D9F39BB90C298C22 /* API */,
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,6 +414,8 @@
 				AB78232B289AED620075746B /* SceneDelegate.swift in Sources */,
 				AB78235A289AFBEB0075746B /* Hero.swift in Sources */,
 				B14895FD6C02768819612609 /* Collection+Extensions.swift in Sources */,
+				B1489B7B46885BA804BF928B /* RemoteClient.swift in Sources */,
+				B14895919470A9A8384A7941 /* GetPlayerProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +436,8 @@
 				AB78235B289AFC050075746B /* Hero.swift in Sources */,
 				AB71BB3228A7FAF100FD24C1 /* HttpClient.swift in Sources */,
 				B1489866490FF36DE85A5557 /* Collection+Extensions.swift in Sources */,
+				B14896A71BAA98EBC12D9721 /* RemoteClient.swift in Sources */,
+				B148966E588D5B994AE3BC1A /* GetPlayerProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,11 +26,16 @@ extension Player {
         case snipper
         case runner
     }
-    
+
     struct Stats {
+        let efficiency: Int
+        let score: Int
+        let hitRate: Int
+        let kdRate: Int
         let frags: Int
-        let kdrate: Int
-        let accuracy: Int
-        let points: Int
+        let gameTime: Int
+        let winRate: Int
+        let looseRate: Int
     }
 }
+

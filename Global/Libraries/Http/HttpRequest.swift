@@ -18,14 +18,15 @@ class HttpRequest {
     var params: [String: String]?
     var paramsEncoding: ParamsEncoding?
 
-    init(path: String, method: HttpMethod,
-         handler: @escaping (HttpResponse) -> Void,
-         responseType: HttpResponse.Type)
+    init<Response: HttpResponse>(path: String, method: HttpMethod,
+                                 handler: @escaping (Response) -> Void)
     {
         self.path = path
         self.method = method
-        self.handler = handler
-        self.responseType = responseType
+        self.responseType = Response.self
+        self.handler = { response in
+            handler(response as! Response)
+        }
     }
 }
 
