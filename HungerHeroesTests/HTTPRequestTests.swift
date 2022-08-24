@@ -10,14 +10,15 @@ import XCTest
 
 class HTTPRequestTests: XCTestCase {
 
-    var request: HttpRequest<HttpResponse>!
+    var request: HttpRequest!
     let hostString = "www.example.com"
     let endpointPath = "/path/to/endpoint"
     let defaultHeaders = ["Content-Type" : "Text/plain"]
     let defaultParams = ["q" : "value"]
 
-    override func setUpWithError() throws {
-        request = HttpRequest<HttpResponse>(path: self.endpointPath, method: .get)
+    override func setUp() {
+        super.setUp()
+        request = HttpRequest(path: self.endpointPath, method: .get) { (response: HttpResponse) in }
         request.headers = self.defaultHeaders
         request.params = self.defaultParams
     }
