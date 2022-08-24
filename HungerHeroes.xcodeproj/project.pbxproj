@@ -64,6 +64,8 @@
 		ABBFE8FC28BD0D6D005C1874 /* PersistentValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE8F628BD0D6D005C1874 /* PersistentValue.swift */; };
 		ABBFE8FF28BD0D6D005C1874 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE8FE28BD0D6D005C1874 /* Storage.swift */; };
 		ABBFE90028BD0D6D005C1874 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE8FE28BD0D6D005C1874 /* Storage.swift */; };
+		ABBFE90228BD0D6D005C1874 /* TapeArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE90128BD0D6D005C1874 /* TapeArchive.swift */; };
+		ABBFE90328BD0D6D005C1874 /* TapeArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE90128BD0D6D005C1874 /* TapeArchive.swift */; };
 		ABCCCC7128AA94A40005B768 /* HTTPRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */; };
 		B14895919470A9A8384A7941 /* GetPlayerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489F94C5C930E6DA9AA29F /* GetPlayerProfile.swift */; };
 		B14895FD6C02768819612609 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */; };
@@ -124,6 +126,7 @@
 		ABBFE8F528BD0D6D005C1874 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		ABBFE8F628BD0D6D005C1874 /* PersistentValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentValue.swift; sourceTree = "<group>"; };
 		ABBFE8FE28BD0D6D005C1874 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		ABBFE90128BD0D6D005C1874 /* TapeArchive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapeArchive.swift; sourceTree = "<group>"; };
 		ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestTests.swift; sourceTree = "<group>"; };
 		B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		B1489C81D18AB1343C0D6ED8 /* RemoteClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteClient.swift; sourceTree = "<group>"; };
@@ -168,6 +171,7 @@
 		AB71BB2E28A7F87300FD24C1 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				ABBFE90128BD0D6D005C1874 /* TapeArchive.swift */,
 				ABBFE8F328BD0D6D005C1874 /* Persistence */,
 				AB71BB2F28A7F88300FD24C1 /* Http */,
 			);
@@ -482,6 +486,7 @@
 				AB782329289AED620075746B /* AppDelegate.swift in Sources */,
 				ABBFE8F928BD0D6D005C1874 /* Keychain.swift in Sources */,
 				AB71BB3728A7FB2300FD24C1 /* HttpResponse.swift in Sources */,
+				ABBFE90228BD0D6D005C1874 /* TapeArchive.swift in Sources */,
 				AB71BB3128A7FAF100FD24C1 /* HttpClient.swift in Sources */,
 				ABBFE8FB28BD0D6D005C1874 /* PersistentValue.swift in Sources */,
 				AB78237F289DA6330075746B /* PlayerProfileView.swift in Sources */,
@@ -521,6 +526,7 @@
 				ABCCCC7128AA94A40005B768 /* HTTPRequestTests.swift in Sources */,
 				AB78235B289AFC050075746B /* Hero.swift in Sources */,
 				AB71BB3228A7FAF100FD24C1 /* HttpClient.swift in Sources */,
+				ABBFE90328BD0D6D005C1874 /* TapeArchive.swift in Sources */,
 				B1489866490FF36DE85A5557 /* Collection+Extensions.swift in Sources */,
 				B14896A71BAA98EBC12D9721 /* RemoteClient.swift in Sources */,
 				B148966E588D5B994AE3BC1A /* GetPlayerProfile.swift in Sources */,
