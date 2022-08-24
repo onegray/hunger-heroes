@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol HttpClientProtocol {
+    func perform(_ request: HttpRequest)
+}
+
 protocol HttpClientDelegate: AnyObject {
     func shouldStartRequest(_ request: HttpRequest) -> Bool
     func shouldCompleteRequest(_ request: HttpRequest) -> Bool
@@ -30,7 +34,7 @@ class HttpClient {
     }
 }
 
-extension HttpClient {
+extension HttpClient: HttpClientProtocol {
 
     func perform(_ request: HttpRequest) {
 

@@ -66,6 +66,8 @@
 		ABBFE90028BD0D6D005C1874 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE8FE28BD0D6D005C1874 /* Storage.swift */; };
 		ABBFE90228BD0D6D005C1874 /* TapeArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE90128BD0D6D005C1874 /* TapeArchive.swift */; };
 		ABBFE90328BD0D6D005C1874 /* TapeArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE90128BD0D6D005C1874 /* TapeArchive.swift */; };
+		ABBFE90528BD0D6D005C1874 /* GetGamePack.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE90428BD0D6D005C1874 /* GetGamePack.swift */; };
+		ABBFE90628BD0D6D005C1874 /* GetGamePack.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE90428BD0D6D005C1874 /* GetGamePack.swift */; };
 		ABCCCC7128AA94A40005B768 /* HTTPRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */; };
 		B14895919470A9A8384A7941 /* GetPlayerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489F94C5C930E6DA9AA29F /* GetPlayerProfile.swift */; };
 		B14895FD6C02768819612609 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */; };
@@ -127,6 +129,7 @@
 		ABBFE8F628BD0D6D005C1874 /* PersistentValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentValue.swift; sourceTree = "<group>"; };
 		ABBFE8FE28BD0D6D005C1874 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		ABBFE90128BD0D6D005C1874 /* TapeArchive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapeArchive.swift; sourceTree = "<group>"; };
+		ABBFE90428BD0D6D005C1874 /* GetGamePack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetGamePack.swift; sourceTree = "<group>"; };
 		ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestTests.swift; sourceTree = "<group>"; };
 		B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		B1489C81D18AB1343C0D6ED8 /* RemoteClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteClient.swift; sourceTree = "<group>"; };
@@ -318,6 +321,7 @@
 			children = (
 				B1489C81D18AB1343C0D6ED8 /* RemoteClient.swift */,
 				B1489F94C5C930E6DA9AA29F /* GetPlayerProfile.swift */,
+				ABBFE90428BD0D6D005C1874 /* GetGamePack.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -485,6 +489,7 @@
 				AB78232D289AED620075746B /* ViewController.swift in Sources */,
 				AB782329289AED620075746B /* AppDelegate.swift in Sources */,
 				ABBFE8F928BD0D6D005C1874 /* Keychain.swift in Sources */,
+				ABBFE90528BD0D6D005C1874 /* GetGamePack.swift in Sources */,
 				AB71BB3728A7FB2300FD24C1 /* HttpResponse.swift in Sources */,
 				ABBFE90228BD0D6D005C1874 /* TapeArchive.swift in Sources */,
 				AB71BB3128A7FAF100FD24C1 /* HttpClient.swift in Sources */,
@@ -508,6 +513,7 @@
 				AB782376289B0D0B0075746B /* MapNode.swift in Sources */,
 				AB782340289AED640075746B /* HungerHeroesTests.swift in Sources */,
 				AB782368289B00210075746B /* Artifact.swift in Sources */,
+				ABBFE90628BD0D6D005C1874 /* GetGamePack.swift in Sources */,
 				AB782380289DA6330075746B /* PlayerProfileView.swift in Sources */,
 				ABBFE8F228BD0D6D005C1874 /* MapDef.swift in Sources */,
 				ABBFE90028BD0D6D005C1874 /* Storage.swift in Sources */,

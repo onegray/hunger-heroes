@@ -28,31 +28,6 @@ class HttpRequest {
             handler(response as! Response)
         }
     }
-}
-
-extension HttpRequest {
-
-    enum HttpMethod: String {
-        case head = "HEAD"
-        case get = "GET"
-        case post = "POST"
-        case put = "PUT"
-        case delete = "DELETE"
-    }
-
-    enum ParamsEncoding {
-        case urlEncoding
-        case jsonEncoding
-    }
-
-    enum FormationError: Error {
-        case malformedUrl
-        case malformedParams
-        case encodingError
-    }
-}
-
-extension HttpRequest {
 
     func createUrlRequest(baseUrl: URL, defaultHeaders: [String:String]?,
                           defaultParamsEncoding: ParamsEncoding?) throws -> URLRequest {
@@ -126,5 +101,27 @@ extension HttpRequest {
 
     func prepareQueryItems() -> [URLQueryItem]? {
         self.params?.map { URLQueryItem(name: $0, value: $1) }
+    }
+}
+
+extension HttpRequest {
+
+    enum HttpMethod: String {
+        case head = "HEAD"
+        case get = "GET"
+        case post = "POST"
+        case put = "PUT"
+        case delete = "DELETE"
+    }
+
+    enum ParamsEncoding {
+        case urlEncoding
+        case jsonEncoding
+    }
+
+    enum FormationError: Error {
+        case malformedUrl
+        case malformedParams
+        case encodingError
     }
 }
