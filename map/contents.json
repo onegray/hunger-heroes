@@ -1,0 +1,15 @@
+{
+    "id":12,
+    "name":"Free For All",
+    "file": "map3x2s.heif"
+    "size":
+    {
+        "width":3000,
+        "height":2000
+    },
+    "location":
+    {
+        "lat":52.489471,
+        "lon":0.889575
+    }
+}
