@@ -70,6 +70,16 @@
 		ABBFE91028BD1976005C1874 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE90C28BD1975005C1874 /* MapModel.swift */; };
 		ABBFE91228BD1976005C1874 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE91128BD1976005C1874 /* Application.swift */; };
 		ABBFE91328BD1976005C1874 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE91128BD1976005C1874 /* Application.swift */; };
+		ABBFE91828BD1976005C1874 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE91528BD1976005C1874 /* HomePresenter.swift */; };
+		ABBFE91928BD1976005C1874 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE91528BD1976005C1874 /* HomePresenter.swift */; };
+		ABBFE91A28BD1976005C1874 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE91728BD1976005C1874 /* MapPresenter.swift */; };
+		ABBFE91B28BD1976005C1874 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE91728BD1976005C1874 /* MapPresenter.swift */; };
+		ABBFE91D28BD1976005C1874 /* PresentationEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE91C28BD1976005C1874 /* PresentationEnvironment.swift */; };
+		ABBFE91E28BD1976005C1874 /* PresentationEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE91C28BD1976005C1874 /* PresentationEnvironment.swift */; };
+		ABBFE92028BD1976005C1874 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE91F28BD1976005C1874 /* HomeViewModel.swift */; };
+		ABBFE92128BD1976005C1874 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE91F28BD1976005C1874 /* HomeViewModel.swift */; };
+		ABBFE92328BD1976005C1874 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE92228BD1976005C1874 /* MapViewModel.swift */; };
+		ABBFE92428BD1976005C1874 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE92228BD1976005C1874 /* MapViewModel.swift */; };
 		ABCCCC7128AA94A40005B768 /* HTTPRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */; };
 		B14895919470A9A8384A7941 /* GetPlayerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489F94C5C930E6DA9AA29F /* GetPlayerProfile.swift */; };
 		B14895FD6C02768819612609 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */; };
@@ -136,6 +146,11 @@
 		ABBFE90B28BD1975005C1874 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		ABBFE90C28BD1975005C1874 /* MapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		ABBFE91128BD1976005C1874 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		ABBFE91528BD1976005C1874 /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		ABBFE91728BD1976005C1874 /* MapPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		ABBFE91C28BD1976005C1874 /* PresentationEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationEnvironment.swift; sourceTree = "<group>"; };
+		ABBFE91F28BD1976005C1874 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		ABBFE92228BD1976005C1874 /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestTests.swift; sourceTree = "<group>"; };
 		B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		B1489C81D18AB1343C0D6ED8 /* RemoteClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteClient.swift; sourceTree = "<group>"; };
@@ -231,6 +246,7 @@
 				AB78232A289AED620075746B /* SceneDelegate.swift */,
 				AB78232C289AED620075746B /* ViewController.swift */,
 				ABBFE91128BD1976005C1874 /* Application.swift */,
+				ABBFE91C28BD1976005C1874 /* PresentationEnvironment.swift */,
 				AB78232E289AED620075746B /* Main.storyboard */,
 				AB782331289AED630075746B /* Assets.xcassets */,
 				AB782333289AED630075746B /* LaunchScreen.storyboard */,
@@ -275,6 +291,8 @@
 		AB78237C289DA57B0075746B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				ABBFE91428BD1976005C1874 /* Home */,
+				ABBFE91628BD1976005C1874 /* Map */,
 				AB78237D289DA5C70075746B /* PlayerProfile */,
 			);
 			path = UI;
@@ -332,6 +350,24 @@
 				ABBFE90828BD1905005C1874 /* GameService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		ABBFE91428BD1976005C1874 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				ABBFE91528BD1976005C1874 /* HomePresenter.swift */,
+				ABBFE91F28BD1976005C1874 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		ABBFE91628BD1976005C1874 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				ABBFE91728BD1976005C1874 /* MapPresenter.swift */,
+				ABBFE92228BD1976005C1874 /* MapViewModel.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		B1489144D9F39BB90C298C22 /* API */ = {
@@ -508,12 +544,16 @@
 				AB782329289AED620075746B /* AppDelegate.swift in Sources */,
 				ABBFE8F928BD0D6D005C1874 /* Keychain.swift in Sources */,
 				ABBFE90528BD0D6D005C1874 /* GetGamePack.swift in Sources */,
+				ABBFE91A28BD1976005C1874 /* MapPresenter.swift in Sources */,
 				AB71BB3728A7FB2300FD24C1 /* HttpResponse.swift in Sources */,
+				ABBFE91828BD1976005C1874 /* HomePresenter.swift in Sources */,
 				ABBFE90928BD1905005C1874 /* GameService.swift in Sources */,
 				ABBFE90F28BD1976005C1874 /* MapModel.swift in Sources */,
 				ABBFE91228BD1976005C1874 /* Application.swift in Sources */,
 				ABBFE90D28BD1976005C1874 /* GameModel.swift in Sources */,
+				ABBFE91D28BD1976005C1874 /* PresentationEnvironment.swift in Sources */,
 				ABBFE90228BD0D6D005C1874 /* TapeArchive.swift in Sources */,
+				ABBFE92028BD1976005C1874 /* HomeViewModel.swift in Sources */,
 				AB71BB3128A7FAF100FD24C1 /* HttpClient.swift in Sources */,
 				ABBFE8FB28BD0D6D005C1874 /* PersistentValue.swift in Sources */,
 				AB78237F289DA6330075746B /* PlayerProfileView.swift in Sources */,
@@ -525,6 +565,7 @@
 				B14895FD6C02768819612609 /* Collection+Extensions.swift in Sources */,
 				B1489B7B46885BA804BF928B /* RemoteClient.swift in Sources */,
 				B14895919470A9A8384A7941 /* GetPlayerProfile.swift in Sources */,
+				ABBFE92328BD1976005C1874 /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,17 +576,22 @@
 				ABBFE91328BD1976005C1874 /* Application.swift in Sources */,
 				AB782376289B0D0B0075746B /* MapNode.swift in Sources */,
 				AB782340289AED640075746B /* HungerHeroesTests.swift in Sources */,
+				ABBFE91B28BD1976005C1874 /* MapPresenter.swift in Sources */,
+				ABBFE91928BD1976005C1874 /* HomePresenter.swift in Sources */,
 				AB782368289B00210075746B /* Artifact.swift in Sources */,
 				ABBFE90628BD0D6D005C1874 /* GetGamePack.swift in Sources */,
 				AB782380289DA6330075746B /* PlayerProfileView.swift in Sources */,
 				ABBFE8F228BD0D6D005C1874 /* MapDef.swift in Sources */,
 				ABBFE90028BD0D6D005C1874 /* Storage.swift in Sources */,
 				ABBFE8FA28BD0D6D005C1874 /* Keychain.swift in Sources */,
+				ABBFE92428BD1976005C1874 /* MapViewModel.swift in Sources */,
 				ABBFE8F828BD0D6D005C1874 /* PersistentDictionary.swift in Sources */,
 				ABBFE8EB28BD0D6D005C1874 /* ImageSource.swift in Sources */,
+				ABBFE91E28BD1976005C1874 /* PresentationEnvironment.swift in Sources */,
 				AB78237A289B117F0075746B /* MainPlayer.swift in Sources */,
 				ABBFE8E928BD0D6D005C1874 /* Location.swift in Sources */,
 				ABBFE90A28BD1915005C1874 /* GameService.swift in Sources */,
+				ABBFE92128BD1976005C1874 /* HomeViewModel.swift in Sources */,
 				ABBFE8E728BD0D6D005C1874 /* Geometry.swift in Sources */,
 				ABBFE91028BD1976005C1874 /* MapModel.swift in Sources */,
 				AB782364289AFE7E0075746B /* ZoneMap.swift in Sources */,
