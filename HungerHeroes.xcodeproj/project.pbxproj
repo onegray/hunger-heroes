@@ -15,7 +15,6 @@
 		AB71BB3828A7FB2300FD24C1 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB71BB3628A7FB2300FD24C1 /* HttpResponse.swift */; };
 		AB782329289AED620075746B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782328289AED620075746B /* AppDelegate.swift */; };
 		AB78232B289AED620075746B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB78232A289AED620075746B /* SceneDelegate.swift */; };
-		AB78232D289AED620075746B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB78232C289AED620075746B /* ViewController.swift */; };
 		AB782332289AED630075746B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB782331289AED630075746B /* Assets.xcassets */; };
 		AB782335289AED630075746B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB782333289AED630075746B /* LaunchScreen.storyboard */; };
 		AB782340289AED640075746B /* HungerHeroesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB78233F289AED640075746B /* HungerHeroesTests.swift */; };
@@ -34,10 +33,8 @@
 		AB782379289B117F0075746B /* MainPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782378289B117F0075746B /* MainPlayer.swift */; };
 		AB78237A289B117F0075746B /* MainPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782378289B117F0075746B /* MainPlayer.swift */; };
 		AB78237F289DA6330075746B /* PlayerProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB78237E289DA6330075746B /* PlayerProfileView.swift */; };
-		AB782380289DA6330075746B /* PlayerProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB78237E289DA6330075746B /* PlayerProfileView.swift */; };
 		AB782381289DA6330075746B /* PlayerProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB78237E289DA6330075746B /* PlayerProfileView.swift */; };
 		AB782387289DB6710075746B /* PlayerProfileRes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB782386289DB6710075746B /* PlayerProfileRes.xcassets */; };
-		AB782388289DB6710075746B /* PlayerProfileRes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB782386289DB6710075746B /* PlayerProfileRes.xcassets */; };
 		AB782389289DB6710075746B /* PlayerProfileRes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB782386289DB6710075746B /* PlayerProfileRes.xcassets */; };
 		ABBFE8E628BD0D6D005C1874 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE8E328BD0D6D005C1874 /* Geometry.swift */; };
 		ABBFE8E728BD0D6D005C1874 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE8E328BD0D6D005C1874 /* Geometry.swift */; };
@@ -81,6 +78,10 @@
 		ABBFE92428BD1976005C1874 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE92228BD1976005C1874 /* MapViewModel.swift */; };
 		ABBFE92728BD1976005C1874 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE92528BD1976005C1874 /* HomeViewController.swift */; };
 		ABBFE92828BD1976005C1874 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE92628BD1976005C1874 /* HomeView.swift */; };
+		ABBFE92A28BD1976005C1874 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE92928BD1976005C1874 /* MapViewController.swift */; };
+		ABBFE92C28BD1976005C1874 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE92928BD1976005C1874 /* MapViewController.swift */; };
+		ABBFE92E28BD1976005C1874 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE92528BD1976005C1874 /* HomeViewController.swift */; };
+		ABBFE93028BD1976005C1874 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE92628BD1976005C1874 /* HomeView.swift */; };
 		ABCCCC7128AA94A40005B768 /* HTTPRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */; };
 		B14895919470A9A8384A7941 /* GetPlayerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489F94C5C930E6DA9AA29F /* GetPlayerProfile.swift */; };
 		B14895FD6C02768819612609 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */; };
@@ -114,7 +115,6 @@
 		AB782325289AED620075746B /* HungerHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HungerHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB782328289AED620075746B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB78232A289AED620075746B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AB78232C289AED620075746B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AB782331289AED630075746B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB782334289AED630075746B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB782336289AED630075746B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -153,6 +153,7 @@
 		ABBFE92228BD1976005C1874 /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		ABBFE92528BD1976005C1874 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ABBFE92628BD1976005C1874 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		ABBFE92928BD1976005C1874 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestTests.swift; sourceTree = "<group>"; };
 		B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		B1489C81D18AB1343C0D6ED8 /* RemoteClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteClient.swift; sourceTree = "<group>"; };
@@ -246,7 +247,6 @@
 				AB78237C289DA57B0075746B /* UI */,
 				AB782328289AED620075746B /* AppDelegate.swift */,
 				AB78232A289AED620075746B /* SceneDelegate.swift */,
-				AB78232C289AED620075746B /* ViewController.swift */,
 				ABBFE91128BD1976005C1874 /* Application.swift */,
 				ABBFE91C28BD1976005C1874 /* PresentationEnvironment.swift */,
 				AB782331289AED630075746B /* Assets.xcassets */,
@@ -369,6 +369,7 @@
 			children = (
 				ABBFE91728BD1976005C1874 /* MapPresenter.swift */,
 				ABBFE92228BD1976005C1874 /* MapViewModel.swift */,
+				ABBFE92928BD1976005C1874 /* MapViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -513,7 +514,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB782388289DB6710075746B /* PlayerProfileRes.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,11 +539,11 @@
 				ABBFE8EF28BD0D6D005C1874 /* ScenarioDef.swift in Sources */,
 				ABBFE8F728BD0D6D005C1874 /* PersistentDictionary.swift in Sources */,
 				ABBFE8EA28BD0D6D005C1874 /* ImageSource.swift in Sources */,
+				ABBFE92A28BD1976005C1874 /* MapViewController.swift in Sources */,
 				AB782379289B117F0075746B /* MainPlayer.swift in Sources */,
 				ABBFE8E828BD0D6D005C1874 /* Location.swift in Sources */,
 				AB782367289B00210075746B /* Artifact.swift in Sources */,
 				ABBFE8FF28BD0D6D005C1874 /* Storage.swift in Sources */,
-				AB78232D289AED620075746B /* ViewController.swift in Sources */,
 				AB782329289AED620075746B /* AppDelegate.swift in Sources */,
 				ABBFE8F928BD0D6D005C1874 /* Keychain.swift in Sources */,
 				ABBFE90528BD0D6D005C1874 /* GetGamePack.swift in Sources */,
@@ -584,7 +584,6 @@
 				ABBFE91928BD1976005C1874 /* HomePresenter.swift in Sources */,
 				AB782368289B00210075746B /* Artifact.swift in Sources */,
 				ABBFE90628BD0D6D005C1874 /* GetGamePack.swift in Sources */,
-				AB782380289DA6330075746B /* PlayerProfileView.swift in Sources */,
 				ABBFE8F228BD0D6D005C1874 /* MapDef.swift in Sources */,
 				ABBFE90028BD0D6D005C1874 /* Storage.swift in Sources */,
 				ABBFE8FA28BD0D6D005C1874 /* Keychain.swift in Sources */,
@@ -619,9 +618,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABBFE92E28BD1976005C1874 /* HomeViewController.swift in Sources */,
 				AB78234A289AED640075746B /* HungerHeroesUITests.swift in Sources */,
 				AB78234C289AED640075746B /* HungerHeroesUITestsLaunchTests.swift in Sources */,
+				ABBFE93028BD1976005C1874 /* HomeView.swift in Sources */,
 				AB782381289DA6330075746B /* PlayerProfileView.swift in Sources */,
+				ABBFE92C28BD1976005C1874 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
