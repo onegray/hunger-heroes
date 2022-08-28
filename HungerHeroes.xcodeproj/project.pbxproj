@@ -16,7 +16,6 @@
 		AB782329289AED620075746B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782328289AED620075746B /* AppDelegate.swift */; };
 		AB78232B289AED620075746B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB78232A289AED620075746B /* SceneDelegate.swift */; };
 		AB78232D289AED620075746B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB78232C289AED620075746B /* ViewController.swift */; };
-		AB782330289AED620075746B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB78232E289AED620075746B /* Main.storyboard */; };
 		AB782332289AED630075746B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB782331289AED630075746B /* Assets.xcassets */; };
 		AB782335289AED630075746B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB782333289AED630075746B /* LaunchScreen.storyboard */; };
 		AB782340289AED640075746B /* HungerHeroesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB78233F289AED640075746B /* HungerHeroesTests.swift */; };
@@ -80,6 +79,8 @@
 		ABBFE92128BD1976005C1874 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE91F28BD1976005C1874 /* HomeViewModel.swift */; };
 		ABBFE92328BD1976005C1874 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE92228BD1976005C1874 /* MapViewModel.swift */; };
 		ABBFE92428BD1976005C1874 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE92228BD1976005C1874 /* MapViewModel.swift */; };
+		ABBFE92728BD1976005C1874 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE92528BD1976005C1874 /* HomeViewController.swift */; };
+		ABBFE92828BD1976005C1874 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE92628BD1976005C1874 /* HomeView.swift */; };
 		ABCCCC7128AA94A40005B768 /* HTTPRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */; };
 		B14895919470A9A8384A7941 /* GetPlayerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489F94C5C930E6DA9AA29F /* GetPlayerProfile.swift */; };
 		B14895FD6C02768819612609 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */; };
@@ -114,7 +115,6 @@
 		AB782328289AED620075746B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB78232A289AED620075746B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AB78232C289AED620075746B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AB78232F289AED620075746B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB782331289AED630075746B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB782334289AED630075746B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB782336289AED630075746B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -151,6 +151,8 @@
 		ABBFE91C28BD1976005C1874 /* PresentationEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationEnvironment.swift; sourceTree = "<group>"; };
 		ABBFE91F28BD1976005C1874 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		ABBFE92228BD1976005C1874 /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		ABBFE92528BD1976005C1874 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ABBFE92628BD1976005C1874 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestTests.swift; sourceTree = "<group>"; };
 		B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		B1489C81D18AB1343C0D6ED8 /* RemoteClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteClient.swift; sourceTree = "<group>"; };
@@ -247,7 +249,6 @@
 				AB78232C289AED620075746B /* ViewController.swift */,
 				ABBFE91128BD1976005C1874 /* Application.swift */,
 				ABBFE91C28BD1976005C1874 /* PresentationEnvironment.swift */,
-				AB78232E289AED620075746B /* Main.storyboard */,
 				AB782331289AED630075746B /* Assets.xcassets */,
 				AB782333289AED630075746B /* LaunchScreen.storyboard */,
 				AB782336289AED630075746B /* Info.plist */,
@@ -357,6 +358,8 @@
 			children = (
 				ABBFE91528BD1976005C1874 /* HomePresenter.swift */,
 				ABBFE91F28BD1976005C1874 /* HomeViewModel.swift */,
+				ABBFE92628BD1976005C1874 /* HomeView.swift */,
+				ABBFE92528BD1976005C1874 /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -502,7 +505,6 @@
 			files = (
 				AB782335289AED630075746B /* LaunchScreen.storyboard in Resources */,
 				AB782332289AED630075746B /* Assets.xcassets in Resources */,
-				AB782330289AED620075746B /* Main.storyboard in Resources */,
 				AB782387289DB6710075746B /* PlayerProfileRes.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,6 +535,7 @@
 				ABBFE8E628BD0D6D005C1874 /* Geometry.swift in Sources */,
 				AB782363289AFE7E0075746B /* ZoneMap.swift in Sources */,
 				AB71BB3428A7FB1800FD24C1 /* HttpRequest.swift in Sources */,
+				ABBFE92728BD1976005C1874 /* HomeViewController.swift in Sources */,
 				ABBFE8EF28BD0D6D005C1874 /* ScenarioDef.swift in Sources */,
 				ABBFE8F728BD0D6D005C1874 /* PersistentDictionary.swift in Sources */,
 				ABBFE8EA28BD0D6D005C1874 /* ImageSource.swift in Sources */,
@@ -566,6 +569,7 @@
 				B1489B7B46885BA804BF928B /* RemoteClient.swift in Sources */,
 				B14895919470A9A8384A7941 /* GetPlayerProfile.swift in Sources */,
 				ABBFE92328BD1976005C1874 /* MapViewModel.swift in Sources */,
+				ABBFE92828BD1976005C1874 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,14 +641,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AB78232E289AED620075746B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AB78232F289AED620075746B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AB782333289AED630075746B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -781,7 +777,6 @@
 				INFOPLIST_FILE = HungerHeroes/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -809,7 +804,6 @@
 				INFOPLIST_FILE = HungerHeroes/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
