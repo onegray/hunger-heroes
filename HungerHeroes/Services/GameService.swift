@@ -35,7 +35,10 @@ class AppGameService: GameService {
 
     func loadRemoteGame(gameId: String) {
         let request = GetGamePackRequest(packName: gameId) { response in
-            print(response)
+            if case .success = response.status,
+                let gamePack = response.gamePack {
+                self.storage.games.save(gamePack, by: gameId)
+            }
         }
         self.httpClient.perform(request)
     }

@@ -8,13 +8,25 @@
 import Foundation
 
 protocol Storage {
-    var scenario: PersistentValue<ScenarioDef> { get }
-    var map: PersistentValue<MapDef> { get }
+
+    var games: PersistentDictionary<String, GamePackDef> { get }
+
+    func loadStorage(completion: (()->())? )
 }
 
 
 class FileStorage: Storage {
 
-    let scenario = PersistentValue<ScenarioDef>(filepath: "scenario.json")
-    let map = PersistentValue<MapDef>(filepath: "map.json")    
+    let games = PersistentDictionary<String, GamePackDef>(filepath: "games.json")
+
+    init() {
+#if DEBUG
+        let dir = games.persistentDictionary.fileURL.deletingLastPathComponent()
+        print("FileStorage initialised at:\n" + dir.description)
+#endif
+    }
+
+    func loadStorage(completion: (()->())? ) {
+        self.games.load(completion: completion)
+    }
 }
