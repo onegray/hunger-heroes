@@ -9,24 +9,26 @@ import Foundation
 
 protocol Storage {
 
-    var games: PersistentDictionary<String, GamePackDef> { get }
+    var games: StoreDictionary<String, GamePackStore> { get }
 
-    func loadStorage(completion: (()->())? )
+    func loadStorage(completion: (()->Void)? )
 }
 
 
 class FileStorage: Storage {
 
-    let games = PersistentDictionary<String, GamePackDef>(filepath: "games.json")
+    let games = StoreDictionary<String, GamePackStore>(rootPath: "games/")
 
     init() {
 #if DEBUG
-        let dir = games.persistentDictionary.fileURL.deletingLastPathComponent()
-        print("FileStorage initialised at:\n" + dir.description)
+        let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        print("FileStorage initialised at:\n" + docDir.description)
 #endif
     }
 
-    func loadStorage(completion: (()->())? ) {
-        self.games.load(completion: completion)
+    func loadStorage(completion: (()->Void)? ) {
+        self.games.loadDirectory { contents in
+            self.games.load(ids: contents, completion: completion)
+        }
     }
 }

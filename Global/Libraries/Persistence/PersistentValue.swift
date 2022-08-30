@@ -14,9 +14,9 @@ class PersistentValue<T: Codable> {
 
     let queue: DispatchQueue
 
-    init(filepath: String, dispatchQueue: DispatchQueue? = nil) {
+    init(path: String, dispatchQueue: DispatchQueue? = nil) {
         let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        fileURL = directory.appendingPathComponent(filepath)
+        fileURL = directory.appendingPathComponent(path, isDirectory: false)
         queue = dispatchQueue ?? DispatchQueue(label: "PersistentValue<\(T.self)>.queue")
     }
 
@@ -24,7 +24,7 @@ class PersistentValue<T: Codable> {
         return cachedValue
     }
 
-    func save(_ value: T?, completion: (()->())? = nil) {
+    func save(_ value: T?, completion: (()->Void)? = nil) {
         isLoaded = true
 
         if cachedValue == nil && value == nil {
@@ -75,7 +75,7 @@ class PersistentValue<T: Codable> {
         }
     }
 
-    func load(completion: (()->())? = nil) {
+    func load(completion: (()->Void)? = nil) {
         isLoaded = false
         queue.async {
             var value: T? = nil

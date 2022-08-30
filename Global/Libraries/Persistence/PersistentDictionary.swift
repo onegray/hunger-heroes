@@ -9,7 +9,7 @@ class PersistentDictionary<K: Codable & Hashable, T: Codable> {
     let persistentDictionary: PersistentValue<[K:T]>
 
     init(filepath: String, dispatchQueue: DispatchQueue? = nil) {
-        persistentDictionary = PersistentValue<[K:T]>(filepath: filepath, dispatchQueue: dispatchQueue)
+        persistentDictionary = PersistentValue<[K:T]>(path: filepath, dispatchQueue: dispatchQueue)
     }
 
     func get(by key: K) -> T? {
@@ -43,7 +43,7 @@ class PersistentDictionary<K: Codable & Hashable, T: Codable> {
         persistentDictionary.save(dictionary)
     }
 
-    func load(completion: (()->())? = nil) {
+    func load(completion: (()->Void)? = nil) {
         persistentDictionary.load(completion: completion)
     }
 }
