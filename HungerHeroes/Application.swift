@@ -10,6 +10,7 @@ import Foundation
 protocol Application {
 
     var gameService: GameService { get }
+    var appService: AppService { get }
 
 }
 
@@ -20,9 +21,10 @@ class ApplicationCore: Application {
     let httpClient = RemoteClient()
 
     let gameService: GameService
+    let appService: AppService
 
     init() {
+        self.appService = CoreAppService(storage: self.storage, httpClient: self.httpClient)
         self.gameService = AppGameService(storage: self.storage, httpClient: self.httpClient)
-        self.storage.loadStorage(completion: nil)
     }
 }

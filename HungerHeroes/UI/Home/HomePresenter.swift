@@ -17,14 +17,21 @@ protocol HomePresenterProtocol {
 class HomePresenter: HomePresenterProtocol {
     
     var viewModel: HomeViewModel
+    var appService: AppService
     var gameService: GameService
-    
-    init(viewModel: HomeViewModel, gameService: GameService) {
+
+    var disposeBag = Set<AnyCancellable>()
+
+    init(viewModel: HomeViewModel, appService: AppService, gameService: GameService) {
         self.viewModel = viewModel
+        self.appService = appService
         self.gameService = gameService
 
-        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-            self.gameService.loadGame(gameId: "hg_pack.tar")
-        }
+        self.appService.appState.compactMap({ $0 })
+                .sink { appState in
+                    let gameId = appState.activeGameId ?? "hg_pack.tar"
+                    self.gameService.loadGame(gameId: gameId)
+                }
+                .store(in: &self.disposeBag)
     }
 }

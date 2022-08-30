@@ -26,7 +26,7 @@ class AppUserEnvironment {
 extension AppUserEnvironment: PresentationEnvironment {
 
     func homePresenter() -> HomePresenterProtocol {
-        HomePresenter(viewModel: HomeViewModel(), gameService: app.gameService)
+        HomePresenter(viewModel: HomeViewModel(), appService: app.appService, gameService: app.gameService)
     }
     
     func mapPresenter() -> MapPresenterProtocol {
