@@ -9,7 +9,8 @@ import Foundation
 
 protocol Storage {
 
-    var games: StoreDictionary<String, GamePackStore> { get }
+    var appState: PersistentValue<AppStateDef> { get }
+    var games: StoreDictionary<String, GameStore> { get }
 
     func loadStorage(completion: (()->Void)? )
 }
@@ -17,7 +18,8 @@ protocol Storage {
 
 class FileStorage: Storage {
 
-    let games = StoreDictionary<String, GamePackStore>(rootPath: "games/")
+    let appState = PersistentValue<AppStateDef>(path: "app_state.json")
+    let games = StoreDictionary<String, GameStore>(rootPath: "games/")
 
     init() {
 #if DEBUG

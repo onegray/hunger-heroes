@@ -6,6 +6,7 @@ import Foundation
 import Combine
 
 enum GameUpdateEvent {
+    case newGame
     case mapUpdate
     case heroUpdate
     case objectUpdate
@@ -16,13 +17,16 @@ protocol GameService {
     var game: GameModel? { get }
 
     var onUpdate: PassthroughSubject<GameUpdateEvent, Never> { get }
+    var onError: PassthroughSubject<Error, Never> { get }
 
-    func loadRemoteGame(gameId: String)
+    func loadGame(gameId: String)
+    func loadRemoteGame(gameId: String, completion: (()->Void)?)
 }
 
 class AppGameService: GameService {
 
     let onUpdate = PassthroughSubject<GameUpdateEvent, Never>()
+    let onError = PassthroughSubject<Error, Never>()
 
     var game: GameModel?
     let storage: Storage
@@ -33,13 +37,35 @@ class AppGameService: GameService {
         self.httpClient = httpClient
     }
 
-    func loadRemoteGame(gameId: String) {
+    func newGame(gameId: String) {
+        let gameStore = self.storage.games.get(gameId)
+        do {
+            self.game = try GameModel.new(gameId: gameId, store: gameStore)
+            self.onUpdate.send(.newGame)
+        } catch let e {
+            self.onError.send(e)
+        }
+    }
+
+    func loadRemoteGame(gameId: String, completion: (()->Void)?) {
         let request = GetGamePackRequest(packName: gameId) { response in
             if case .success = response.status, let gamePack = response.gamePack {
                 let gameStore = self.storage.games.get(gameId)
-                gameStore.save(gamePack: gamePack, files: response.files)
+                gameStore.save(gamePack: gamePack, files: response.files, completion: completion)
+            } else {
+                self.onError.send(ModelError.remoteLoadError)
             }
         }
         self.httpClient.perform(request)
+    }
+
+    func loadGame(gameId: String) {
+        if self.storage.games.hasStore(gameId) {
+            self.newGame(gameId: gameId)
+        } else {
+            self.loadRemoteGame(gameId: gameId) {
+                self.newGame(gameId: gameId)
+            }
+        }
     }
 }

@@ -23,5 +23,6 @@ class ApplicationCore: Application {
 
     init() {
         self.gameService = AppGameService(storage: self.storage, httpClient: self.httpClient)
+        self.storage.loadStorage(completion: nil)
     }
 }

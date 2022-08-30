@@ -23,6 +23,8 @@ class HomePresenter: HomePresenterProtocol {
         self.viewModel = viewModel
         self.gameService = gameService
 
-        self.gameService.loadRemoteGame(gameId: "hg_pack.tar")
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+            self.gameService.loadGame(gameId: "hg_pack.tar")
+        }
     }
 }
