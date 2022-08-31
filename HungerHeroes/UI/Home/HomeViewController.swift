@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class HomeViewController: UIHostingController<HomeView> {
+class HomeViewController: UIHostingController<HomeView>, HomeViewDelegate {
     
     let environment: Environment
     let presenter: HomePresenterProtocol
@@ -18,9 +18,15 @@ class HomeViewController: UIHostingController<HomeView> {
         self.environment = environment
         self.presenter = environment.homePresenter()
         super.init(rootView: HomeView(viewModel: self.presenter.viewModel))
+        self.rootView.delegate = self
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func onOpenGameBtn(gameId: String) {
+        let vc = MapViewController(environment, gameId: gameId)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

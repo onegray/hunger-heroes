@@ -11,6 +11,7 @@ import CoreGraphics
 
 protocol MapPresenterProtocol {
     var viewModel: MapViewModel { get }
+    func loadGame(gameId: String)
 }
 
 class MapPresenter: MapPresenterProtocol {
@@ -23,12 +24,19 @@ class MapPresenter: MapPresenterProtocol {
         self.viewModel = viewModel
         self.gameService = gameService
 
-        self.gameService.onUpdate.filter { $0 == .mapUpdate }
-                .sink { [weak self] _ in
-                    self?.onMapUpdate(map: self?.gameService.game?.map)
+        self.gameService.onUpdate
+                .sink { [weak self] event in
+                    if case .newGame = event, let game = self?.gameService.game {
+                        self?.onGameStarted(game: game)
+                    } else if case .mapUpdate = event {
+                        self?.onMapUpdate(map: self?.gameService.game?.map)
+                    }
                 }
                 .store(in: &self.disposeBag)
+    }
 
+    func onGameStarted(game: GameModel) {
+        self.onMapUpdate(map: game.map)
     }
 
     func onMapUpdate(map: MapModel?) {
@@ -39,5 +47,9 @@ class MapPresenter: MapPresenterProtocol {
                 self.viewModel.mapImage = image
             }
         }
+    }
+
+    func loadGame(gameId: String) {
+        self.gameService.loadGame(gameId: gameId)
     }
 }

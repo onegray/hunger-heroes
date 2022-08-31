@@ -10,9 +10,8 @@ import Combine
 
 protocol HomePresenterProtocol {
     var viewModel: HomeViewModel { get }
-    
-}
 
+}
 
 class HomePresenter: HomePresenterProtocol {
     
@@ -28,10 +27,21 @@ class HomePresenter: HomePresenterProtocol {
         self.gameService = gameService
 
         self.appService.appState.compactMap({ $0 })
-                .sink { appState in
-                    let gameId = appState.activeGameId ?? "hg_pack.tar"
-                    self.gameService.loadGame(gameId: gameId)
+                .sink { [weak self] appState in
+                    if let gameId = appState.activeGameId {
+                        self?.openActiveGame(gameId: gameId)
+                    } else {
+                        self?.openHomeScreen()
+                    }
                 }
                 .store(in: &self.disposeBag)
+    }
+
+    func openHomeScreen() {
+
+    }
+
+    func openActiveGame(gameId: String) {
+
     }
 }

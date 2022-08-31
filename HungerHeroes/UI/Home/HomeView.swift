@@ -7,12 +7,20 @@
 
 import SwiftUI
 
+protocol HomeViewDelegate: AnyObject {
+    func onOpenGameBtn(gameId: String)
+}
+
 struct HomeView: View {
     
     @ObservedObject var viewModel: HomeViewModel
+    weak var delegate: HomeViewDelegate?
     
     var body: some View {
-        Text("Hello, World!")
+
+        Button("Open Game") {
+            self.delegate?.onOpenGameBtn(gameId: "hg_pack.tar")
+        }
     }
 }
 
