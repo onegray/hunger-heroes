@@ -17,7 +17,7 @@ protocol Application {
 
 class ApplicationCore: Application {
 
-    let storage = FileStorage()
+    let storage = JsonStorage()
     let httpClient = RemoteClient()
 
     let gameService: GameService

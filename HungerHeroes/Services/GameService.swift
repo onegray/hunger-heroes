@@ -38,7 +38,7 @@ class AppGameService: GameService {
     }
 
     func newGame(gameId: String) {
-        let gameStore = self.storage.games.get(gameId)
+        let gameStore = self.storage.gameStore(gameId: gameId)
         do {
             self.game = try GameModel.new(gameId: gameId, store: gameStore)
             self.onUpdate.send(.newGame)
@@ -50,7 +50,7 @@ class AppGameService: GameService {
     func loadRemoteGame(gameId: String, completion: (()->Void)?) {
         let request = GetGamePackRequest(packName: gameId) { response in
             if case .success = response.status, let gamePack = response.gamePack {
-                let gameStore = self.storage.games.get(gameId)
+                let gameStore = self.storage.gameStore(gameId: gameId)
                 gameStore.save(gamePack: gamePack, files: response.files, completion: completion)
             } else {
                 self.onError.send(ModelError.remoteLoadError)
@@ -60,7 +60,7 @@ class AppGameService: GameService {
     }
 
     func loadGame(gameId: String) {
-        if self.storage.games.hasStore(gameId) {
+        if self.storage.gameExists(gameId: gameId) {
             self.newGame(gameId: gameId)
         } else {
             self.loadRemoteGame(gameId: gameId) {

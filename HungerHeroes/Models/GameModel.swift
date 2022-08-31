@@ -25,7 +25,7 @@ class GameModel {
 extension GameModel {
 
     static func new(gameId: String, store: GameStore) throws -> GameModel {
-        guard let gamePack = store.gamePack.get() else {
+        guard let gamePack = store.gamePack else {
             throw ModelError.loadError
         }
         let map = try MapModel.new(def: gamePack.map, store: store)

@@ -9,17 +9,20 @@ import Foundation
 
 protocol Storage {
 
-    var appState: PersistentValue<AppStateDef> { get }
-    var games: StoreDictionary<String, GameStore> { get }
+    var appState: AppStateDef? { get set }
+
+    func gameStore(gameId: String) -> GameStore
+
+    func gameExists(gameId: String) -> Bool
 
     func loadStorage(completion: (()->Void)? )
 }
 
 
-class FileStorage: Storage {
+class JsonStorage: Storage {
 
-    let appState = PersistentValue<AppStateDef>(path: "app_state.json")
-    let games = StoreDictionary<String, GameStore>(rootPath: "games/")
+    let appStateJson = PersistentValue<AppStateDef>(path: "app_state.json")
+    let gameStoreDictionary = StoreDictionary<String, JsonGameStore>(rootPath: "games/")
 
     init() {
 #if DEBUG
@@ -28,9 +31,22 @@ class FileStorage: Storage {
 #endif
     }
 
+    var appState: AppStateDef? {
+        get { self.appStateJson.get() }
+        set { self.appStateJson.save(newValue) }
+    }
+
+    func gameStore(gameId: String) -> GameStore {
+        return self.gameStoreDictionary.get(gameId)
+    }
+
+    func gameExists(gameId: String) -> Bool {
+        return self.gameStoreDictionary.hasStore(gameId)
+    }
+
     func loadStorage(completion: (()->Void)? ) {
-        self.games.loadDirectory { contents in
-            self.games.load(ids: contents, completion: completion)
+        self.gameStoreDictionary.loadDirectory { contents in
+            self.gameStoreDictionary.load(ids: contents, completion: completion)
         }
     }
 }
