@@ -67,8 +67,16 @@ class MapViewController: UIViewController {
                     (self.view as! UIScrollView).contentSize = size
                     self.mapView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
                     self.fowView.frame = self.mapView.bounds
+                    self.fowMaskLayer.frame = self.mapView.bounds
                 }
                 .store(in: &self.disposeBag)
+
+        self.viewModel.$fowMaskImage
+                .sink { (img: CGImage?) in
+                    self.fowMaskLayer.contents = img
+                }
+                .store(in: &self.disposeBag)
+
     }
 }
 

@@ -41,9 +41,13 @@ class AppGameService: GameService {
         let gameStore = self.storage.gameStore(gameId: gameId)
         do {
             self.game = try GameModel.new(gameId: gameId, store: gameStore)
-            self.onUpdate.send(.newGame)
         } catch let e {
             self.onError.send(e)
+            return
+        }
+
+        self.game!.reset {
+            self.onUpdate.send(.newGame)
         }
     }
 

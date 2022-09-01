@@ -84,6 +84,7 @@
 		ABBFE93328C0C18C005C1874 /* MapRes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABBFE93128C0C18C005C1874 /* MapRes.xcassets */; };
 		ABCCCC7128AA94A40005B768 /* HTTPRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */; };
 		B148903F4A77521DD837D31E /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14893E6B4DFDB89AF7A8B38 /* GameStore.swift */; };
+		B14890A88251F19DFBF2D261 /* CGImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489A54804F4B92FC166530 /* CGImage+Extensions.swift */; };
 		B14892A115150C10BAA70C72 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14899940ADA03A2DFE20FFD /* ImageSource.swift */; };
 		B1489306DECB24CE12343FE7 /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14893E6B4DFDB89AF7A8B38 /* GameStore.swift */; };
 		B1489318C260A449434C41E0 /* StoreDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489D79828A6419FF9BEFC4 /* StoreDictionary.swift */; };
@@ -108,6 +109,7 @@
 		B1489B7B46885BA804BF928B /* RemoteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489C81D18AB1343C0D6ED8 /* RemoteClient.swift */; };
 		B1489C62A1AEBAD816496CA6 /* GamePackDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489FF637CD567EF78B3B2D /* GamePackDef.swift */; };
 		B1489CDF93C18A48531A7690 /* AppStateDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148929A2A7E4017B6F3DD94 /* AppStateDef.swift */; };
+		B1489D0F7A36D8B8AB053F4F /* CGImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489A54804F4B92FC166530 /* CGImage+Extensions.swift */; };
 		B1489E7099F3C6DC976D4184 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14899940ADA03A2DFE20FFD /* ImageSource.swift */; };
 /* End PBXBuildFile section */
 
@@ -181,6 +183,7 @@
 		B148953DD6A583C3E52775F3 /* FileRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileRegistry.swift; sourceTree = "<group>"; };
 		B1489688AF01E494E5A80C80 /* AppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		B14899940ADA03A2DFE20FFD /* ImageSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
+		B1489A54804F4B92FC166530 /* CGImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+Extensions.swift"; sourceTree = "<group>"; };
 		B1489A635DFCC57918B0DE89 /* ModelError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelError.swift; sourceTree = "<group>"; };
 		B1489AFE8BA889F063C5E365 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
@@ -428,6 +431,7 @@
 			children = (
 				B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */,
 				B148947E30D3D402BB24ACF2 /* Date+Extensions.swift */,
+				B1489A54804F4B92FC166530 /* CGImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -621,6 +625,7 @@
 				B14893D133A174BF1E66F687 /* ModelError.swift in Sources */,
 				B1489947627594801743791B /* AppStateDef.swift in Sources */,
 				B148998B5F2F251BCACFEA06 /* AppService.swift in Sources */,
+				B1489D0F7A36D8B8AB053F4F /* CGImage+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,6 +676,7 @@
 				B14895D2243099C9BACDD7DA /* ModelError.swift in Sources */,
 				B1489CDF93C18A48531A7690 /* AppStateDef.swift in Sources */,
 				B14894FBE8828B29B889D7E2 /* AppService.swift in Sources */,
+				B14890A88251F19DFBF2D261 /* CGImage+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

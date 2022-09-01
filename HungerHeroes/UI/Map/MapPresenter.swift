@@ -46,6 +46,7 @@ class MapPresenter: MapPresenterProtocol {
             map.image.getImage { image in
                 self.viewModel.mapImage = image
             }
+            self.viewModel.fowMaskImage = map.fowImage
         }
     }
 

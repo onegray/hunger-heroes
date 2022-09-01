@@ -31,4 +31,10 @@ extension GameModel {
         let map = try MapModel.new(def: gamePack.map, store: store)
         return GameModel(map: map, scenario: gamePack.scenario)
     }
+
+    func reset(completion: (()->Void)?) {
+        self.heroes = []
+        self.objects = []
+        self.map.createFow(completion: completion)
+    }
 }

@@ -12,7 +12,7 @@ class MapViewModel: ObservableObject {
 
     @Published var mapSize: CGSize = .zero
     @Published var mapImage: CGImage?
-    @Published var fowImage: CGImage?
+    @Published var fowMaskImage: CGImage?
 
     @Published var actor: VMPlayer?
     @Published var players: [VMPlayer] = []
