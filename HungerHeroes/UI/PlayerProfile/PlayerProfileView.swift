@@ -155,6 +155,5 @@ struct SkillView: View {
 struct PlayerProfileView_Previews: PreviewProvider {
     static var previews: some View {
         PlayerProfileView()
-            .previewInterfaceOrientation(.portraitUpsideDown)
     }
 }

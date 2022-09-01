@@ -39,7 +39,7 @@ class GetGamePackResponse: HttpResponse {
             guard let mapImage = responseFiles?["map/" + map.imageId] else { return }
             self.files[map.imageId] = mapImage
 
-            self.gamePack = GamePackDef(scenario: scenario, map: map, date: .now)
+            self.gamePack = GamePackDef(scenario: scenario, map: map, date: Date())
         }
     }
 

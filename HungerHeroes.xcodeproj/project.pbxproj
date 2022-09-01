@@ -80,6 +80,8 @@
 		ABBFE92C28BD1976005C1874 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE92928BD1976005C1874 /* MapViewController.swift */; };
 		ABBFE92E28BD1976005C1874 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE92528BD1976005C1874 /* HomeViewController.swift */; };
 		ABBFE93028BD1976005C1874 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE92628BD1976005C1874 /* HomeView.swift */; };
+		ABBFE93228C0C18C005C1874 /* MapRes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABBFE93128C0C18C005C1874 /* MapRes.xcassets */; };
+		ABBFE93328C0C18C005C1874 /* MapRes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABBFE93128C0C18C005C1874 /* MapRes.xcassets */; };
 		ABCCCC7128AA94A40005B768 /* HTTPRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */; };
 		B148903F4A77521DD837D31E /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14893E6B4DFDB89AF7A8B38 /* GameStore.swift */; };
 		B14892A115150C10BAA70C72 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14899940ADA03A2DFE20FFD /* ImageSource.swift */; };
@@ -171,6 +173,7 @@
 		ABBFE92528BD1976005C1874 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ABBFE92628BD1976005C1874 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		ABBFE92928BD1976005C1874 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		ABBFE93128C0C18C005C1874 /* MapRes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MapRes.xcassets; sourceTree = "<group>"; };
 		ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestTests.swift; sourceTree = "<group>"; };
 		B148929A2A7E4017B6F3DD94 /* AppStateDef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateDef.swift; sourceTree = "<group>"; };
 		B14893E6B4DFDB89AF7A8B38 /* GameStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
@@ -405,6 +408,7 @@
 				ABBFE91728BD1976005C1874 /* MapPresenter.swift */,
 				ABBFE92228BD1976005C1874 /* MapViewModel.swift */,
 				ABBFE92928BD1976005C1874 /* MapViewController.swift */,
+				ABBFE93128C0C18C005C1874 /* MapRes.xcassets */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -543,6 +547,7 @@
 				AB782335289AED630075746B /* LaunchScreen.storyboard in Resources */,
 				AB782332289AED630075746B /* Assets.xcassets in Resources */,
 				AB782387289DB6710075746B /* PlayerProfileRes.xcassets in Resources */,
+				ABBFE93228C0C18C005C1874 /* MapRes.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +563,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB782389289DB6710075746B /* PlayerProfileRes.xcassets in Resources */,
+				ABBFE93328C0C18C005C1874 /* MapRes.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,7 +764,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -812,7 +818,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -835,7 +841,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -862,7 +868,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

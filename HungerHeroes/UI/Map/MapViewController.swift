@@ -12,8 +12,8 @@ class MapViewController: UIViewController {
     var viewModel: MapViewModel { self.presenter.viewModel }
     var disposeBag = Set<AnyCancellable>()
 
-    var mapView: UIImageView!
-    var fowLayer: CALayer!
+    var mapView: UIView!
+    var fowView: UIView!
     var fowMaskLayer: CALayer!
 
     init(_ environment: Environment, gameId: String?) {
@@ -34,14 +34,13 @@ class MapViewController: UIViewController {
         self.fowMaskLayer = CALayer()
         self.fowMaskLayer.contentsGravity = .resize
 
-        self.fowLayer = CALayer()
-        self.fowLayer.mask = self.fowMaskLayer
+        self.fowView = UIView(frame: .zero)
+        self.fowView.layer.mask = self.fowMaskLayer
 
-        self.mapView = UIImageView(frame: .zero)
-        self.mapView.layer.addSublayer(self.fowLayer)
+        self.mapView = UIView(frame: .zero)
+        self.mapView.addSubview(self.fowView)
 
         let scrollView = UIScrollView(frame: .zero)
-        scrollView.backgroundColor = .white
         scrollView.delegate = self
         scrollView.minimumZoomScale = 0.25
         scrollView.maximumZoomScale = 4.0
@@ -51,9 +50,15 @@ class MapViewController: UIViewController {
 
     override func viewDidLoad() {
 
+        let backImageTemplate = UIImage(named: "map-back32")!
+        self.view.backgroundColor = UIColor(patternImage: backImageTemplate)
+
+        let fowImageTemplate = UIImage(named: "map-fow96")!
+        self.fowView.backgroundColor = UIColor(patternImage: fowImageTemplate)
+
         self.viewModel.$mapImage
                 .sink { (img: CGImage?) in
-                    self.mapView.image = (img != nil ? UIImage(cgImage: img!) : nil)
+                    self.mapView.layer.contents = img
                 }
                 .store(in: &self.disposeBag)
 
@@ -61,6 +66,7 @@ class MapViewController: UIViewController {
                 .sink { (size: CGSize) in
                     (self.view as! UIScrollView).contentSize = size
                     self.mapView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+                    self.fowView.frame = self.mapView.bounds
                 }
                 .store(in: &self.disposeBag)
     }
