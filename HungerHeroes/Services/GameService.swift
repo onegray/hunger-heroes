@@ -7,6 +7,7 @@ import Combine
 
 enum GameUpdateEvent {
     case newGame
+    case startGame
     case mapUpdate
     case heroUpdate
     case objectUpdate
@@ -21,6 +22,7 @@ protocol GameService {
 
     func loadGame(gameId: String)
     func loadRemoteGame(gameId: String, completion: (()->Void)?)
+    func startGame(setup: GameSetupDef)
 }
 
 class AppGameService: GameService {
@@ -70,6 +72,13 @@ class AppGameService: GameService {
             self.loadRemoteGame(gameId: gameId) {
                 self.newGame(gameId: gameId)
             }
+        }
+    }
+
+    func startGame(setup: GameSetupDef) {
+        if let game = self.game {
+            game.start(setup: setup)
+            self.onUpdate.send(.startGame)
         }
     }
 }

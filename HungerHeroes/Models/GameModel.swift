@@ -11,7 +11,7 @@ class GameModel {
 
     let map: MapModel
     let scenario: ScenarioDef
-    var heroes: [Hero]
+    var heroes: [HeroModel]
     var objects: [MapNode]
 
     init(map: MapModel, scenario: ScenarioDef) {
@@ -36,5 +36,28 @@ extension GameModel {
         self.heroes = []
         self.objects = []
         self.map.createFow(completion: completion)
+    }
+
+    func start(setup: GameSetupDef) {
+        let sz = self.map.size
+        self.heroes = (0..<setup.playersNum).map({ _ in
+            let hero = HeroModel.new()
+            let location = Point(x: Int(arc4random()) % sz.width,
+                                 y: Int(arc4random()) % sz.height)
+            hero.updateLocation(location: location)
+            return hero
+        })
+
+        self.updateFow()
+    }
+
+    func updateFow() {
+        var scoutUpdates = [ScoutSteps]()
+        for hero in self.heroes {
+            hero.pullScoutSteps(acc: &scoutUpdates)
+        }
+        if scoutUpdates.isNotEmpty {
+            self.map.updateFow(updates: scoutUpdates)
+        }
     }
 }

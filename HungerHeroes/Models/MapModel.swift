@@ -44,4 +44,8 @@ extension MapModel {
             }
         }
     }
+
+    func updateFow(updates: [ScoutSteps]) {
+
+    }
 }

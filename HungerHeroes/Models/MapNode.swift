@@ -6,13 +6,11 @@
 //
 
 import Foundation
-import CoreGraphics
 
 class MapNode {
-    let location: CGPoint
-    
-    internal init(location: CGPoint) {
-        self.location = location
+    var location: Point
+
+    init() {
+        self.location = Point(x: 0, y: 0)
     }
 }
-

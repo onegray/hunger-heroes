@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreGraphics
 
 class Artifact: MapNode {
 
@@ -14,8 +13,6 @@ class Artifact: MapNode {
     
     internal init(title: String) {
         self.title = title
-        super.init(location: .zero)
+        super.init()
     }
 }
-
-
