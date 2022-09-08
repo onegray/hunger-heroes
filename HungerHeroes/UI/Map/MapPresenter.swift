@@ -26,10 +26,16 @@ class MapPresenter: MapPresenterProtocol {
 
         self.gameService.onUpdate
                 .sink { [weak self] event in
-                    if case .newGame = event, let game = self?.gameService.game {
-                        self?.onNewGame(game: game)
-                    } else if case .mapUpdate = event {
-                        self?.onMapUpdate(map: self?.gameService.game?.map)
+                    guard let self = self, let game = self.gameService.game else { return }
+                    switch (event) {
+                    case .newGame:
+                        self.onNewGame(game: game)
+                    case .startGame:
+                        self.onStartGame(game: game)
+                    case .mapUpdate:
+                        self.onMapUpdate(map: game.map)
+                    default:
+                        ()
                     }
                 }
                 .store(in: &self.disposeBag)
@@ -37,8 +43,12 @@ class MapPresenter: MapPresenterProtocol {
 
     func onNewGame(game: GameModel) {
         self.onMapUpdate(map: game.map)
-        let setup = GameSetupDef(playersNum: 5)
+        let setup = GameSetupDef(playersNum: 10)
         self.gameService.startGame(setup: setup)
+    }
+
+    func onStartGame(game: GameModel) {
+        self.onMapUpdate(map: game.map)
     }
 
     func onMapUpdate(map: MapModel?) {

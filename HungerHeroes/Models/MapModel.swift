@@ -45,7 +45,19 @@ extension MapModel {
         }
     }
 
-    func updateFow(updates: [ScoutSteps]) {
-
+    func updateFow(updates: [ScoutSteps], completion: (()->Void)?) {
+        let sourceFow = self.fowImage
+        DispatchQueue.global().async {
+            let lines = updates.map { (scout) -> PolyLine in
+                let lineWidth = (scout.polyLine.width + 15) / 16
+                let points = scout.polyLine.points.map({ Point(x: $0.x/16, y: $0.y/16) })
+                return PolyLine(points: points, width: lineWidth)
+            }
+            let updatedFow = sourceFow?.imageClearLines(lines)
+            DispatchQueue.main.async {
+                self.fowImage = updatedFow
+                completion?()
+            }
+        }
     }
 }

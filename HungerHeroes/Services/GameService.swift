@@ -77,8 +77,9 @@ class AppGameService: GameService {
 
     func startGame(setup: GameSetupDef) {
         if let game = self.game {
-            game.start(setup: setup)
-            self.onUpdate.send(.startGame)
+            game.start(setup: setup) {
+                self.onUpdate.send(.startGame)
+            }
         }
     }
 }

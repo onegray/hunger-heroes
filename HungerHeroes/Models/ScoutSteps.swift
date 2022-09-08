@@ -5,26 +5,24 @@
 import Foundation
 
 struct ScoutSteps {
-    var points: [Point]
-    let radius: Int
+    var polyLine: PolyLine
 
     init(radius: Int) {
-        self.radius = radius
-        self.points = []
+        self.polyLine = PolyLine(points: [], width: radius)
     }
 }
 
 extension ScoutSteps {
 
     var isEmpty: Bool {
-        return self.points.isEmpty
+        return self.polyLine.points.isEmpty
     }
 
     mutating func step(to point: Point) {
-        self.points.append(point)
+        self.polyLine.points.append(point)
     }
 
     mutating func clear() {
-        self.points = []
+        self.polyLine.points = []
     }
 }

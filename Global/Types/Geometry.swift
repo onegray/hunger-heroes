@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreGraphics
 
 struct Point: Equatable, Codable {
     let x: Int
@@ -30,4 +31,16 @@ struct Circle: Equatable, Codable {
 struct Vector: Equatable, Codable {
     let dx: Int
     let dy: Int
+}
+
+struct PolyLine: Equatable, Codable {
+    var points: [Point]
+    let width: Int
+}
+
+
+extension Point {
+    var cgPoint: CGPoint {
+        return CGPoint(x: self.x, y: self.y)
+    }
 }

@@ -38,7 +38,7 @@ extension GameModel {
         self.map.createFow(completion: completion)
     }
 
-    func start(setup: GameSetupDef) {
+    func start(setup: GameSetupDef, completion: (()->Void)?) {
         let sz = self.map.size
         self.heroes = (0..<setup.playersNum).map({ _ in
             let hero = HeroModel.new()
@@ -48,16 +48,16 @@ extension GameModel {
             return hero
         })
 
-        self.updateFow()
+        self.updateFow(completion: completion)
     }
 
-    func updateFow() {
+    func updateFow(completion: (()->Void)?) {
         var scoutUpdates = [ScoutSteps]()
         for hero in self.heroes {
             hero.pullScoutSteps(acc: &scoutUpdates)
         }
         if scoutUpdates.isNotEmpty {
-            self.map.updateFow(updates: scoutUpdates)
+            self.map.updateFow(updates: scoutUpdates, completion: completion)
         }
     }
 }
