@@ -14,15 +14,13 @@ class MapViewModel: ObservableObject {
     @Published var mapImage: CGImage?
     @Published var fowMaskImage: CGImage?
 
-    @Published var actor: VMPlayer?
-    @Published var players: [VMPlayer] = []
+    @Published var actor: HeroViewModel?
+    @Published var heroes: [HeroViewModel] = []
 }
 
-
-extension MapViewModel {
-    struct VMPlayer {
-        let id: Int
-        let team: Int
-        let name: String
-    }
+struct HeroViewModel {
+    let id: Int?
+    let team: Int?
+    let name: String?
+    let location: Point
 }

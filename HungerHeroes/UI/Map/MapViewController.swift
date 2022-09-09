@@ -12,9 +12,12 @@ class MapViewController: UIViewController {
     var viewModel: MapViewModel { self.presenter.viewModel }
     var disposeBag = Set<AnyCancellable>()
 
+    var scrollView: UIScrollView { self.view as! UIScrollView }
     var mapView: UIView!
     var fowView: UIView!
     var fowMaskLayer: CALayer!
+    var topObjectsView: UIView!
+
 
     init(_ environment: Environment, gameId: String?) {
         self.environment = environment
@@ -40,11 +43,15 @@ class MapViewController: UIViewController {
         self.mapView = UIView(frame: .zero)
         self.mapView.addSubview(self.fowView)
 
+        self.topObjectsView = UIView(frame: .zero)
+        self.topObjectsView.backgroundColor = .clear
+
         let scrollView = UIScrollView(frame: .zero)
         scrollView.delegate = self
         scrollView.minimumZoomScale = 0.25
         scrollView.maximumZoomScale = 4.0
         scrollView.addSubview(self.mapView)
+        scrollView.addSubview(self.topObjectsView)
         self.view = scrollView
     }
 
@@ -68,6 +75,7 @@ class MapViewController: UIViewController {
                     self.mapView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
                     self.fowView.frame = self.mapView.bounds
                     self.fowMaskLayer.frame = self.mapView.bounds
+                    self.topObjectsView.frame = self.mapView.frame
                 }
                 .store(in: &self.disposeBag)
 
@@ -77,11 +85,36 @@ class MapViewController: UIViewController {
                 }
                 .store(in: &self.disposeBag)
 
+        self.viewModel.$heroes
+                .sink { (heroes: [HeroViewModel]) in
+                    _ = self.topObjectsView.subviews.map { $0.removeFromSuperview() }
+                    let imgCfg = UIImage.SymbolConfiguration(pointSize: 22, weight: .semibold)
+                    let heroImg = UIImage(systemName: "flag", withConfiguration: imgCfg)?
+                            .withTintColor(.orange, renderingMode: .alwaysOriginal)
+                    for hero in heroes {
+                        let heroView = MapObjectView(image: heroImg)
+                        heroView.location = self.mapPoint(hero.location)
+                        heroView.mapZoom = self.scrollView.zoomScale
+                        self.topObjectsView.addSubview(heroView)
+                    }
+                }
+                .store(in: &self.disposeBag)
+    }
+
+    func mapPoint(_ point: Point) -> Point {
+        return Point(x: point.x, y: Int(self.mapView.bounds.size.height) - point.y)
     }
 }
 
 extension MapViewController: UIScrollViewDelegate {
+
     public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return self.mapView
+    }
+
+    public func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        for obj in self.topObjectsView.subviews as! [MapObjectView] {
+            obj.mapZoom = scrollView.zoomScale
+        }
     }
 }

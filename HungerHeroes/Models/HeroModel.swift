@@ -19,7 +19,7 @@ class HeroModel: MapNode {
         self.player = player
         self.health = 0
         self.ammo = 0
-        self.scouting = 200
+        self.scouting = 250
         self.scoutSteps = ScoutSteps(radius: self.scouting)
         super.init()
     }

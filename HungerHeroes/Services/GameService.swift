@@ -9,8 +9,8 @@ enum GameUpdateEvent {
     case newGame
     case startGame
     case mapUpdate
-    case heroUpdate
-    case objectUpdate
+    case heroesUpdate
+    case objectsUpdate
 }
 
 protocol GameService {

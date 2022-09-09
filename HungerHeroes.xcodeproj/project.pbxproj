@@ -83,6 +83,7 @@
 		ABCCCC7128AA94A40005B768 /* HTTPRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */; };
 		B148903F4A77521DD837D31E /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14893E6B4DFDB89AF7A8B38 /* GameStore.swift */; };
 		B14890A88251F19DFBF2D261 /* CGImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489A54804F4B92FC166530 /* CGImage+Extensions.swift */; };
+		B14892721C538262B360FD2D /* MapObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14890EC022BC1B111E54F4B /* MapObjectView.swift */; };
 		B14892A115150C10BAA70C72 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14899940ADA03A2DFE20FFD /* ImageSource.swift */; };
 		B1489306DECB24CE12343FE7 /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14893E6B4DFDB89AF7A8B38 /* GameStore.swift */; };
 		B1489318C260A449434C41E0 /* StoreDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489D79828A6419FF9BEFC4 /* StoreDictionary.swift */; };
@@ -108,6 +109,7 @@
 		B1489B0D9EEB0C0E4DBB35B6 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489AFE8BA889F063C5E365 /* ImageStore.swift */; };
 		B1489B37896F62D4EC03BE98 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148947E30D3D402BB24ACF2 /* Date+Extensions.swift */; };
 		B1489B7B46885BA804BF928B /* RemoteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489C81D18AB1343C0D6ED8 /* RemoteClient.swift */; };
+		B1489C5D4E54F27FDB3348C7 /* MapObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14890EC022BC1B111E54F4B /* MapObjectView.swift */; };
 		B1489C62A1AEBAD816496CA6 /* GamePackDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489FF637CD567EF78B3B2D /* GamePackDef.swift */; };
 		B1489CDF93C18A48531A7690 /* AppStateDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148929A2A7E4017B6F3DD94 /* AppStateDef.swift */; };
 		B1489D0F7A36D8B8AB053F4F /* CGImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489A54804F4B92FC166530 /* CGImage+Extensions.swift */; };
@@ -180,6 +182,7 @@
 		ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestTests.swift; sourceTree = "<group>"; };
 		B148904BC5E83709A846D30B /* GameSetupDef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSetupDef.swift; sourceTree = "<group>"; };
 		B14890E48C5157837CC8611D /* ScoutSteps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoutSteps.swift; sourceTree = "<group>"; };
+		B14890EC022BC1B111E54F4B /* MapObjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapObjectView.swift; sourceTree = "<group>"; };
 		B148929A2A7E4017B6F3DD94 /* AppStateDef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateDef.swift; sourceTree = "<group>"; };
 		B14893E6B4DFDB89AF7A8B38 /* GameStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
 		B148947E30D3D402BB24ACF2 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
@@ -416,6 +419,7 @@
 				ABBFE92228BD1976005C1874 /* MapViewModel.swift */,
 				ABBFE92928BD1976005C1874 /* MapViewController.swift */,
 				ABBFE93128C0C18C005C1874 /* MapRes.xcassets */,
+				B14890EC022BC1B111E54F4B /* MapObjectView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -631,6 +635,7 @@
 				B1489D0F7A36D8B8AB053F4F /* CGImage+Extensions.swift in Sources */,
 				B1489A393D6E85A8B012ED9B /* GameSetupDef.swift in Sources */,
 				B148991ABABC6B21E16634D7 /* ScoutSteps.swift in Sources */,
+				B14892721C538262B360FD2D /* MapObjectView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,6 +701,7 @@
 				ABBFE93028BD1976005C1874 /* HomeView.swift in Sources */,
 				AB782381289DA6330075746B /* PlayerProfileView.swift in Sources */,
 				ABBFE92C28BD1976005C1874 /* MapViewController.swift in Sources */,
+				B1489C5D4E54F27FDB3348C7 /* MapObjectView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
