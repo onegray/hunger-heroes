@@ -35,8 +35,8 @@ class MapPresenter: MapPresenterProtocol {
                     case .mapUpdate:
                         self.onMapUpdate(map: game.map)
                     case .heroesUpdate:
-                        self.onMapUpdate(map: game.map)
                         self.onHeroesUpdate(heroes: game.heroes)
+                        self.onFowUpdate(fowImage: game.map.fowImage)
                     default:
                         ()
                     }
@@ -57,10 +57,12 @@ class MapPresenter: MapPresenterProtocol {
 
     func onMapUpdate(map: MapModel?) {
         if let map = map {
-            self.viewModel.mapSize = CGSize(width: map.size.width, height: map.size.height)
+            let mapSize = CGSize(width: map.size.width, height: map.size.height)
             self.viewModel.mapImage = nil
             map.image.getImage { image in
-                self.viewModel.mapImage = image
+                if let image = image {
+                    self.viewModel.mapImage = MapImageViewModel(image: image, size: mapSize)
+                }
             }
             self.viewModel.fowMaskImage = map.fowImage
         }
@@ -73,6 +75,10 @@ class MapPresenter: MapPresenterProtocol {
                                  name: model.player.name,
                                  location: model.location)
         }
+    }
+
+    func onFowUpdate(fowImage: CGImage?) {
+        self.viewModel.fowMaskImage = fowImage
     }
 
     func loadGame(gameId: String) {

@@ -9,11 +9,8 @@ import Foundation
 import CoreGraphics
 
 class MapViewModel: ObservableObject {
-
-    @Published var mapSize: CGSize = .zero
-    @Published var mapImage: CGImage?
+    @Published var mapImage: MapImageViewModel?
     @Published var fowMaskImage: CGImage?
-
     @Published var actor: HeroViewModel?
     @Published var heroes: [HeroViewModel] = []
 }
@@ -23,4 +20,9 @@ struct HeroViewModel {
     let team: Int
     let name: String
     let location: Point
+}
+
+struct MapImageViewModel {
+    var image: CGImage
+    var size: CGSize = .zero
 }

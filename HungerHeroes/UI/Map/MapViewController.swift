@@ -49,7 +49,7 @@ class MapViewController: UIViewController {
         let scrollView = UIScrollView(frame: .zero)
         scrollView.delegate = self
         scrollView.minimumZoomScale = 0.25
-        scrollView.maximumZoomScale = 4.0
+        scrollView.maximumZoomScale = 2.0
         scrollView.addSubview(self.mapView)
         scrollView.addSubview(self.topObjectsView)
         self.view = scrollView
@@ -64,29 +64,19 @@ class MapViewController: UIViewController {
         self.fowView.backgroundColor = UIColor(patternImage: fowImageTemplate)
 
         self.viewModel.$mapImage
-                .sink { (img: CGImage?) in
-                    self.mapView.layer.contents = img
-                }
-                .store(in: &self.disposeBag)
-
-        self.viewModel.$mapSize
-                .sink { (size: CGSize) in
-                    (self.view as! UIScrollView).contentSize = size
-                    self.mapView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-                    self.fowView.frame = self.mapView.bounds
-                    self.fowMaskLayer.frame = self.mapView.bounds
-                    self.topObjectsView.frame = self.mapView.frame
+                .sink { [unowned self] mapImage in
+                    self.setMapImage(mapImage?.image, size: mapImage?.size ?? .zero)
                 }
                 .store(in: &self.disposeBag)
 
         self.viewModel.$fowMaskImage
-                .sink { (img: CGImage?) in
+                .sink { [unowned self] (img: CGImage?) in
                     self.fowMaskLayer.contents = img
                 }
                 .store(in: &self.disposeBag)
 
         self.viewModel.$heroes
-                .sink { (heroes: [HeroViewModel]) in
+                .sink { [unowned self] (heroes: [HeroViewModel]) in
                     _ = self.topObjectsView.subviews.map { $0.removeFromSuperview() }
                     let imgCfg = UIImage.SymbolConfiguration(pointSize: 22, weight: .semibold)
                     let heroImg = UIImage(systemName: "flag", withConfiguration: imgCfg)?
@@ -99,6 +89,15 @@ class MapViewController: UIViewController {
                     }
                 }
                 .store(in: &self.disposeBag)
+    }
+
+    func setMapImage(_ image: CGImage?, size: CGSize) {
+        self.mapView.layer.contents = image
+        self.scrollView.contentSize = size
+        self.mapView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        self.fowView.frame = self.mapView.bounds
+        self.fowMaskLayer.frame = self.mapView.bounds
+        self.topObjectsView.frame = self.mapView.frame
     }
 
     func mapPoint(_ point: Point) -> Point {
