@@ -13,8 +13,8 @@ struct Player {
     let team: Int
     let name: String
     let speciality: Speciality
-    let avatar: UIImage
-    let stats: Stats
+    let avatar: UIImage?
+    let stats: Stats?
 }
 
 
@@ -39,3 +39,9 @@ extension Player {
     }
 }
 
+extension Player {
+    static func testPlayer(id: Int, team: Int) -> Player {
+        return Player(id: id, team: team, name: "Player\(team):\(id)",
+                      speciality: .scout, avatar: nil, stats: nil)
+    }
+}

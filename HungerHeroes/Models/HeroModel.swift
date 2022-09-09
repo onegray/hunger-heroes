@@ -9,13 +9,13 @@ import Foundation
 
 class HeroModel: MapNode {
 
-    let player: Player?
+    let player: Player
     var health: Int
     var ammo: Int
     var scouting: Int
     var scoutSteps: ScoutSteps
 
-    init(player: Player?) {
+    init(player: Player) {
         self.player = player
         self.health = 0
         self.ammo = 0
@@ -26,10 +26,6 @@ class HeroModel: MapNode {
 }
 
 extension HeroModel {
-
-    static func new() -> HeroModel {
-        return HeroModel(player: nil)
-    }
 
     func updateLocation(location: Point) {
         self.location = location

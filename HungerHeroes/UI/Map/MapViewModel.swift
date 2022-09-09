@@ -19,8 +19,8 @@ class MapViewModel: ObservableObject {
 }
 
 struct HeroViewModel {
-    let id: Int?
-    let team: Int?
-    let name: String?
+    let id: Int
+    let team: Int
+    let name: String
     let location: Point
 }

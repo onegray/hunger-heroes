@@ -87,6 +87,7 @@
 		B14892A115150C10BAA70C72 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14899940ADA03A2DFE20FFD /* ImageSource.swift */; };
 		B1489306DECB24CE12343FE7 /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14893E6B4DFDB89AF7A8B38 /* GameStore.swift */; };
 		B1489318C260A449434C41E0 /* StoreDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489D79828A6419FF9BEFC4 /* StoreDictionary.swift */; };
+		B1489370F6BEB13842DA4522 /* HeroUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489C4006D03735F15B860B /* HeroUpdate.swift */; };
 		B14893D133A174BF1E66F687 /* ModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489A635DFCC57918B0DE89 /* ModelError.swift */; };
 		B14894FBE8828B29B889D7E2 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489688AF01E494E5A80C80 /* AppService.swift */; };
 		B1489513EC18923E28ED1D10 /* GameSetupDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148904BC5E83709A846D30B /* GameSetupDef.swift */; };
@@ -104,6 +105,7 @@
 		B148993A0D7B00DFA1F32201 /* FileRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148953DD6A583C3E52775F3 /* FileRegistry.swift */; };
 		B1489947627594801743791B /* AppStateDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148929A2A7E4017B6F3DD94 /* AppStateDef.swift */; };
 		B148998B5F2F251BCACFEA06 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489688AF01E494E5A80C80 /* AppService.swift */; };
+		B14899CB3282A71A86FE2E92 /* HeroUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489C4006D03735F15B860B /* HeroUpdate.swift */; };
 		B1489A34C381B1276A3A5B9B /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148947E30D3D402BB24ACF2 /* Date+Extensions.swift */; };
 		B1489A393D6E85A8B012ED9B /* GameSetupDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148904BC5E83709A846D30B /* GameSetupDef.swift */; };
 		B1489B0D9EEB0C0E4DBB35B6 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489AFE8BA889F063C5E365 /* ImageStore.swift */; };
@@ -193,6 +195,7 @@
 		B1489A635DFCC57918B0DE89 /* ModelError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelError.swift; sourceTree = "<group>"; };
 		B1489AFE8BA889F063C5E365 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
+		B1489C4006D03735F15B860B /* HeroUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroUpdate.swift; sourceTree = "<group>"; };
 		B1489C81D18AB1343C0D6ED8 /* RemoteClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteClient.swift; sourceTree = "<group>"; };
 		B1489D79828A6419FF9BEFC4 /* StoreDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDictionary.swift; sourceTree = "<group>"; };
 		B1489F94C5C930E6DA9AA29F /* GetPlayerProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPlayerProfile.swift; sourceTree = "<group>"; };
@@ -326,6 +329,7 @@
 				AB782378289B117F0075746B /* MainPlayer.swift */,
 				B1489A635DFCC57918B0DE89 /* ModelError.swift */,
 				B14890E48C5157837CC8611D /* ScoutSteps.swift */,
+				B1489C4006D03735F15B860B /* HeroUpdate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -636,6 +640,7 @@
 				B1489A393D6E85A8B012ED9B /* GameSetupDef.swift in Sources */,
 				B148991ABABC6B21E16634D7 /* ScoutSteps.swift in Sources */,
 				B14892721C538262B360FD2D /* MapObjectView.swift in Sources */,
+				B14899CB3282A71A86FE2E92 /* HeroUpdate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,6 +693,7 @@
 				B14890A88251F19DFBF2D261 /* CGImage+Extensions.swift in Sources */,
 				B1489513EC18923E28ED1D10 /* GameSetupDef.swift in Sources */,
 				B1489E09EC12F82A0652BB8F /* ScoutSteps.swift in Sources */,
+				B1489370F6BEB13842DA4522 /* HeroUpdate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

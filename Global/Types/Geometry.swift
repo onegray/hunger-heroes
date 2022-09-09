@@ -9,8 +9,8 @@ import Foundation
 import CoreGraphics
 
 struct Point: Equatable, Codable {
-    let x: Int
-    let y: Int
+    var x: Int
+    var y: Int
 }
 
 struct Size: Equatable, Codable {

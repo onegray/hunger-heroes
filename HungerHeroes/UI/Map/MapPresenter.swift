@@ -35,6 +35,7 @@ class MapPresenter: MapPresenterProtocol {
                     case .mapUpdate:
                         self.onMapUpdate(map: game.map)
                     case .heroesUpdate:
+                        self.onMapUpdate(map: game.map)
                         self.onHeroesUpdate(heroes: game.heroes)
                     default:
                         ()
@@ -45,7 +46,7 @@ class MapPresenter: MapPresenterProtocol {
 
     func onNewGame(game: GameModel) {
         self.onMapUpdate(map: game.map)
-        let setup = GameSetupDef(playersNum: 10)
+        let setup = GameSetupDef(playersNum: 12)
         self.gameService.startGame(setup: setup)
     }
 
@@ -67,8 +68,9 @@ class MapPresenter: MapPresenterProtocol {
 
     func onHeroesUpdate(heroes: [HeroModel]) {
         self.viewModel.heroes = heroes.map { (model) -> HeroViewModel  in
-            return HeroViewModel(id: model.player?.id, team: nil,
-                                 name: model.player?.name,
+            return HeroViewModel(id: model.player.id,
+                                 team: model.player.team,
+                                 name: model.player.name,
                                  location: model.location)
         }
     }

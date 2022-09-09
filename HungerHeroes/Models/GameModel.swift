@@ -40,8 +40,8 @@ extension GameModel {
 
     func start(setup: GameSetupDef, completion: (()->Void)?) {
         let sz = self.map.size
-        self.heroes = (0..<setup.playersNum).map({ _ in
-            let hero = HeroModel.new()
+        self.heroes = (0..<setup.playersNum).map({ ind in
+            let hero = HeroModel(player: Player.testPlayer(id: ind, team: ind % 2))
             let location = Point(x: Int(arc4random()) % sz.width,
                                  y: Int(arc4random()) % sz.height)
             hero.updateLocation(location: location)
@@ -58,6 +58,21 @@ extension GameModel {
         }
         if scoutUpdates.isNotEmpty {
             self.map.updateFow(updates: scoutUpdates, completion: completion)
+        }
+    }
+
+    func updateHeroes(_ updates: [HeroUpdate], completion: (()->Void)?) {
+        var needsUpdateFow = false
+        for heroUpdate in updates {
+            if let hero = self.heroes.first(where: { $0.player.id == heroUpdate.playerId }) {
+                if let updatedLocation = heroUpdate.location {
+                    hero.updateLocation(location: updatedLocation)
+                    needsUpdateFow = true
+                }
+            }
+        }
+        if needsUpdateFow {
+            self.updateFow(completion: completion)
         }
     }
 }

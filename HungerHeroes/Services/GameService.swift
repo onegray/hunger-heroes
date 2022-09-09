@@ -29,6 +29,7 @@ class AppGameService: GameService {
 
     let onUpdate = PassthroughSubject<GameUpdateEvent, Never>()
     let onError = PassthroughSubject<Error, Never>()
+    var timer: Timer?
 
     var game: GameModel?
     let storage: Storage
@@ -80,6 +81,33 @@ class AppGameService: GameService {
             game.start(setup: setup) {
                 self.onUpdate.send(.startGame)
             }
+
+            self.timer?.invalidate()
+            self.timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { _ in
+                self.simulateUpdatePositions()
+            }
+        }
+    }
+}
+
+
+extension AppGameService {
+
+    func simulateUpdatePositions() {
+        guard let game = self.game else { return }
+        let dirBase = Int(Date().timeIntervalSince1970 / 30)
+        var updates = [HeroUpdate]()
+        for hero in game.heroes {
+            let dirX = ((dirBase + hero.player.id) % 3) - 1
+            let dirY = (((dirBase + hero.player.id) / 3) % 3) - 1
+            var p = hero.location
+            p.x += (Int(arc4random()) % 3) * dirX
+            p.y += (Int(arc4random()) % 3) * dirY
+            let update = HeroUpdate(playerId: hero.player.id, location: p)
+            updates.append(update)
+        }
+        game.updateHeroes(updates) {
+            self.onUpdate.send(.heroesUpdate)
         }
     }
 }
