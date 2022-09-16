@@ -29,7 +29,7 @@ class AppGameService: GameService {
 
     let onUpdate = PassthroughSubject<GameUpdateEvent, Never>()
     let onError = PassthroughSubject<Error, Never>()
-    var timer: Timer?
+    var timer: AnyCancellable?
 
     var game: GameModel?
     let storage: Storage
@@ -82,10 +82,11 @@ class AppGameService: GameService {
                 self.onUpdate.send(.startGame)
             }
 
-            self.timer?.invalidate()
-            self.timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { _ in
-                self.simulateUpdatePositions()
-            }
+            self.timer = Timer.publish(every: 0.2, on: .main, in: .common)
+                    .autoconnect()
+                    .sink { _ in
+                        self.simulateUpdatePositions()
+                    }
         }
     }
 }
