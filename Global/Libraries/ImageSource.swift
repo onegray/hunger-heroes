@@ -12,37 +12,44 @@ protocol ImageSource: AnyObject {
     func getImage(_ handler: @escaping (CGImage?)->Void)
 }
 
+class ImageAsyncSource: ImageSource {
 
-class ImageFileSource: ImageSource {
-
-    let fileUrl: URL
-    let queue: DispatchQueue
     var image: CGImage?
     weak var atomicImage: CGImage?
+    let provideImage: ()->CGImage?
+    let queue: DispatchQueue
 
-    init(fileUrl: URL, queue: DispatchQueue? = nil) {
-        self.fileUrl = fileUrl
-        self.queue = queue ?? DispatchQueue(label: "ImageFileSource.queue")
+    init(queue: DispatchQueue? = nil, imageProvider: @escaping ()->CGImage?) {
+        self.queue = queue ?? DispatchQueue(label: "ImageAsyncSource.queue")
+        self.provideImage = imageProvider
     }
 
     func getImage(_ handler: @escaping (CGImage?)->Void) {
-
-        if let img = self.atomicImage {
-            handler(img)
+        if let image = self.atomicImage {
+            handler(image)
         } else {
             self.queue.async {
-                if self.atomicImage == nil {
-                    if let imageData = try? Data(contentsOf: self.fileUrl),
-                       let imageSrc = CGImageSourceCreateWithData(imageData as CFData, nil) {
-                        self.image = CGImageSourceCreateImageAtIndex(imageSrc, 0, nil)
-                        self.atomicImage = self.image
-                    }
+                if self.atomicImage == nil, let image = self.provideImage() {
+                    self.image = image
+                    self.atomicImage = image
                 }
-
                 DispatchQueue.main.async {
                     handler(self.atomicImage)
                 }
             }
+        }
+    }
+}
+
+class ImageFileSource: ImageAsyncSource {
+
+    init(fileUrl: URL, queue: DispatchQueue? = nil) {
+        super.init(queue: queue) {
+            if let imageData = try? Data(contentsOf: fileUrl),
+               let imageSrc = CGImageSourceCreateWithData(imageData as CFData, nil) {
+                return CGImageSourceCreateImageAtIndex(imageSrc, 0, nil)
+            }
+            return nil
         }
     }
 }
