@@ -49,9 +49,8 @@ class AppGameService: GameService {
             return
         }
 
-        self.game!.reset {
-            self.onUpdate.send(.newGame)
-        }
+        self.game!.reset()
+        self.onUpdate.send(.newGame)
     }
 
     func loadRemoteGame(gameId: String, completion: (()->Void)?) {
@@ -78,9 +77,8 @@ class AppGameService: GameService {
 
     func startGame(setup: GameSetupDef) {
         if let game = self.game {
-            game.start(setup: setup) {
-                self.onUpdate.send(.startGame)
-            }
+            game.start(setup: setup)
+            self.onUpdate.send(.startGame)
 
             self.timer = Timer.publish(every: 0.2, on: .main, in: .common)
                     .autoconnect()
@@ -107,8 +105,7 @@ extension AppGameService {
             let update = HeroUpdate(playerId: hero.player.id, location: p)
             updates.append(update)
         }
-        game.updateHeroes(updates) {
-            self.onUpdate.send(.heroesUpdate)
-        }
+        game.updateHeroes(updates)
+        self.onUpdate.send(.heroesUpdate)
     }
 }

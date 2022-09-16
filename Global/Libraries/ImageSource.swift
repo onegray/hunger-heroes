@@ -39,6 +39,10 @@ class ImageAsyncSource: ImageSource {
             }
         }
     }
+
+    func preload() {
+        self.getImage({ _ in  })
+    }
 }
 
 class ImageFileSource: ImageAsyncSource {
