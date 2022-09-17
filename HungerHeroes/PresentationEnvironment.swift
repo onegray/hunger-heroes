@@ -9,6 +9,7 @@ import Foundation
 
 protocol PresentationEnvironment {
     func homePresenter() -> HomePresenterProtocol
+    func gameRoomPresenter() -> GameRoomPresenterProtocol
     func mapPresenter() -> MapPresenterProtocol
 }
 typealias Environment = PresentationEnvironment
@@ -28,7 +29,11 @@ extension AppUserEnvironment: PresentationEnvironment {
     func homePresenter() -> HomePresenterProtocol {
         HomePresenter(viewModel: HomeViewModel(), appService: app.appService, gameService: app.gameService)
     }
-    
+
+    func gameRoomPresenter() -> GameRoomPresenterProtocol {
+        return GameRoomPresenter(viewModel: GameRoomViewModel())
+    }
+
     func mapPresenter() -> MapPresenterProtocol {
         MapPresenter(viewModel: MapViewModel(), gameService: app.gameService)
     }

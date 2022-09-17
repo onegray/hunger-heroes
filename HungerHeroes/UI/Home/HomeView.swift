@@ -9,17 +9,29 @@ import SwiftUI
 
 protocol HomeViewDelegate: AnyObject {
     func onOpenGameBtn(gameId: String)
+    func onViewGameBtn(gameId: String)
 }
 
 struct HomeView: View {
-    
+
     @ObservedObject var viewModel: HomeViewModel
     weak var delegate: HomeViewDelegate?
-    
+
     var body: some View {
 
-        Button("Open Game") {
-            self.delegate?.onOpenGameBtn(gameId: "hg_pack.tar")
+        VStack() {
+            Spacer()
+
+            Button("Open Game") {
+                self.delegate?.onOpenGameBtn(gameId: "hg_pack.tar")
+            }
+
+            Spacer()
+
+            Button("View Players") {
+                self.delegate?.onViewGameBtn(gameId: "hg_pack.tar")
+            }
+            .padding()
         }
     }
 }
