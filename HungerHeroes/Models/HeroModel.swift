@@ -9,13 +9,13 @@ import Foundation
 
 class HeroModel: MapNode {
 
-    let player: Player
+    let player: PlayerDef
     var health: Int
     var ammo: Int
     var scouting: Int
     var scoutSteps: ScoutSteps
 
-    init(player: Player) {
+    init(player: PlayerDef) {
         self.player = player
         self.health = 0
         self.ammo = 0

@@ -8,14 +8,14 @@
 import Foundation
 
 class MainPlayer: MapNode {
-    let player: Player
+    let player: PlayerDef
 
     var health: Int
     var gameAge: Int
     var attack: Int
     var defence: Int
 
-    internal init(player: Player) {
+    internal init(player: PlayerDef) {
         self.player = player
         self.health = 100
         self.gameAge = 0

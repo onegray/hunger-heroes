@@ -41,7 +41,7 @@ extension GameModel {
     func start(setup: GameSetupDef) {
         let sz = self.map.size
         self.heroes = (0..<setup.playersNum).map({ ind in
-            let hero = HeroModel(player: Player.testPlayer(id: ind, team: ind % 2))
+            let hero = HeroModel(player: PlayerDef.testPlayer(id: ind, team: ind % 2))
             let location = Point(x: Int(arc4random()) % sz.width,
                                  y: Int(arc4random()) % sz.height)
             hero.updateLocation(location: location)

@@ -9,7 +9,7 @@ import SwiftUI
 
 protocol HomeViewDelegate: AnyObject {
     func onOpenGameBtn(gameId: String)
-    func onViewGameBtn(gameId: String)
+    func onGameRoomBtn(roomId: String)
 }
 
 struct HomeView: View {
@@ -28,8 +28,8 @@ struct HomeView: View {
 
             Spacer()
 
-            Button("View Players") {
-                self.delegate?.onViewGameBtn(gameId: "hg_pack.tar")
+            Button("Room Players") {
+                self.delegate?.onGameRoomBtn(roomId: "room42.json")
             }
             .padding()
         }

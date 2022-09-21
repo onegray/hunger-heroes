@@ -11,8 +11,8 @@ class GameRoomViewController: UIHostingController<GameRoomView> {
     let presenter: GameRoomPresenterProtocol
     var viewModel: GameRoomViewModel { self.presenter.viewModel }
 
-    init(_ environment: Environment, gameId: String?) {
-        let gameRoomPresenter = environment.gameRoomPresenter()
+    init(_ environment: Environment, roomId: String) {
+        let gameRoomPresenter = environment.gameRoomPresenter(roomId: roomId)
         self.environment = environment
         self.presenter = gameRoomPresenter
         super.init(rootView: GameRoomView(viewModel: gameRoomPresenter.viewModel))

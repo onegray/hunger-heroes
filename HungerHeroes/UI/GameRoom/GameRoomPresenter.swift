@@ -12,10 +12,12 @@ protocol GameRoomPresenterProtocol {
 }
 
 class GameRoomPresenter: GameRoomPresenterProtocol {
-    
+
     let viewModel: GameRoomViewModel
-    
-    init(viewModel: GameRoomViewModel) {
+    let roomService: RoomService
+
+    init(viewModel: GameRoomViewModel, roomService: RoomService) {
         self.viewModel = GameRoomView_previews.testViewModel
+        self.roomService = roomService
     }
 }

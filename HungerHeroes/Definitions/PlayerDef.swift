@@ -6,28 +6,27 @@
 //
 
 import Foundation
-import UIKit
 
-struct Player {
+struct PlayerDef: Codable, Equatable {
     let id: Int
     let team: Int
     let name: String
     let speciality: Speciality
-    let avatar: UIImage?
+    let avatar: String?
     let stats: Stats?
 }
 
 
-extension Player {
-    
-    enum Speciality: Int {
+extension PlayerDef {
+
+    enum Speciality: Int, Codable {
         case killer
         case scout
         case snipper
         case runner
     }
 
-    struct Stats {
+    struct Stats: Codable, Equatable {
         let efficiency: Int
         let score: Int
         let hitRate: Int
@@ -39,9 +38,9 @@ extension Player {
     }
 }
 
-extension Player {
-    static func testPlayer(id: Int, team: Int) -> Player {
-        return Player(id: id, team: team, name: "Player\(team):\(id)",
+extension PlayerDef {
+    static func testPlayer(id: Int, team: Int) -> PlayerDef {
+        return PlayerDef(id: id, team: team, name: "Player\(team):\(id)",
                       speciality: .scout, avatar: nil, stats: nil)
     }
 }

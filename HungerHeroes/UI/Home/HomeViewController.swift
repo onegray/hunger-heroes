@@ -25,8 +25,8 @@ class HomeViewController: UIHostingController<HomeView>, HomeViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func onViewGameBtn(gameId: String) {
-        let vc = GameRoomViewController(self.environment, gameId: gameId)
+    func onGameRoomBtn(roomId: String) {
+        let vc = GameRoomViewController(self.environment, roomId: roomId)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
