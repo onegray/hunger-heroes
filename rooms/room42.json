@@ -1,0 +1,28 @@
+{
+    "roomId":42,
+    "roomTitle":"Free For All",
+    "gamePackId":"hg_pack.tar",
+    "mapName":"Map Battlefield v2",
+    
+    "players":
+    [
+        {
+            "id":101,
+            "team":0,
+            "name":"Scorpion",
+            "avatar":"avatar101.png",
+            "speciality":2,
+            "stats":
+            {
+                "kdRate":116,
+                "score":1544,
+                "winRate":32,
+                "frags":88,
+                "efficiency":142,
+                "gameTime":156,
+                "hitRate":87,
+                "looseRate":10
+            }
+        }
+    ]
+}
