@@ -6,44 +6,52 @@ import Foundation
 
 class PersistentDictionary<K: Codable & Hashable, T: Codable> {
 
-    let persistentDictionary: PersistentValue<[K:T]>
+    private let persistentDictionary: PersistentValue<[K:T]>
 
     init(filepath: String, dispatchQueue: DispatchQueue? = nil) {
-        persistentDictionary = PersistentValue<[K:T]>(path: filepath, dispatchQueue: dispatchQueue)
+        self.persistentDictionary = PersistentValue<[K:T]>(path: filepath, dispatchQueue: dispatchQueue)
     }
 
     func get(by key: K) -> T? {
-        if let dictionary = persistentDictionary.get() {
+        if let dictionary = self.persistentDictionary.get() {
             return dictionary[key]
         }
         return nil
     }
 
     func getValues() -> [T]? {
-        if let dictionary = persistentDictionary.get() {
+        if let dictionary = self.persistentDictionary.get() {
             return Array(dictionary.values)
         }
         return nil
     }
 
     func getKeys() -> [K]? {
-        if let dictionary = persistentDictionary.get() {
+        if let dictionary = self.persistentDictionary.get() {
             return Array(dictionary.keys)
         }
         return nil
     }
 
     func getDictionary() -> [K:T] {
-        return persistentDictionary.cachedValue ?? [K:T]()
+        if self.persistentDictionary.isLoaded(),
+           let dictionary = self.persistentDictionary.get() {
+            return dictionary
+        }
+        return [K:T]()
     }
 
     func save(_ value: T, by key: K) {
         var dictionary = getDictionary()
         dictionary[key] = value
-        persistentDictionary.save(dictionary)
+        self.persistentDictionary.save(dictionary)
     }
 
-    func load(completion: (()->Void)? = nil) {
-        persistentDictionary.load(completion: completion)
+    func load(group: DispatchGroup) {
+        self.persistentDictionary.load(group: group)
+    }
+
+    func load(queue: DispatchQueue, completion: @escaping ()->Void) {
+        self.persistentDictionary.load(queue: queue, completion: completion)
     }
 }

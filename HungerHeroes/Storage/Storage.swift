@@ -15,7 +15,7 @@ protocol Storage {
 
     func gameExists(gameId: String) -> Bool
 
-    func loadStorage(completion: (()->Void)? )
+    func loadStorage(completion: @escaping ()->Void)
 }
 
 
@@ -23,6 +23,8 @@ class JsonStorage: Storage {
 
     let appStateJson = PersistentValue<AppStateDef>(path: "app_state.json")
     let gameStoreDictionary = StoreDictionary<String, JsonGameStore>(rootPath: "games/")
+
+    private var loadingGroup: DispatchGroup?
 
     init() {
 #if DEBUG
@@ -44,9 +46,12 @@ class JsonStorage: Storage {
         return self.gameStoreDictionary.hasStore(gameId)
     }
 
-    func loadStorage(completion: (()->Void)? ) {
-        self.gameStoreDictionary.loadDirectory { contents in
-            self.gameStoreDictionary.load(ids: contents, completion: completion)
+    func loadStorage(completion: @escaping ()->Void) {
+        if self.loadingGroup == nil {
+            self.loadingGroup = DispatchGroup()
+            self.gameStoreDictionary.loadStores(group: self.loadingGroup!)
+            self.appStateJson.load(group: self.loadingGroup!)
         }
+        self.loadingGroup!.notify(queue: .main, execute: completion)
     }
 }

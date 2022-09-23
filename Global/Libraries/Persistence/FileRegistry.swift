@@ -16,21 +16,35 @@ class FileRegistry {
         self.queue = queue ?? DispatchQueue(label: "FileRegistry.queue")
     }
 
-    func load(completion: (()->Void)? = nil) {
+    func readContents() -> [String]? {
+        let documentsDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let dirPath = documentsDir + "/" + self.rootPath
+        return try? FileManager.default.contentsOfDirectory(atPath: dirPath)
+    }
+
+    func load(group: DispatchGroup) {
+        group.enter()
         self.queue.async {
-            let documentsDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-            let dirPath = documentsDir + "/" + self.rootPath
-            let content = try? FileManager.default.contentsOfDirectory(atPath: dirPath)
-            DispatchQueue.main.async {
-                if content != nil {
-                    self.fileList = .init(content!)
+            if let content = self.readContents() {
+                self.fileList = .init(content)
+            }
+            group.leave()
+        }
+    }
+
+    func load(queue completionQueue: DispatchQueue, completion: (()->Void)? = nil) {
+        self.queue.async {
+            let content = self.readContents()
+            completionQueue.async {
+                if let content = content {
+                    self.fileList = .init(content)
                 }
                 completion?()
             }
         }
     }
 
-    func save(fileId: String, fileData: Data, completion: ((URL?)->Void)?) {
+    func save(fileId: String, fileData: Data, queue completionQueue: DispatchQueue, completion: ((URL?)->Void)?) {
         self.queue.async {
             var url: URL? = self.fileUrl(fileId: fileId)
             do {
@@ -45,7 +59,7 @@ class FileRegistry {
                     assert(false, "\(type(of: self)):  \(e)")
                 }
             }
-            DispatchQueue.main.async {
+            completionQueue.async {
                 if url != nil {
                     self.fileList.insert(fileId)
                 }

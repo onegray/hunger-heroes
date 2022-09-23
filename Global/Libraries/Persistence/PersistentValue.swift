@@ -7,39 +7,36 @@ import Foundation
 class PersistentValue<T: Codable> {
 
     let fileURL: URL
-
-    var cachedValue: T?
-    var isLoaded: Bool = false
-    let version = AtomicCounter()
-
     let queue: DispatchQueue
+    private var cachedValue: T?
+    private let version = AtomicCounter()
 
     init(path: String, dispatchQueue: DispatchQueue? = nil) {
         let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        fileURL = directory.appendingPathComponent(path, isDirectory: false)
-        queue = dispatchQueue ?? DispatchQueue(label: "PersistentValue<\(T.self)>.queue")
+        self.fileURL = directory.appendingPathComponent(path, isDirectory: false)
+        self.queue = dispatchQueue ?? DispatchQueue(label: "PersistentValue<\(T.self)>.queue")
+    }
+
+    func isLoaded() -> Bool {
+        return self.version.get() > 0
     }
 
     func get() -> T? {
-        return cachedValue
+        assert(isLoaded() || !FileManager.default.fileExists(atPath: self.fileURL.path),
+               "Getting value of not loaded file: \(self.fileURL.lastPathComponent)")
+        return self.cachedValue
     }
 
-    func save(_ value: T?, completion: (()->Void)? = nil) {
-        isLoaded = true
-
-        if cachedValue == nil && value == nil {
+    func save(_ value: T?) {
+        if self.cachedValue == nil && value == nil {
             return
         }
+        self.cachedValue = value
+        let valueVersion = self.version.get(increment: true)
 
-        cachedValue = value
-        let versionValue = self.version.get(increment: true)
+        self.queue.async {
 
-        queue.async {
-
-            var lastVersion: Int = 0
-            lastVersion = self.version.get()
-
-            if versionValue == lastVersion {
+            if valueVersion == self.version.get() {
 
                 if value == nil {
 
@@ -68,27 +65,31 @@ class PersistentValue<T: Codable> {
                     assert(false, "PersistentValue<\(T.self)> encode failed")
                 }
             }
-
-            if completion != nil {
-                DispatchQueue.main.async { completion?() }
-            }
         }
     }
 
-    func load(completion: (()->Void)? = nil) {
-        isLoaded = false
-        queue.async {
-            var value: T? = nil
-            if let jsonData = try? Data(contentsOf: self.fileURL) {
-                value = try? JSONDecoder().decode(T.self, from: jsonData)
-            }
+    func readValue() -> T? {
+        if let jsonData = try? Data(contentsOf: self.fileURL) {
+            return try? JSONDecoder().decode(T.self, from: jsonData)
+        }
+        return nil
+    }
 
-            DispatchQueue.main.async {
-                if !self.isLoaded {
-                    self.cachedValue = value
-                    self.isLoaded = true
-                }
-                completion?()
+    func load(group: DispatchGroup) {
+        group.enter()
+        self.queue.async {
+            assert(self.version.get(increment: true) == 1, "Value updated while loading")
+            self.cachedValue = self.readValue()
+            group.leave()
+        }
+    }
+
+    func load(queue completionQueue: DispatchQueue, completion: @escaping ()->Void) {
+        self.queue.async {
+            let value = self.readValue()
+            completionQueue.async {
+                assert(self.version.get(increment: true) == 1, "Value updated while loading")
+                self.cachedValue = value
             }
         }
     }
@@ -97,8 +98,8 @@ class PersistentValue<T: Codable> {
 extension PersistentValue {
 
     class AtomicCounter {
-        var value: Int = 0
-        let accessSemaphore = DispatchSemaphore(value: 1)
+        private var value: Int = 0
+        private let accessSemaphore = DispatchSemaphore(value: 1)
 
         func get(increment: Bool = false) -> Int {
             self.accessSemaphore.wait()

@@ -6,16 +6,18 @@ import Foundation
 
 protocol StoreDictionaryProtocol {
     init(path: String)
-    func load(completion: (()->Void)?)
+    func load(group: DispatchGroup)
 }
 
 class StoreDictionary<KeyType: Hashable, Store: StoreDictionaryProtocol> {
 
-    var storeDictionary = [KeyType : Store]()
+    private var storeDictionary = [KeyType : Store]()
     let rootPath: String
+    let queue: DispatchQueue
 
-    init(rootPath: String) {
+    init(rootPath: String, queue: DispatchQueue? = nil) {
         self.rootPath = rootPath.hasSuffix("/") ? rootPath : rootPath + "/"
+        self.queue = queue ?? DispatchQueue.global()
     }
 
     func storePath(_ storeKey: KeyType) -> String {
@@ -32,35 +34,44 @@ class StoreDictionary<KeyType: Hashable, Store: StoreDictionaryProtocol> {
         }
     }
 
-    func load(ids: [KeyType]?, completion: (()->Void)?) {
-        guard var expectation = ids?.count, expectation > 0 else {
-            completion?()
-            return
-        }
-        ids?.forEach { storeKey in
-            let store = get(storeKey)
-            store.load {
-                expectation -= 1
-                if expectation == 0 {
-                    completion?()
-                }
-            }
-        }
+    func readContents() -> [String]? {
+        let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let url = docDir.appendingPathComponent(self.rootPath, isDirectory: true)
+        let contents = try? FileManager.default.contentsOfDirectory(atPath: url.path)
+        return contents?.map({ ($0 as NSString).lastPathComponent })
     }
 
-    func loadDirectory(completion: @escaping ([String]?)->Void) {
-        DispatchQueue.global().async {
-            let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let url = docDir.appendingPathComponent(self.rootPath, isDirectory: true)
-            let contents = try? FileManager.default.contentsOfDirectory(atPath: url.path)
-            let items = contents?.map({ ($0 as NSString).lastPathComponent })
-            DispatchQueue.main.async {
+    func loadDirectory(queue completionQueue: DispatchQueue, completion: @escaping ([String]?)->Void) {
+        self.queue.async {
+            let items = self.readContents()
+            completionQueue.async {
                 completion(items)
             }
         }
     }
 
+    func load(ids: [KeyType]?, group: DispatchGroup) {
+        ids?.forEach { self.get($0).load(group: group) }
+    }
+
     func hasStore(_ storeKey: KeyType) -> Bool {
         return self.storeDictionary[storeKey] != nil
+    }
+}
+
+extension StoreDictionary where KeyType: LosslessStringConvertible {
+
+    func loadStores(group: DispatchGroup) {
+        group.enter()
+        self.queue.async {
+            if let contents = self.readContents() {
+                contents.forEach { (item: String) in
+                    if let key = KeyType.init(item) {
+                        self.get(key).load(group: group)
+                    }
+                }
+            }
+            group.leave()
+        }
     }
 }

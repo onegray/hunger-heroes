@@ -6,7 +6,7 @@ import Foundation
 
 class ImageStore {
 
-    let files: FileRegistry
+    private let files: FileRegistry
 
     init(rootPath: String) {
         self.files = .init(rootPath: rootPath)
@@ -20,13 +20,13 @@ class ImageStore {
     }
 
     func saveImageFile(fileId: String, data: Data, completion: ((ImageSource?)->Void)?) {
-        self.files.save(fileId: fileId, fileData: data) { url in
+        self.files.save(fileId: fileId, fileData: data, queue: .main) { url in
             let image = url != nil ? ImageFileSource(fileUrl: url!) : nil
             completion?(image)
         }
     }
 
-    func load(completion: (()->Void)?) {
-        self.files.load(completion: completion)
+    func load(group: DispatchGroup) {
+        self.files.load(group: group)
     }
 }

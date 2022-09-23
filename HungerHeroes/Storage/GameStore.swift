@@ -21,10 +21,9 @@ class JsonGameStore: StoreDictionaryProtocol {
         self.imageStore = .init(rootPath: path + "/images/")
     }
 
-    func load(completion: (() -> Void)?) {
-        self.gamePackJson.load {
-            self.imageStore.load(completion: completion)
-        }
+    func load(group: DispatchGroup) {
+        self.gamePackJson.load(group: group)
+        self.imageStore.load(group: group)
     }
 }
 
