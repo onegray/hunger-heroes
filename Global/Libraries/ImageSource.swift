@@ -57,3 +57,9 @@ class ImageFileSource: ImageAsyncSource {
         }
     }
 }
+
+extension CGImage: ImageSource {
+    func getImage(_ handler: @escaping (CGImage?)->Void) {
+        handler(self)
+    }
+}

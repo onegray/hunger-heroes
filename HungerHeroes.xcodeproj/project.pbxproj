@@ -105,6 +105,7 @@
 		B14896001EE6B0DF99922C64 /* FileRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148953DD6A583C3E52775F3 /* FileRegistry.swift */; };
 		B1489661A6E1E501657A056C /* RoomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489977576DEFE2E980C968 /* RoomService.swift */; };
 		B148966E588D5B994AE3BC1A /* GetPlayerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489F94C5C930E6DA9AA29F /* GetPlayerProfile.swift */; };
+		B1489675A02FBCE7A858B4F8 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489B90D90A0E1133E02A53 /* ImageView.swift */; };
 		B148969C5F85480EA0B38EFD /* GameRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489283007907A4FC5124EE /* GameRoomViewModel.swift */; };
 		B14896A71BAA98EBC12D9721 /* RemoteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489C81D18AB1343C0D6ED8 /* RemoteClient.swift */; };
 		B1489771F61BC1E94D43114D /* StoreDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489D79828A6419FF9BEFC4 /* StoreDictionary.swift */; };
@@ -115,6 +116,7 @@
 		B148993A0D7B00DFA1F32201 /* FileRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148953DD6A583C3E52775F3 /* FileRegistry.swift */; };
 		B1489947627594801743791B /* AppStateDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148929A2A7E4017B6F3DD94 /* AppStateDef.swift */; };
 		B148998B5F2F251BCACFEA06 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489688AF01E494E5A80C80 /* AppService.swift */; };
+		B148998E219A26B80E76787C /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489B90D90A0E1133E02A53 /* ImageView.swift */; };
 		B14899CB3282A71A86FE2E92 /* HeroUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489C4006D03735F15B860B /* HeroUpdate.swift */; };
 		B1489A34C381B1276A3A5B9B /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148947E30D3D402BB24ACF2 /* Date+Extensions.swift */; };
 		B1489A393D6E85A8B012ED9B /* GameSetupDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148904BC5E83709A846D30B /* GameSetupDef.swift */; };
@@ -219,6 +221,7 @@
 		B1489A635DFCC57918B0DE89 /* ModelError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelError.swift; sourceTree = "<group>"; };
 		B1489AFE8BA889F063C5E365 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
+		B1489B90D90A0E1133E02A53 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		B1489C4006D03735F15B860B /* HeroUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroUpdate.swift; sourceTree = "<group>"; };
 		B1489C81D18AB1343C0D6ED8 /* RemoteClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteClient.swift; sourceTree = "<group>"; };
 		B1489C978067FAAFFEA2FB71 /* GameRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRoomViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +261,7 @@
 				B1489AAF66B4680F0EF4425B /* Extensions */,
 				AB71BB2E28A7F87300FD24C1 /* Libraries */,
 				ABBFE8E228BD0D6D005C1874 /* Types */,
+				B1489F0B9EBE9DBAD1F0D910 /* Controls */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -497,6 +501,14 @@
 			path = Remote;
 			sourceTree = "<group>";
 		};
+		B1489F0B9EBE9DBAD1F0D910 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				B1489B90D90A0E1133E02A53 /* ImageView.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -690,6 +702,7 @@
 				B14892322708B8828B3A8CA1 /* GetGameRoom.swift in Sources */,
 				B1489AAF28EBEFB67ED665A5 /* RoomService.swift in Sources */,
 				B14893BADFF7814D868B7852 /* RoomStore.swift in Sources */,
+				B148998E219A26B80E76787C /* ImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,6 +779,7 @@
 				B14890523EDF6831D28D4851 /* GameRoomViewModel.swift in Sources */,
 				B1489BBF31EEAEA35A99C7FB /* GameRoomView.swift in Sources */,
 				B1489C6A7925AE92B739E81E /* GameRoomViewController.swift in Sources */,
+				B1489675A02FBCE7A858B4F8 /* ImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

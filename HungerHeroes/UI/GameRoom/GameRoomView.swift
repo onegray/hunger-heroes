@@ -31,8 +31,8 @@ struct GameRoomPlayerView: View {
     let player: GameRoomPlayer
     var body: some View {
         HStack {
-            Image(uiImage: UIImage(cgImage: player.icon))
-                .frame(width: 42, height: 42, alignment: .center)
+            ImageView(imageSource: player.icon)
+                    .frame(width: 32, height: 32, alignment: .center)
 
             VStack {
                 Text(player.name)
