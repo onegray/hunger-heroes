@@ -14,7 +14,7 @@ class GameRoomViewModel: ObservableObject {
 struct GameRoomTeam: Identifiable {
     let id: Int
     let title: String
-    let players: [GameRoomPlayer]
+    var players: [GameRoomPlayer]
 }
 
 struct GameRoomPlayer: Identifiable {

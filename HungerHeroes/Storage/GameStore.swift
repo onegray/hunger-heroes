@@ -4,7 +4,7 @@
 
 import Foundation
 
-protocol GameStore {
+protocol GameStore: AnyObject {
     var gamePack: GamePackDef? { get }
     func save(gamePack: GamePackDef, files: [String : Data], completion: (()->Void)?)
     func getImage(fileId: String) -> ImageSource?

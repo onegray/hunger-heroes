@@ -94,6 +94,7 @@
 		B1489306DECB24CE12343FE7 /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14893E6B4DFDB89AF7A8B38 /* GameStore.swift */; };
 		B1489318C260A449434C41E0 /* StoreDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489D79828A6419FF9BEFC4 /* StoreDictionary.swift */; };
 		B1489370F6BEB13842DA4522 /* HeroUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489C4006D03735F15B860B /* HeroUpdate.swift */; };
+		B14893BADFF7814D868B7852 /* RoomStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489600F9CB5A2627C55B92 /* RoomStore.swift */; };
 		B14893D133A174BF1E66F687 /* ModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489A635DFCC57918B0DE89 /* ModelError.swift */; };
 		B14894FBE8828B29B889D7E2 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489688AF01E494E5A80C80 /* AppService.swift */; };
 		B1489513EC18923E28ED1D10 /* GameSetupDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148904BC5E83709A846D30B /* GameSetupDef.swift */; };
@@ -108,6 +109,7 @@
 		B14896A71BAA98EBC12D9721 /* RemoteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489C81D18AB1343C0D6ED8 /* RemoteClient.swift */; };
 		B1489771F61BC1E94D43114D /* StoreDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489D79828A6419FF9BEFC4 /* StoreDictionary.swift */; };
 		B148978114373CF1B67AA6F0 /* GamePackDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489FF637CD567EF78B3B2D /* GamePackDef.swift */; };
+		B14898437FBCA09E3DC91291 /* RoomStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489600F9CB5A2627C55B92 /* RoomStore.swift */; };
 		B1489866490FF36DE85A5557 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489B876410CDFB72A8F0CC /* Collection+Extensions.swift */; };
 		B148991ABABC6B21E16634D7 /* ScoutSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14890E48C5157837CC8611D /* ScoutSteps.swift */; };
 		B148993A0D7B00DFA1F32201 /* FileRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148953DD6A583C3E52775F3 /* FileRegistry.swift */; };
@@ -208,6 +210,7 @@
 		B14893E6B4DFDB89AF7A8B38 /* GameStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
 		B148947E30D3D402BB24ACF2 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		B148953DD6A583C3E52775F3 /* FileRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileRegistry.swift; sourceTree = "<group>"; };
+		B1489600F9CB5A2627C55B92 /* RoomStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomStore.swift; sourceTree = "<group>"; };
 		B148961EF1E4694DCB54407A /* GameRoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRoomView.swift; sourceTree = "<group>"; };
 		B1489688AF01E494E5A80C80 /* AppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		B1489977576DEFE2E980C968 /* RoomService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomService.swift; sourceTree = "<group>"; };
@@ -416,6 +419,7 @@
 				ABBFE8FE28BD0D6D005C1874 /* Storage.swift */,
 				B1489AFE8BA889F063C5E365 /* ImageStore.swift */,
 				B14893E6B4DFDB89AF7A8B38 /* GameStore.swift */,
+				B1489600F9CB5A2627C55B92 /* RoomStore.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -685,6 +689,7 @@
 				AB7B355328D63F3500DA3D35 /* GameRoomPresenter.swift in Sources */,
 				B14892322708B8828B3A8CA1 /* GetGameRoom.swift in Sources */,
 				B1489AAF28EBEFB67ED665A5 /* RoomService.swift in Sources */,
+				B14893BADFF7814D868B7852 /* RoomStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,6 +748,7 @@
 				B148969C5F85480EA0B38EFD /* GameRoomViewModel.swift in Sources */,
 				B1489C86EF87C4A8132EC1BB /* GetGameRoom.swift in Sources */,
 				B1489661A6E1E501657A056C /* RoomService.swift in Sources */,
+				B14898437FBCA09E3DC91291 /* RoomStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

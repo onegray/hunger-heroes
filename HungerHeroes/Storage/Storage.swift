@@ -11,6 +11,8 @@ protocol Storage {
 
     var appState: AppStateDef? { get set }
 
+    func roomStore(roomId: String) -> RoomStore
+
     func gameStore(gameId: String) -> GameStore
 
     func gameExists(gameId: String) -> Bool
@@ -22,7 +24,8 @@ protocol Storage {
 class JsonStorage: Storage {
 
     let appStateJson = PersistentValue<AppStateDef>(path: "app_state.json")
-    let gameStoreDictionary = StoreDictionary<String, JsonGameStore>(rootPath: "games/")
+    let roomStores = StoreDictionary<String, JsonRoomStore>(rootPath: "rooms")
+    let gameStores = StoreDictionary<String, JsonGameStore>(rootPath: "games")
 
     private var loadingGroup: DispatchGroup?
 
@@ -38,18 +41,23 @@ class JsonStorage: Storage {
         set { self.appStateJson.save(newValue) }
     }
 
+    func roomStore(roomId: String) -> RoomStore {
+        return self.roomStores.get(roomId)
+    }
+
     func gameStore(gameId: String) -> GameStore {
-        return self.gameStoreDictionary.get(gameId)
+        return self.gameStores.get(gameId)
     }
 
     func gameExists(gameId: String) -> Bool {
-        return self.gameStoreDictionary.hasStore(gameId)
+        return self.gameStores.hasStore(gameId)
     }
 
     func loadStorage(completion: @escaping ()->Void) {
         if self.loadingGroup == nil {
             self.loadingGroup = DispatchGroup()
-            self.gameStoreDictionary.loadStores(group: self.loadingGroup!)
+            self.roomStores.loadStores(group: self.loadingGroup!)
+            self.gameStores.loadStores(group: self.loadingGroup!)
             self.appStateJson.load(group: self.loadingGroup!)
         }
         self.loadingGroup!.notify(queue: .main, execute: completion)
