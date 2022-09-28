@@ -31,7 +31,7 @@ struct GameRoomPlayerView: View {
     let player: GameRoomPlayer
     var body: some View {
         HStack {
-            ImageView(imageSource: player.icon)
+            ImageView(imageSource: player.avatar)
                     .frame(width: 32, height: 32, alignment: .center)
 
             VStack {
@@ -56,12 +56,12 @@ struct GameRoomView_previews: PreviewProvider {
         let iconImage = UIImage(systemName: "person")!.cgImage!
         vm.teams = [
             GameRoomTeam(id: 0, title: "Team 1", players: [
-                GameRoomPlayer(id: 1, name: "Player1", icon: iconImage, role: "assasin"),
-                GameRoomPlayer(id: 2, name: "Player2", icon: iconImage, role: "killer")
+                GameRoomPlayer(id: 1, name: "Player1", avatar: iconImage, role: "assasin"),
+                GameRoomPlayer(id: 2, name: "Player2", avatar: iconImage, role: "killer")
             ]),
             GameRoomTeam(id: 1, title: "Team 2", players: [
-                GameRoomPlayer(id: 3, name: "Player3", icon: iconImage, role: "stalker"),
-                GameRoomPlayer(id: 4, name: "Player4", icon: iconImage, role: "warrior")
+                GameRoomPlayer(id: 3, name: "Player3", avatar: iconImage, role: "stalker"),
+                GameRoomPlayer(id: 4, name: "Player4", avatar: iconImage, role: "warrior")
             ])
         ]
         return vm

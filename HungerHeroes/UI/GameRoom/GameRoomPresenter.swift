@@ -17,11 +17,13 @@ class GameRoomPresenter: GameRoomPresenterProtocol {
 
     let viewModel: GameRoomViewModel
     let roomService: RoomService
+    let imageService: ImageService
     var disposeBag = Set<AnyCancellable>()
 
-    init(viewModel: GameRoomViewModel, roomService: RoomService) {
+    init(viewModel: GameRoomViewModel, roomService: RoomService, imageService: ImageService) {
         self.viewModel = GameRoomView_previews.testViewModel
         self.roomService = roomService
+        self.imageService = imageService
 
         self.roomService.room.compactMap({ $0 })
                 .sink { [weak self] room in
@@ -40,9 +42,12 @@ class GameRoomPresenter: GameRoomPresenterProtocol {
 
         var teams = [Int : GameRoomTeam]()
         for playerDef in room.players {
-            let iconImage = UIImage(systemName: "person")!.cgImage!
+            var avatar: ImageSource? = nil
+            if let avatarImageId = playerDef.avatar {
+                avatar = self.imageService.getPlayerAvatar(imageId: avatarImageId)
+            }
             let player = GameRoomPlayer(id: playerDef.id, name: playerDef.name,
-                                        icon: iconImage, role: "")
+                                        avatar: avatar, role: "")
             var team = teams[player.id] ?? GameRoomTeam(id: player.id, title: "", players: [])
             team.players.append(player)
             teams[player.id] = team

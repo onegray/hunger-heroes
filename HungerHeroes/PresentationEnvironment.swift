@@ -32,7 +32,8 @@ extension AppUserEnvironment: PresentationEnvironment {
 
     func gameRoomPresenter(roomId: String) -> GameRoomPresenterProtocol {
         let roomService = self.app.getRoomService(roomId: roomId)
-        return GameRoomPresenter(viewModel: GameRoomViewModel(), roomService: roomService)
+        let imageService = self.app.imageService
+        return GameRoomPresenter(viewModel: GameRoomViewModel(), roomService: roomService, imageService: imageService)
     }
 
     func mapPresenter() -> MapPresenterProtocol {

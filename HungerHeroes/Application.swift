@@ -11,6 +11,7 @@ protocol Application {
 
     var gameService: GameService { get }
     var appService: AppService { get }
+    var imageService: ImageService { get }
 
     func getRoomService(roomId: String) -> RoomService
 }
@@ -25,10 +26,12 @@ class ApplicationCore: Application {
 
     let gameService: GameService
     let appService: AppService
+    let imageService: ImageService
 
     init() {
         self.appService = CoreAppService(storage: self.storage, httpClient: self.httpClient)
         self.gameService = AppGameService(storage: self.storage, httpClient: self.httpClient)
+        self.imageService = AppImageService(store: self.storage.imageFileStore, httpClient: self.httpClient)
     }
 
     func getRoomService(roomId: String) -> RoomService {

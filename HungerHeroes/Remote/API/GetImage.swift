@@ -6,7 +6,7 @@ import Foundation
 
 class GetImageRequest: HttpRequest {
     init(imageId: String, handler: @escaping (GetImageResponse)->Void) {
-        super.init(path: "images/\(imageId).png", method: .get, handler: handler)
+        super.init(path: "images/" + imageId, method: .get, handler: handler)
     }
 }
 
@@ -23,5 +23,3 @@ class GetImageResponse: HttpResponse {
         super.init(error: error, code: code)
     }
 }
-
-

@@ -7,7 +7,7 @@ import SwiftUI
 
 struct ImageView: UIViewRepresentable {
 
-    let imageSource: ImageSource
+    let imageSource: ImageSource?
     var contentMode: ContentMode = .fit
 
     func makeUIView(context: Context) -> UIView {
@@ -21,7 +21,7 @@ struct ImageView: UIViewRepresentable {
 
     func updateUIView(_ uiView: UIView, context: Context) {
         if let imageView = uiView.subviews.first as? UIImageView {
-            self.imageSource.getImage { cgImage in
+            self.imageSource?.getImage { cgImage in
                 imageView.image = cgImage != nil ? UIImage(cgImage: cgImage!) : nil
             }
             imageView.contentMode = self.contentMode == .fit ? .scaleAspectFit : .scaleAspectFill

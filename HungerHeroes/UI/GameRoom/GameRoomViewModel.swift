@@ -20,6 +20,6 @@ struct GameRoomTeam: Identifiable {
 struct GameRoomPlayer: Identifiable {
     let id: Int
     let name: String
-    let icon: ImageSource
+    let avatar: ImageSource?
     let role: String
 }

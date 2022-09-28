@@ -4,7 +4,11 @@
 
 import Foundation
 
-class ImageService {
+protocol ImageService {
+    func getPlayerAvatar(imageId: String) -> ImageSource?
+}
+
+class AppImageService: ImageService {
     let store: ImageStore
     let httpClient: HttpClientProtocol
 
@@ -13,9 +17,9 @@ class ImageService {
         self.httpClient = httpClient
     }
 
-    func getPlayerAvatar(playerId: String) -> ImageSource? {
-        let ds = RemoteImageDataSource(imageId: playerId, httpClient: self.httpClient)
-        return CachedImageSource(dataSource: ds, imageId: playerId, store: self.store)
+    func getPlayerAvatar(imageId: String) -> ImageSource? {
+        let ds = RemoteImageDataSource(imageId: imageId, httpClient: self.httpClient)
+        return CachedImageSource(dataSource: ds, imageId: imageId, store: self.store)
     }
 }
 
