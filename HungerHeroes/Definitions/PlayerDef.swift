@@ -20,6 +20,7 @@ struct PlayerDef: Codable, Equatable {
 extension PlayerDef {
 
     enum Speciality: Int, Codable {
+        case assassin
         case killer
         case scout
         case snipper

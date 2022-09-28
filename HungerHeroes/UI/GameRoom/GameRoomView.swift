@@ -34,7 +34,7 @@ struct GameRoomPlayerView: View {
             ImageView(imageSource: player.avatar)
                     .frame(width: 32, height: 32, alignment: .center)
 
-            VStack {
+            VStack(alignment: .leading) {
                 Text(player.name)
 
                 Text(player.role)

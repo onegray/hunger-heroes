@@ -23,6 +23,7 @@ extension GameRoomDef {
         let id: Int
         let team: Int
         let name: String
+        let speciality: PlayerDef.Speciality
         let avatar: String?
     }
 }

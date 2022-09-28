@@ -37,6 +37,7 @@ class GameRoomPresenter: GameRoomPresenterProtocol {
     }
 
     func onUpdateRoom(_ room: GameRoomDef) {
+        self.viewModel.roomTitle = "Room\(room.roomId)"
         self.viewModel.gameTitle = room.roomTitle
         self.viewModel.mapName = room.mapName
 
@@ -47,10 +48,10 @@ class GameRoomPresenter: GameRoomPresenterProtocol {
                 avatar = self.imageService.getPlayerAvatar(imageId: avatarImageId)
             }
             let player = GameRoomPlayer(id: playerDef.id, name: playerDef.name,
-                                        avatar: avatar, role: "")
-            var team = teams[player.id] ?? GameRoomTeam(id: player.id, title: "", players: [])
+                                        avatar: avatar, role: playerDef.speciality.string)
+            var team = teams[playerDef.team] ?? GameRoomTeam(id: playerDef.team, title: "", players: [])
             team.players.append(player)
-            teams[player.id] = team
+            teams[playerDef.team] = team
         }
         self.viewModel.teams = teams.values.sorted { $0.id > $1.id }
     }

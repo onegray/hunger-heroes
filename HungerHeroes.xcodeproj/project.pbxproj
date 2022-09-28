@@ -91,6 +91,8 @@
 		B148903F4A77521DD837D31E /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14893E6B4DFDB89AF7A8B38 /* GameStore.swift */; };
 		B14890523EDF6831D28D4851 /* GameRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489283007907A4FC5124EE /* GameRoomViewModel.swift */; };
 		B14890A88251F19DFBF2D261 /* CGImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489A54804F4B92FC166530 /* CGImage+Extensions.swift */; };
+		B14891FC509100CAB6AD9862 /* Presenter+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14895F6C7DB2F332BD3E5DC /* Presenter+Strings.swift */; };
+		B14892034B2EE905913F9269 /* Presenter+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14895F6C7DB2F332BD3E5DC /* Presenter+Strings.swift */; };
 		B14892322708B8828B3A8CA1 /* GetGameRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489199CE49A7AD87B6EC01 /* GetGameRoom.swift */; };
 		B14892721C538262B360FD2D /* MapObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14890EC022BC1B111E54F4B /* MapObjectView.swift */; };
 		B148927BF791297794D4F76C /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489B52EFD5AC22FB49F0A0 /* ImageService.swift */; };
@@ -121,6 +123,7 @@
 		B148991ABABC6B21E16634D7 /* ScoutSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14890E48C5157837CC8611D /* ScoutSteps.swift */; };
 		B148993A0D7B00DFA1F32201 /* FileRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148953DD6A583C3E52775F3 /* FileRegistry.swift */; };
 		B1489947627594801743791B /* AppStateDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148929A2A7E4017B6F3DD94 /* AppStateDef.swift */; };
+		B1489977D133D1D4EE901160 /* Presenter+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14895F6C7DB2F332BD3E5DC /* Presenter+Strings.swift */; };
 		B148998B5F2F251BCACFEA06 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489688AF01E494E5A80C80 /* AppService.swift */; };
 		B148998E219A26B80E76787C /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489B90D90A0E1133E02A53 /* ImageView.swift */; };
 		B14899CB3282A71A86FE2E92 /* HeroUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489C4006D03735F15B860B /* HeroUpdate.swift */; };
@@ -220,6 +223,7 @@
 		B14893E6B4DFDB89AF7A8B38 /* GameStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
 		B148947E30D3D402BB24ACF2 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		B148953DD6A583C3E52775F3 /* FileRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileRegistry.swift; sourceTree = "<group>"; };
+		B14895F6C7DB2F332BD3E5DC /* Presenter+Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Presenter+Strings.swift"; sourceTree = "<group>"; };
 		B1489600F9CB5A2627C55B92 /* RoomStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomStore.swift; sourceTree = "<group>"; };
 		B148961EF1E4694DCB54407A /* GameRoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRoomView.swift; sourceTree = "<group>"; };
 		B1489688AF01E494E5A80C80 /* AppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
@@ -382,6 +386,7 @@
 				ABBFE91628BD1976005C1874 /* Map */,
 				AB78237D289DA5C70075746B /* PlayerProfile */,
 				B148930A98B6A9F5A61D5AFE /* GameRoom */,
+				B14895F6C7DB2F332BD3E5DC /* Presenter+Strings.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -720,6 +725,7 @@
 				B14894B3984AEF1FB053FAA6 /* CachedImageSource.swift in Sources */,
 				B148927BF791297794D4F76C /* ImageService.swift in Sources */,
 				B1489D2081577EE23F68391C /* GetImage.swift in Sources */,
+				B14891FC509100CAB6AD9862 /* Presenter+Strings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,6 +790,7 @@
 				B1489DE85417151B193E2041 /* CachedImageSource.swift in Sources */,
 				B1489E56A598028F3EB932BE /* ImageService.swift in Sources */,
 				B14898EB5F3E97689C581188 /* GetImage.swift in Sources */,
+				B14892034B2EE905913F9269 /* Presenter+Strings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -802,6 +809,7 @@
 				B14890523EDF6831D28D4851 /* GameRoomViewModel.swift in Sources */,
 				B1489C6A7925AE92B739E81E /* GameRoomViewController.swift in Sources */,
 				B1489675A02FBCE7A858B4F8 /* ImageView.swift in Sources */,
+				B1489977D133D1D4EE901160 /* Presenter+Strings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

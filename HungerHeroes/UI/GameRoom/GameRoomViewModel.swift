@@ -6,6 +6,7 @@ import Foundation
 import CoreGraphics
 
 class GameRoomViewModel: ObservableObject {
+    @Published var roomTitle: String = ""
     @Published var gameTitle: String = ""
     @Published var mapName: String = ""
     @Published var teams: [GameRoomTeam] = []
