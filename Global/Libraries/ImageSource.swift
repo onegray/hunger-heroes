@@ -29,12 +29,14 @@ class ImageAsyncSource: ImageSource {
             handler(image)
         } else {
             self.queue.async {
-                if self.atomicImage == nil, let image = self.provideImage() {
-                    self.image = image
-                    self.atomicImage = image
+                var resultImage = self.atomicImage
+                if resultImage == nil, let providedImage = self.provideImage() {
+                    resultImage = providedImage
+                    self.image = resultImage
+                    self.atomicImage = resultImage
                 }
                 DispatchQueue.main.async {
-                    handler(self.atomicImage)
+                    handler(resultImage)
                 }
             }
         }

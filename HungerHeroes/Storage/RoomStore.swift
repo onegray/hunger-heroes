@@ -13,7 +13,7 @@ protocol RoomStore: AnyObject {
 class JsonRoomStore: StoreDictionaryProtocol {
 
     var roomJson: PersistentValue<GameRoomDef>
-    let imageStore: ImageStore
+    let imageStore: ImageFileStore
 
     required init(path: String) {
         self.roomJson = .init(path: path + "/room.json")

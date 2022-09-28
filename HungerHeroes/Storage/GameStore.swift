@@ -14,7 +14,7 @@ class JsonGameStore: StoreDictionaryProtocol {
 
     let gamePackJson: PersistentValue<GamePackDef>
 
-    let imageStore: ImageStore
+    let imageStore: ImageFileStore
 
     required init(path: String) {
         self.gamePackJson = .init(path: path + "/game.json")
@@ -33,13 +33,13 @@ extension JsonGameStore: GameStore {
     var gamePack: GamePackDef? { self.gamePackJson.get() }
 
     func getImage(fileId: String) -> ImageSource? {
-        return self.imageStore.getImage(fileId: fileId)
+        return self.imageStore.getImage(imageId: fileId)
     }
 
     func save(gamePack: GamePackDef, files: [String : Data], completion: (()->Void)?) {
         self.gamePackJson.save(gamePack)
         for (fileId, data) in files {
-            self.imageStore.saveImageFile(fileId: fileId, data: data) { _ in
+            self.imageStore.saveImage(imageId: fileId, data: data) { _ in
                 completion?()
             }
         }

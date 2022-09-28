@@ -17,7 +17,6 @@
 		AB78232B289AED620075746B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB78232A289AED620075746B /* SceneDelegate.swift */; };
 		AB782332289AED630075746B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB782331289AED630075746B /* Assets.xcassets */; };
 		AB782335289AED630075746B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB782333289AED630075746B /* LaunchScreen.storyboard */; };
-		AB782340289AED640075746B /* HungerHeroesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB78233F289AED640075746B /* HungerHeroesTests.swift */; };
 		AB78234A289AED640075746B /* HungerHeroesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782349289AED640075746B /* HungerHeroesUITests.swift */; };
 		AB78234C289AED640075746B /* HungerHeroesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB78234B289AED640075746B /* HungerHeroesUITestsLaunchTests.swift */; };
 		AB78235A289AFBEB0075746B /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB782359289AFBEB0075746B /* HeroModel.swift */; };
@@ -38,6 +37,10 @@
 		AB7B355428D63F3500DA3D35 /* GameRoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B355228D63F3500DA3D35 /* GameRoomPresenter.swift */; };
 		AB7B355628DA5CD400DA3D35 /* GameRoomDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B355528DA5CD400DA3D35 /* GameRoomDef.swift */; };
 		AB7B355728DA5CD400DA3D35 /* GameRoomDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B355528DA5CD400DA3D35 /* GameRoomDef.swift */; };
+		AB7B355928E4562500DA3D35 /* ImageSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B355828E4562500DA3D35 /* ImageSourceTests.swift */; };
+		AB7B355C28E4581600DA3D35 /* GameRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148961EF1E4694DCB54407A /* GameRoomView.swift */; };
+		AB7B355D28E4584600DA3D35 /* GameRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148961EF1E4694DCB54407A /* GameRoomView.swift */; };
+		AB7B355E28E4585200DA3D35 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489B90D90A0E1133E02A53 /* ImageView.swift */; };
 		ABBFE8E628BD0D6D005C1874 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE8E328BD0D6D005C1874 /* Geometry.swift */; };
 		ABBFE8E728BD0D6D005C1874 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE8E328BD0D6D005C1874 /* Geometry.swift */; };
 		ABBFE8E828BD0D6D005C1874 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFE8E428BD0D6D005C1874 /* Location.swift */; };
@@ -126,7 +129,6 @@
 		B1489AAF28EBEFB67ED665A5 /* RoomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489977576DEFE2E980C968 /* RoomService.swift */; };
 		B1489B37896F62D4EC03BE98 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148947E30D3D402BB24ACF2 /* Date+Extensions.swift */; };
 		B1489B7B46885BA804BF928B /* RemoteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489C81D18AB1343C0D6ED8 /* RemoteClient.swift */; };
-		B1489BBF31EEAEA35A99C7FB /* GameRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148961EF1E4694DCB54407A /* GameRoomView.swift */; };
 		B1489C5D4E54F27FDB3348C7 /* MapObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14890EC022BC1B111E54F4B /* MapObjectView.swift */; };
 		B1489C62A1AEBAD816496CA6 /* GamePackDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489FF637CD567EF78B3B2D /* GamePackDef.swift */; };
 		B1489C6A7925AE92B739E81E /* GameRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489C978067FAAFFEA2FB71 /* GameRoomViewController.swift */; };
@@ -172,7 +174,6 @@
 		AB782334289AED630075746B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB782336289AED630075746B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB78233B289AED640075746B /* HungerHeroesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HungerHeroesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB78233F289AED640075746B /* HungerHeroesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HungerHeroesTests.swift; sourceTree = "<group>"; };
 		AB782345289AED640075746B /* HungerHeroesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HungerHeroesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB782349289AED640075746B /* HungerHeroesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HungerHeroesUITests.swift; sourceTree = "<group>"; };
 		AB78234B289AED640075746B /* HungerHeroesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HungerHeroesUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -185,6 +186,7 @@
 		AB782386289DB6710075746B /* PlayerProfileRes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PlayerProfileRes.xcassets; sourceTree = "<group>"; };
 		AB7B355228D63F3500DA3D35 /* GameRoomPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRoomPresenter.swift; sourceTree = "<group>"; };
 		AB7B355528DA5CD400DA3D35 /* GameRoomDef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRoomDef.swift; sourceTree = "<group>"; };
+		AB7B355828E4562500DA3D35 /* ImageSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSourceTests.swift; sourceTree = "<group>"; };
 		ABBFE8E328BD0D6D005C1874 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		ABBFE8E428BD0D6D005C1874 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		ABBFE8ED28BD0D6D005C1874 /* ScenarioDef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioDef.swift; sourceTree = "<group>"; };
@@ -342,8 +344,8 @@
 		AB78233E289AED640075746B /* HungerHeroesTests */ = {
 			isa = PBXGroup;
 			children = (
-				AB78233F289AED640075746B /* HungerHeroesTests.swift */,
 				ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */,
+				AB7B355828E4562500DA3D35 /* ImageSourceTests.swift */,
 			);
 			path = HungerHeroesTests;
 			sourceTree = "<group>";
@@ -727,12 +729,12 @@
 			files = (
 				ABBFE91328BD1976005C1874 /* Application.swift in Sources */,
 				AB782376289B0D0B0075746B /* MapNode.swift in Sources */,
-				AB782340289AED640075746B /* HungerHeroesTests.swift in Sources */,
 				ABBFE91B28BD1976005C1874 /* MapPresenter.swift in Sources */,
 				ABBFE91928BD1976005C1874 /* HomePresenter.swift in Sources */,
 				AB782368289B00210075746B /* Artifact.swift in Sources */,
 				ABBFE90628BD0D6D005C1874 /* GetGamePack.swift in Sources */,
 				ABBFE8F228BD0D6D005C1874 /* MapDef.swift in Sources */,
+				AB7B355928E4562500DA3D35 /* ImageSourceTests.swift in Sources */,
 				ABBFE90028BD0D6D005C1874 /* Storage.swift in Sources */,
 				ABBFE8FA28BD0D6D005C1874 /* Keychain.swift in Sources */,
 				ABBFE92428BD1976005C1874 /* MapViewModel.swift in Sources */,
@@ -763,6 +765,7 @@
 				B1489A34C381B1276A3A5B9B /* Date+Extensions.swift in Sources */,
 				B1489E7099F3C6DC976D4184 /* ImageSource.swift in Sources */,
 				B148993A0D7B00DFA1F32201 /* FileRegistry.swift in Sources */,
+				AB7B355D28E4584600DA3D35 /* GameRoomView.swift in Sources */,
 				B1489318C260A449434C41E0 /* StoreDictionary.swift in Sources */,
 				B148903F4A77521DD837D31E /* GameStore.swift in Sources */,
 				B14895D2243099C9BACDD7DA /* ModelError.swift in Sources */,
@@ -771,6 +774,7 @@
 				B14890A88251F19DFBF2D261 /* CGImage+Extensions.swift in Sources */,
 				B1489513EC18923E28ED1D10 /* GameSetupDef.swift in Sources */,
 				B1489E09EC12F82A0652BB8F /* ScoutSteps.swift in Sources */,
+				AB7B355E28E4585200DA3D35 /* ImageView.swift in Sources */,
 				B1489370F6BEB13842DA4522 /* HeroUpdate.swift in Sources */,
 				B148969C5F85480EA0B38EFD /* GameRoomViewModel.swift in Sources */,
 				B1489C86EF87C4A8132EC1BB /* GetGameRoom.swift in Sources */,
@@ -794,8 +798,8 @@
 				AB782381289DA6330075746B /* PlayerProfileView.swift in Sources */,
 				ABBFE92C28BD1976005C1874 /* MapViewController.swift in Sources */,
 				B1489C5D4E54F27FDB3348C7 /* MapObjectView.swift in Sources */,
+				AB7B355C28E4581600DA3D35 /* GameRoomView.swift in Sources */,
 				B14890523EDF6831D28D4851 /* GameRoomViewModel.swift in Sources */,
-				B1489BBF31EEAEA35A99C7FB /* GameRoomView.swift in Sources */,
 				B1489C6A7925AE92B739E81E /* GameRoomViewController.swift in Sources */,
 				B1489675A02FBCE7A858B4F8 /* ImageView.swift in Sources */,
 			);

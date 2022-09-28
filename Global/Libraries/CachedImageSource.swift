@@ -14,6 +14,7 @@ class CachedImageSource: ImageSource {
     let store: ImageStore
     let dataSource: ImageDataSource
     private var cachedImageSource: ImageSource?
+    private var requestingGroup: DispatchGroup?
 
     init(dataSource: ImageDataSource, imageId: String, store: ImageStore) {
         self.dataSource = dataSource
@@ -22,19 +23,30 @@ class CachedImageSource: ImageSource {
     }
 
     func getImage(_ handler: @escaping (CGImage?) -> Void) {
-        if let cachedSource = self.cachedImageSource ?? self.store.getImage(fileId: self.imageId) {
-            self.cachedImageSource = cachedSource
-            cachedSource.getImage(handler)
+        if let imageSource = self.cachedImageSource ?? self.store.getImage(imageId: self.imageId) {
+            self.cachedImageSource = imageSource
+            imageSource.getImage(handler)
         } else {
-            self.dataSource.getData { data in
-                if let imageData = data {
-                    self.store.saveImageFile(fileId: self.imageId, data: imageData) { source in
-                        if let imageSource = source {
-                            imageSource.getImage(handler)
-                        } else {
-                            handler(nil)
+            var group = self.requestingGroup
+            if group == nil {
+                group = DispatchGroup()
+                self.requestingGroup = group
+                group!.enter()
+                self.dataSource.getData { data in
+                    if let imageData = data {
+                        self.store.saveImage(imageId: self.imageId, data: imageData) { source in
+                            self.cachedImageSource = source
+                            group!.leave()
                         }
+                    } else {
+                        group!.leave()
+                        self.requestingGroup = nil
                     }
+                }
+            }
+            group!.notify(queue: .main) {
+                if let imageSource = self.cachedImageSource {
+                    imageSource.getImage(handler)
                 } else {
                     handler(nil)
                 }

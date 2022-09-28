@@ -4,7 +4,12 @@
 
 import Foundation
 
-class ImageStore {
+protocol ImageStore {
+    func getImage(imageId: String) -> ImageSource?
+    func saveImage(imageId: String, data: Data, completion: ((ImageSource?)->Void)?)
+}
+
+class ImageFileStore: ImageStore {
 
     private let files: FileRegistry
 
@@ -12,15 +17,15 @@ class ImageStore {
         self.files = .init(rootPath: rootPath)
     }
 
-    func getImage(fileId: String) -> ImageSource? {
-        if self.files.fileList.contains(fileId) {
-            return ImageFileSource(fileUrl: self.files.fileUrl(fileId: fileId))
+    func getImage(imageId: String) -> ImageSource? {
+        if self.files.fileList.contains(imageId) {
+            return ImageFileSource(fileUrl: self.files.fileUrl(fileId: imageId))
         }
         return nil
     }
 
-    func saveImageFile(fileId: String, data: Data, completion: ((ImageSource?)->Void)?) {
-        self.files.save(fileId: fileId, fileData: data, queue: .main) { url in
+    func saveImage(imageId: String, data: Data, completion: ((ImageSource?)->Void)?) {
+        self.files.save(fileId: imageId, fileData: data, queue: .main) { url in
             let image = url != nil ? ImageFileSource(fileUrl: url!) : nil
             completion?(image)
         }
