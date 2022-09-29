@@ -6,8 +6,9 @@ import UIKit
 import SwiftUI
 import Combine
 
-class GameRoomViewController: UIHostingController<GameRoomView> {
+class GameRoomViewController: UIHostingController<GameRoomView>, GameRoomViewDelegate {
 
+    let roomId: String
     let environment: Environment
     let presenter: GameRoomPresenterProtocol
     var viewModel: GameRoomViewModel { self.presenter.viewModel }
@@ -15,6 +16,7 @@ class GameRoomViewController: UIHostingController<GameRoomView> {
 
     init(_ environment: Environment, roomId: String) {
         let gameRoomPresenter = environment.gameRoomPresenter(roomId: roomId)
+        self.roomId = roomId
         self.environment = environment
         self.presenter = gameRoomPresenter
         super.init(rootView: GameRoomView(viewModel: gameRoomPresenter.viewModel))
@@ -30,8 +32,17 @@ class GameRoomViewController: UIHostingController<GameRoomView> {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewDidLoad() {
+        self.rootView.delegate = self
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.presenter.onWillAppear()
+    }
+
+    func onSelectPlayer(playerId: Int) {
+        let vc = PlayerProfileViewController(self.environment, roomId: self.roomId, playerId: playerId)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

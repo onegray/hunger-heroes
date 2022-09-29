@@ -4,9 +4,14 @@
 
 import SwiftUI
 
+protocol GameRoomViewDelegate: AnyObject {
+    func onSelectPlayer(playerId: Int)
+}
+
 struct GameRoomView: View {
 
     @ObservedObject var viewModel: GameRoomViewModel
+    weak var delegate: GameRoomViewDelegate?
 
     var body: some View {
         VStack {
@@ -18,7 +23,11 @@ struct GameRoomView: View {
                 ForEach(self.viewModel.teams) { team in
                     Section(header: Text(team.title)) {
                         ForEach(team.players) { player in
-                            GameRoomPlayerView(player: player)
+                            Button {
+                                self.delegate?.onSelectPlayer(playerId: player.id)
+                            } label: {
+                                GameRoomPlayerView(player: player)
+                            }
                         }
                     }
                 }

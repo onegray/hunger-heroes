@@ -10,6 +10,7 @@ import Foundation
 protocol PresentationEnvironment {
     func homePresenter() -> HomePresenterProtocol
     func gameRoomPresenter(roomId: String) -> GameRoomPresenterProtocol
+    func playerProfilePresenter(roomId: String, playerId: Int) -> PlayerProfilePresenterProtocol
     func mapPresenter() -> MapPresenterProtocol
 }
 typealias Environment = PresentationEnvironment
@@ -31,9 +32,17 @@ extension AppUserEnvironment: PresentationEnvironment {
     }
 
     func gameRoomPresenter(roomId: String) -> GameRoomPresenterProtocol {
+        let vm = GameRoomViewModel()
         let roomService = self.app.getRoomService(roomId: roomId)
         let imageService = self.app.imageService
-        return GameRoomPresenter(viewModel: GameRoomViewModel(), roomService: roomService, imageService: imageService)
+        return GameRoomPresenter(viewModel: vm, roomService: roomService, imageService: imageService)
+    }
+
+    func playerProfilePresenter(roomId: String, playerId: Int) -> PlayerProfilePresenterProtocol {
+        let vm = PlayerProfileViewModel()
+        let roomService = self.app.getRoomService(roomId: roomId)
+        let imageService = self.app.imageService
+        return PlayerProfilePresenter(viewModel: vm, roomService: roomService, imageService: imageService)
     }
 
     func mapPresenter() -> MapPresenterProtocol {

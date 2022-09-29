@@ -8,20 +8,21 @@
 import SwiftUI
 
 struct PlayerProfileView: View {
+
+    @ObservedObject var viewModel: PlayerProfileViewModel
+
     var body: some View {
-        
+
         GeometryReader() { geometry in
-            
+
             VStack() {
 
                 HStack(alignment: .top) {
                     Spacer()
                         .frame(width: 20)
 
-                    Image("avatar-placeholder")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: geometry.size.width * 0.45)
+                    ImageView(imageSource: self.viewModel.playerAvatar)
+                        .frame(maxWidth: geometry.size.width * 0.45, maxHeight: geometry.size.width * 0.45)
 
                     Spacer()
                         .frame(width: 20)
@@ -33,21 +34,22 @@ struct PlayerProfileView: View {
                             .font(.title2)
                         Text("assassin")
                             .font(.subheadline).italic()
-                        
+
                         Spacer()
                             .frame(height: 10)
-                        
+
                         EfficiencyChartView(value: 0.8)
                             .frame(height: geometry.size.width * 0.1)
 
                         Text("Efficiency: 142%")
                             .font(.subheadline)
                     }
-                    
+
                     Spacer()
                 }
-                
-                
+                .fixedSize(horizontal: false, vertical: true)
+
+
                 HStack() {
 
                     VStack(alignment: .leading) {
@@ -75,7 +77,7 @@ struct PlayerProfileView: View {
                             .padding()
 
                     }
-                    
+
                 }
 
                 Spacer()
@@ -86,9 +88,9 @@ struct PlayerProfileView: View {
 
 
 struct EfficiencyChartView: View {
-    
+
     let value: Double
-    
+
     var body: some View {
         ZStack {
             PieSector(start: 0.0, end: value)
@@ -120,13 +122,13 @@ struct EfficiencyChartView: View {
 
 
 struct SkillView: View {
-    
+
     var iconName: String
     var title: String
     var value: String
-    
+
     var body: some View {
-        
+
         VStack() {
 
             HStack(alignment: .center) {
@@ -151,9 +153,17 @@ struct SkillView: View {
     }
 }
 
-
+#if DEBUG
 struct PlayerProfileView_Previews: PreviewProvider {
+
+    static var testViewModel: PlayerProfileViewModel {
+        let vm = PlayerProfileViewModel()
+        vm.playerAvatar = UIImage(named: "avatar-placeholder")?.cgImage
+        return vm
+    }
+
     static var previews: some View {
-        PlayerProfileView()
+        PlayerProfileView(viewModel: self.testViewModel)
     }
 }
+#endif

@@ -21,7 +21,7 @@ class GameRoomPresenter: GameRoomPresenterProtocol {
     var disposeBag = Set<AnyCancellable>()
 
     init(viewModel: GameRoomViewModel, roomService: RoomService, imageService: ImageService) {
-        self.viewModel = GameRoomView_previews.testViewModel
+        self.viewModel = viewModel
         self.roomService = roomService
         self.imageService = imageService
 
