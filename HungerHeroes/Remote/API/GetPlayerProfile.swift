@@ -7,17 +7,18 @@ import Foundation
 class GetPlayerProfileRequest: HttpRequest {
 
     init(playerId: Int, handler: @escaping (GetPlayerProfileResponse) -> Void) {
-        super.init(path: "\(playerId).json", method: .get, handler: handler)
+        super.init(path: "players/\(playerId).json", method: .get, handler: handler)
     }
 }
 
 
 class GetPlayerProfileResponse: HttpResponse {
+    var player: PlayerDef?
 
     required init(data: Data?, code: Int) {
         super.init(data: data, code: code)
-        if let data = data, let json = try? JSONSerialization.jsonObject(with: data) {
-            print(json)
+        if let data = data {
+            self.player = try? JSONDecoder().decode(PlayerDef.self, from: data)
         }
     }
 
@@ -25,4 +26,3 @@ class GetPlayerProfileResponse: HttpResponse {
         super.init(error: error, code: code)
     }
 }
-

@@ -11,6 +11,10 @@ protocol Storage {
 
     var appState: AppStateDef? { get set }
 
+    func player(_ playerId: Int) -> PlayerDef?
+
+    func savePlayer(player: PlayerDef)
+
     var imageStore: ImageStore { get }
 
     func roomStore(roomId: String) -> RoomStore
@@ -26,6 +30,7 @@ protocol Storage {
 class JsonStorage: Storage {
 
     let appStateJson = PersistentValue<AppStateDef>(path: "app_state.json")
+    let playersJson = PersistentDictionary<Int, PlayerDef>(filepath: "players.json")
     let roomStores = StoreDictionary<String, JsonRoomStore>(rootPath: "rooms")
     let gameStores = StoreDictionary<String, JsonGameStore>(rootPath: "games")
     let imageFileStore = ImageFileStore(rootPath: "images")
@@ -42,6 +47,14 @@ class JsonStorage: Storage {
     var appState: AppStateDef? {
         get { self.appStateJson.get() }
         set { self.appStateJson.save(newValue) }
+    }
+
+    func player(_ playerId: Int) -> PlayerDef? {
+        return self.playersJson.get(by: playerId)
+    }
+
+    func savePlayer(player: PlayerDef) {
+        self.playersJson.save(player, by: player.id)
     }
 
     var imageStore: ImageStore {
@@ -66,6 +79,7 @@ class JsonStorage: Storage {
             self.roomStores.loadStores(group: self.loadingGroup!)
             self.gameStores.loadStores(group: self.loadingGroup!)
             self.appStateJson.load(group: self.loadingGroup!)
+            self.playersJson.load(group: self.loadingGroup!)
             self.imageFileStore.load(group: self.loadingGroup!)
         }
         self.loadingGroup!.notify(queue: .main, execute: completion)

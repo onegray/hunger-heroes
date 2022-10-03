@@ -9,7 +9,6 @@ import Foundation
 
 struct PlayerDef: Codable, Equatable {
     let id: Int
-    let team: Int
     let name: String
     let speciality: Speciality
     let avatar: String?
@@ -40,8 +39,8 @@ extension PlayerDef {
 }
 
 extension PlayerDef {
-    static func testPlayer(id: Int, team: Int) -> PlayerDef {
-        return PlayerDef(id: id, team: team, name: "Player\(team):\(id)",
-                      speciality: .scout, avatar: nil, stats: nil)
+    static func testPlayer(id: Int) -> PlayerDef {
+        return PlayerDef(id: id, name: "Player\(id)",
+                         speciality: .scout, avatar: nil, stats: nil)
     }
 }

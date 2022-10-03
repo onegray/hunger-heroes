@@ -72,7 +72,7 @@ class MapPresenter: MapPresenterProtocol {
     func onHeroesUpdate(heroes: [HeroModel], fowImage: ImageSource?) {
         self.viewModel.heroes = heroes.map { (model) -> HeroViewModel  in
             return HeroViewModel(id: model.player.id,
-                                 team: model.player.team,
+                                 team: model.team,
                                  name: model.player.name,
                                  location: model.location)
         }

@@ -27,7 +27,6 @@ class AppRoomService: RoomService {
 
         self.storage.loadStorage {
             if let loadedRoom = self.roomStore.room {
-                self.roomStore.room = loadedRoom
                 self.room.value = loadedRoom
             }
         }

@@ -14,7 +14,7 @@ class PlayerProfileViewController: UIHostingController<PlayerProfileView> {
     var disposeBag = Set<AnyCancellable>()
 
     init(_ environment: Environment, roomId: String, playerId: Int) {
-        let playerProfilePresenter = environment.playerProfilePresenter(roomId: roomId, playerId: playerId)
+        let playerProfilePresenter = environment.playerProfilePresenter(playerId: playerId)
         self.environment = environment
         self.presenter = playerProfilePresenter
         super.init(rootView: PlayerProfileView(viewModel: playerProfilePresenter.viewModel))
@@ -26,5 +26,6 @@ class PlayerProfileViewController: UIHostingController<PlayerProfileView> {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.presenter.onWillAppear()
     }
 }

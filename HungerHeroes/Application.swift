@@ -13,6 +13,7 @@ protocol Application {
     var appService: AppService { get }
     var imageService: ImageService { get }
 
+    func getPlayerService(playerId: Int) -> PlayerService
     func getRoomService(roomId: String) -> RoomService
 }
 
@@ -22,6 +23,7 @@ class ApplicationCore: Application {
     let storage = JsonStorage()
     let httpClient = RemoteClient()
 
+    var playerServices = [Int : PlayerService]()
     var roomServices = [String : RoomService]()
 
     let gameService: GameService
@@ -32,6 +34,14 @@ class ApplicationCore: Application {
         self.appService = CoreAppService(storage: self.storage, httpClient: self.httpClient)
         self.gameService = AppGameService(storage: self.storage, httpClient: self.httpClient)
         self.imageService = AppImageService(store: self.storage.imageFileStore, httpClient: self.httpClient)
+    }
+
+    func getPlayerService(playerId: Int) -> PlayerService {
+        return self.playerServices[playerId] ?? {
+            let service = AppPlayerService(playerId: playerId, storage: self.storage, httpClient: self.httpClient)
+            self.playerServices[playerId] = service
+            return service
+        }()
     }
 
     func getRoomService(roomId: String) -> RoomService {

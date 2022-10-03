@@ -21,7 +21,9 @@ class CoreAppService: AppService {
         self.httpClient = httpClient
 
         self.storage.loadStorage {
-            self.appState.value = self.storage.appState ?? .init(activeGameId: nil)
+            if let appState = self.storage.appState {
+                self.appState.value = appState
+            }
         }
     }
 }
