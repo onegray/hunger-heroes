@@ -11,6 +11,11 @@ struct PlayerProfileView: View {
 
     @ObservedObject var viewModel: PlayerProfileViewModel
 
+    func gridColumns(width: CGFloat) -> [GridItem] {
+        let colNum = width < 480 ? 2 : 3
+        return .init(repeating: GridItem(.flexible(), alignment: .leading), count: colNum)
+    }
+
     var body: some View {
 
         GeometryReader() { geometry in
@@ -21,7 +26,7 @@ struct PlayerProfileView: View {
                     Spacer()
                         .frame(width: 20)
 
-                    ImageView(imageSource: self.viewModel.playerAvatar)
+                    ImageView(imageSource: self.viewModel.avatar)
                         .frame(maxWidth: geometry.size.width * 0.45, maxHeight: geometry.size.width * 0.45)
 
                     Spacer()
@@ -30,9 +35,9 @@ struct PlayerProfileView: View {
                     VStack(alignment: .leading) {
                         Spacer()
                             .frame(height: 10)
-                        Text("Scorpion 123")
+                        Text(self.viewModel.name)
                             .font(.title2)
-                        Text("assassin")
+                        Text(self.viewModel.role)
                             .font(.subheadline).italic()
 
                         Spacer()
@@ -41,7 +46,7 @@ struct PlayerProfileView: View {
                         EfficiencyChartView(value: 0.8)
                             .frame(height: geometry.size.width * 0.1)
 
-                        Text("Efficiency: 142%")
+                        Text("Efficiency: \(self.viewModel.efficiency)%")
                             .font(.subheadline)
                     }
 
@@ -49,35 +54,33 @@ struct PlayerProfileView: View {
                 }
                 .fixedSize(horizontal: false, vertical: true)
 
+                ScrollView() {
+                    LazyVGrid(columns: self.gridColumns(width: geometry.size.width)) {
 
-                HStack() {
-
-                    VStack(alignment: .leading) {
-                        SkillView(iconName: "waveform.path.ecg", title: "Points", value: "1642")
+                        SkillView(iconName: "waveform.path.ecg", title: "Points",
+                                  value: self.viewModel.points)
                             .padding()
 
-                        SkillView(iconName: "sum", title: "Frags:", value: "94")
+                        SkillView(iconName: "f.cursive", title: "K/D",
+                                  value: self.viewModel.killDeathRate)
                             .padding()
 
-                        SkillView(iconName: "flag", title: "Win", value: "42")
+                        SkillView(iconName: "sum", title: "Frags:",
+                                  value: self.viewModel.frags)
+                            .padding()
+
+                        SkillView(iconName: "timer", title: "Time playing:",
+                                  value: self.viewModel.gameTime)
+                            .padding()
+
+                        SkillView(iconName: "flag", title: "Win",
+                                  value: self.viewModel.winRate)
+                            .padding()
+
+                        SkillView(iconName: "nosign", title: "Loose",
+                                  value: self.viewModel.looseRate)
                             .padding()
                     }
-
-                    Spacer()
-
-                    VStack(alignment: .leading) {
-                        SkillView(iconName: "f.cursive", title: "K/D", value: "1.42")
-                            .padding()
-
-
-                        SkillView(iconName: "timer", title: "Time playing:", value: "168")
-                            .padding()
-
-                        SkillView(iconName: "nosign", title: "Loose", value: "34")
-                            .padding()
-
-                    }
-
                 }
 
                 Spacer()
@@ -133,22 +136,27 @@ struct SkillView: View {
 
             HStack(alignment: .center) {
 
-                Image(systemName: iconName)
-                    .foregroundColor(.orange)
-                    .font(.custom("HelveticaNeue", size: 32, relativeTo: .title3)
-                        .weight(.light))
+                GeometryReader { geometry in
+                    Image(systemName: self.iconName)
+                        .font(.custom("HelveticaNeue", size: 32, relativeTo: .title3)
+                            .weight(.light))
+                        .foregroundColor(.orange)
+                        .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+                }
+                .scaledToFill()
 
                 VStack(alignment: .leading) {
-                    Text(title).lineLimit(1)
+                    Text(self.title).lineLimit(1)
                         .font(.caption)
                         .foregroundColor(.gray)
                         .padding(EdgeInsets(top: 3, leading: 0, bottom: 0, trailing: 0))
 
-                    Text(value)
+                    Text(self.value)
                         .font(.title3).fontWeight(.semibold)
                         .foregroundColor(.black)
                 }
             }
+            .fixedSize()
         }
     }
 }
@@ -158,7 +166,16 @@ struct PlayerProfileView_Previews: PreviewProvider {
 
     static var testViewModel: PlayerProfileViewModel {
         let vm = PlayerProfileViewModel()
-        vm.playerAvatar = UIImage(named: "avatar-placeholder")?.cgImage
+        vm.avatar = UIImage(named: "avatar-placeholder")?.cgImage
+        vm.name = "Scorpion"
+        vm.role = "assassin"
+        vm.efficiency = 142
+        vm.points = "1642"
+        vm.killDeathRate = "1.42"
+        vm.frags = "94"
+        vm.gameTime = "168"
+        vm.winRate = "42"
+        vm.looseRate = "34"
         return vm
     }
 
