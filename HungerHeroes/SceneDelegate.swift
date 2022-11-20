@@ -22,8 +22,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             fatalError("Unexpected scene")
         }
 
-        self.app = ApplicationCore()
-        self.environment = AppUserEnvironment(app: self.app!)
+#if DEBUG
+        if CommandLine.arguments.contains("ui-testing") {
+            self.environment = MockPresentationEnvironment()
+        }
+#endif
+
+        if self.environment == nil {
+            self.app = ApplicationCore()
+            self.environment = AppUserEnvironment(app: self.app!)
+        }
 
         let homeViewController = HomeViewController(environment: self.environment!)
         let navigationController = UINavigationController(rootViewController: homeViewController)
