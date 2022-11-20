@@ -21,7 +21,7 @@ protocol Application {
 class ApplicationCore: Application {
 
     let storage = JsonStorage()
-    let httpClient = RemoteClient()
+    let httpClient = APIClient()
 
     var playerServices = [Int : PlayerService]()
     var roomServices = [String : RoomService]()
