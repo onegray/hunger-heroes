@@ -25,12 +25,18 @@ class HomeViewController: UIHostingController<HomeView>, HomeViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func onGameRoomBtn(roomId: String) {
+    func onSignInBtn() {
+        self.presenter.login(username: self.viewModel.username, password: self.viewModel.password)
+    }
+
+    func onViewPlayersBtn() {
+        let roomId = "room42.json"
         let vc = GameRoomViewController(self.environment, roomId: roomId)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
-    func onOpenGameBtn(gameId: String) {
+    func onOpenGameBtn() {
+        let gameId = "hg_pack.tar"
         let vc = MapViewController(self.environment, gameId: gameId)
         self.navigationController?.pushViewController(vc, animated: true)
     }

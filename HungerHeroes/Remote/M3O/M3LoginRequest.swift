@@ -17,6 +17,20 @@ class M3LoginRequest: M3HttpRequest {
 
 class M3LoginResponse: HttpResponse {
 
+    enum LoginError: LocalizedError {
+        case invalidNameOrPassword
+        case unexpectedResponse
+
+        var errorDescription: String? {
+            switch self {
+            case .invalidNameOrPassword:
+                return "Invalid username or password"
+            case .unexpectedResponse:
+                return "Unexpected server response"
+            }
+        }
+    }
+
     struct Response: Decodable {
         struct UserSession: Decodable {
             let id: String
@@ -30,8 +44,14 @@ class M3LoginResponse: HttpResponse {
 
     required init(data: Data?, code: Int) {
         super.init(data: data, code: code)
-        if let data = data {
-            self.session = (try? JSONDecoder().decode(Response.self, from: data))?.session
+        if let data = data, code == 200 {
+            if let response = try? JSONDecoder().decode(Response.self, from: data) {
+                self.session = response.session
+            } else {
+                self.status = .failure(LoginError.unexpectedResponse)
+            }
+        } else {
+            self.status = .failure(LoginError.invalidNameOrPassword)
         }
     }
 
