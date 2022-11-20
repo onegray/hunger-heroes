@@ -7,6 +7,7 @@ import Combine
 
 protocol PlayerService {
     var player: CurrentValueSubject<PlayerDef?, Never> { get }
+    var isRequesting: CurrentValueSubject<Bool, Never> { get }
     func requestPlayerProfile()
 }
 
@@ -14,6 +15,7 @@ class AppPlayerService: PlayerService {
 
     let playerId: Int
     let player = CurrentValueSubject<PlayerDef?, Never>(nil)
+    let isRequesting = CurrentValueSubject<Bool, Never>(false)
 
     let storage: Storage
     let httpClient: HttpClientProtocol
@@ -30,7 +32,11 @@ class AppPlayerService: PlayerService {
     }
 
     func requestPlayerProfile() {
+        guard self.isRequesting.value == false else { return }
+        self.isRequesting.value = true
+
         let request = GetPlayerProfileRequest(playerId: self.playerId) { response in
+            self.isRequesting.value = false
             if case .success = response.status, let player = response.player {
                 self.player.value = player
                 self.storage.loadStorage {

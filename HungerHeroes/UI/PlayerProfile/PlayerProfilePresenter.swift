@@ -22,6 +22,9 @@ class PlayerProfilePresenter: PlayerProfilePresenterProtocol {
         self.playerService = playerService
         self.imageService = imageService
 
+        self.playerService.isRequesting
+            .assign(to: &self.viewModel.$isLoading)
+
         self.playerService.player.compactMap({ $0 })
                 .sink { [weak self] player in
                     self?.onUpdatePlayer(player: player)

@@ -5,6 +5,9 @@
 import Foundation
 
 class PlayerProfileViewModel: ObservableObject {
+
+    @Published var isLoading: Bool = false
+
     @Published var name: String = ""
     @Published var role: String = ""
     @Published var avatar: ImageSource? = nil

@@ -43,11 +43,13 @@ struct PlayerProfileView: View {
                         Spacer()
                             .frame(height: 10)
 
-                        EfficiencyChartView(value: 0.8)
-                            .frame(height: geometry.size.width * 0.1)
+                        if !self.viewModel.isLoading {
+                            EfficiencyChartView(value: 0.8)
+                                .frame(height: geometry.size.width * 0.1)
 
-                        Text("Efficiency: \(self.viewModel.efficiency)%")
-                            .font(.subheadline)
+                            Text("Efficiency: \(self.viewModel.efficiency)%")
+                                .font(.subheadline)
+                        }
                     }
 
                     Spacer()
@@ -55,32 +57,39 @@ struct PlayerProfileView: View {
                 .fixedSize(horizontal: false, vertical: true)
 
                 ScrollView() {
-                    LazyVGrid(columns: self.gridColumns(width: geometry.size.width)) {
 
-                        SkillView(iconName: "waveform.path.ecg", title: "Points",
-                                  value: self.viewModel.points)
+                    if self.viewModel.isLoading {
+                        ProgressView()
+                            .progressViewStyle(.circular)
                             .padding()
+                    } else {
+                        LazyVGrid(columns: self.gridColumns(width: geometry.size.width)) {
+                            SkillView(iconName: "waveform.path.ecg", title: "Points",
+                                      value: self.viewModel.points)
+                                .padding()
 
-                        SkillView(iconName: "f.cursive", title: "K/D",
-                                  value: self.viewModel.killDeathRate)
-                            .padding()
+                            SkillView(iconName: "f.cursive", title: "K/D",
+                                      value: self.viewModel.killDeathRate)
+                                .padding()
 
-                        SkillView(iconName: "sum", title: "Frags:",
-                                  value: self.viewModel.frags)
-                            .padding()
+                            SkillView(iconName: "sum", title: "Frags:",
+                                      value: self.viewModel.frags)
+                                .padding()
 
-                        SkillView(iconName: "timer", title: "Time playing:",
-                                  value: self.viewModel.gameTime)
-                            .padding()
+                            SkillView(iconName: "timer", title: "Time playing:",
+                                      value: self.viewModel.gameTime)
+                                .padding()
 
-                        SkillView(iconName: "flag", title: "Win",
-                                  value: self.viewModel.winRate)
-                            .padding()
+                            SkillView(iconName: "flag", title: "Win",
+                                      value: self.viewModel.winRate)
+                                .padding()
 
-                        SkillView(iconName: "nosign", title: "Loose",
-                                  value: self.viewModel.looseRate)
-                            .padding()
+                            SkillView(iconName: "nosign", title: "Loose",
+                                      value: self.viewModel.looseRate)
+                                .padding()
+                        }
                     }
+
                 }
 
                 Spacer()
@@ -96,12 +105,17 @@ struct EfficiencyChartView: View {
 
     var body: some View {
         ZStack {
+            Image(systemName: "circle")
+                .font(.title)
+                .hidden()
+
             PieSector(start: 0.0, end: value)
                 .fill(.orange)
 
             PieSector(start: value, end: 1.0)
                 .fill(Color(UIColor.lightGray))
         }
+        .fixedSize(horizontal: false, vertical: true)
     }
 
     struct PieSector: Shape {
