@@ -28,15 +28,20 @@ class HungerHeroesUITests: XCTestCase {
         app.launchArguments = ["ui-testing"]
         app.launch()
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let signInBtn = app.buttons["SignIn"]
+        XCTAssertTrue(signInBtn.waitForExistence(timeout: 0.1))
+        signInBtn.tap()
+
+        let viewPlayersBtn = app.buttons["View Players"]
+        XCTAssertTrue(viewPlayersBtn.waitForExistence(timeout: 0.1))
+        viewPlayersBtn.tap()
+
+        let gameTitleLabel = app.staticTexts["Free For All"]
+        XCTAssertTrue(gameTitleLabel.waitForExistence(timeout: 0.1))
+
+        let playerCell = app.staticTexts["Player1"]
+        XCTAssertTrue(playerCell.waitForExistence(timeout: 0.1))
+        playerCell.tap()
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
-    }
 }

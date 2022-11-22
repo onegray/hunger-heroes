@@ -178,23 +178,8 @@ struct SkillView: View {
 #if DEBUG
 struct PlayerProfileView_Previews: PreviewProvider {
 
-    static var testViewModel: PlayerProfileViewModel {
-        let vm = PlayerProfileViewModel()
-        vm.avatar = UIImage(named: "avatar-placeholder")?.cgImage
-        vm.name = "Scorpion"
-        vm.role = "assassin"
-        vm.efficiency = 142
-        vm.points = "1642"
-        vm.killDeathRate = "1.42"
-        vm.frags = "94"
-        vm.gameTime = "168"
-        vm.winRate = "42"
-        vm.looseRate = "34"
-        return vm
-    }
-
     static var previews: some View {
-        PlayerProfileView(viewModel: self.testViewModel)
+        PlayerProfileView(viewModel: MockPlayerProfilePresenter.testViewModel)
     }
 }
 #endif
