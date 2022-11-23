@@ -149,6 +149,7 @@
 		E6708D1B292E9F8100F6A69A /* MockImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6708D1A292E9F8100F6A69A /* MockImageStore.swift */; };
 		E6708D1D292EA26A00F6A69A /* MockRoomStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6708D1C292EA26A00F6A69A /* MockRoomStore.swift */; };
 		E6708D1F292EA2BC00F6A69A /* MockGameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6708D1E292EA2BC00F6A69A /* MockGameStore.swift */; };
+		E6708D21292EB32000F6A69A /* PlayerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6708D20292EB32000F6A69A /* PlayerServiceTests.swift */; };
 		E6934EAE292C225900C426DE /* PlayerProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14891B2A0CBB334E7D8EF2E /* PlayerProfileViewModel.swift */; };
 		E6934EF3292C328900C426DE /* MockMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6934EEB292C303700C426DE /* MockMapPresenter.swift */; };
 		E6934EF4292C328900C426DE /* MockHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6934EE9292C2F8300C426DE /* MockHomePresenter.swift */; };
@@ -262,6 +263,7 @@
 		E6708D1A292E9F8100F6A69A /* MockImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageStore.swift; sourceTree = "<group>"; };
 		E6708D1C292EA26A00F6A69A /* MockRoomStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRoomStore.swift; sourceTree = "<group>"; };
 		E6708D1E292EA2BC00F6A69A /* MockGameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGameStore.swift; sourceTree = "<group>"; };
+		E6708D20292EB32000F6A69A /* PlayerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerServiceTests.swift; sourceTree = "<group>"; };
 		E6934EE9292C2F8300C426DE /* MockHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomePresenter.swift; sourceTree = "<group>"; };
 		E6934EEB292C303700C426DE /* MockMapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMapPresenter.swift; sourceTree = "<group>"; };
 		E6934EED292C30A400C426DE /* MockPlayerProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlayerProfilePresenter.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				E6708D17292E9A6300F6A69A /* MockStorage */,
 				ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */,
 				AB7B355828E4562500DA3D35 /* ImageSourceTests.swift */,
+				E6708D20292EB32000F6A69A /* PlayerServiceTests.swift */,
 			);
 			path = HungerHeroesTests;
 			sourceTree = "<group>";
@@ -839,6 +842,7 @@
 				AB7B355428D63F3500DA3D35 /* GameRoomPresenter.swift in Sources */,
 				ABBFE8E728BD0D6D005C1874 /* Geometry.swift in Sources */,
 				ABBFE91028BD1976005C1874 /* MapModel.swift in Sources */,
+				E6708D21292EB32000F6A69A /* PlayerServiceTests.swift in Sources */,
 				AB782372289B012C0075746B /* PlayerDef.swift in Sources */,
 				AB7B355728DA5CD400DA3D35 /* GameRoomDef.swift in Sources */,
 				AB71BB3828A7FB2300FD24C1 /* HttpResponse.swift in Sources */,

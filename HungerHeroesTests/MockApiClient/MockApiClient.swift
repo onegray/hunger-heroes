@@ -11,11 +11,18 @@ class MockApiClient: HttpClientProtocol {
 
     var mockResponses = [String : HttpResponse]()
 
+    func setResponse(_ response: HttpResponse, for requestClass: HttpRequest.Type) {
+        let requestName = String(describing: requestClass)
+        self.mockResponses[requestName] = response
+    }
+
     func perform(_ request: HttpRequest) {
 
         DispatchQueue.main.async {
 
-            if let response = self.mockResponses[request.path] {
+            let requestName = String(describing: type(of: request))
+
+            if let response = self.mockResponses[requestName] {
 
                 request.handler(response)
 
