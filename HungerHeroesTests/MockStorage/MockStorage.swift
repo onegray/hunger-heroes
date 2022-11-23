@@ -13,21 +13,24 @@ class MockStorage: Storage {
     var mockGameStore = MockGameStore()
     var mockImageStore = MockImageStore()
 
+    var mockAppState: AppStateDef?
+    var mockPlayer: PlayerDef?
+
     var imageStore: ImageStore {
         return self.mockImageStore
     }
 
     var appState: AppStateDef? {
-        get { nil }
-        set { }
+        get { self.mockAppState }
+        set { self.mockAppState = newValue }
     }
 
     func player(_ playerId: Int) -> PlayerDef? {
-        return nil
+        return self.mockPlayer
     }
 
     func savePlayer(player: PlayerDef) {
-
+        self.mockPlayer = player
     }
 
     func roomStore(roomId: String) -> RoomStore {

@@ -156,6 +156,7 @@
 		E6934EF5292C328900C426DE /* MockPlayerProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6934EED292C30A400C426DE /* MockPlayerProfilePresenter.swift */; };
 		E6934EF6292C328900C426DE /* MockGameRoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6934EEF292C315E00C426DE /* MockGameRoomPresenter.swift */; };
 		E6934EF7292C328900C426DE /* MockPresentationEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6934EF1292C31A600C426DE /* MockPresentationEnvironment.swift */; };
+		E6ED6C30292FD27D00FF8495 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED6C2F292FD27D00FF8495 /* XCTestCase+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -269,6 +270,7 @@
 		E6934EED292C30A400C426DE /* MockPlayerProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlayerProfilePresenter.swift; sourceTree = "<group>"; };
 		E6934EEF292C315E00C426DE /* MockGameRoomPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGameRoomPresenter.swift; sourceTree = "<group>"; };
 		E6934EF1292C31A600C426DE /* MockPresentationEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPresentationEnvironment.swift; sourceTree = "<group>"; };
+		E6ED6C2F292FD27D00FF8495 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,6 +376,7 @@
 		AB78233E289AED640075746B /* HungerHeroesTests */ = {
 			isa = PBXGroup;
 			children = (
+				E6ED6C2E292FD25D00FF8495 /* Extensions */,
 				E6708D14292E973300F6A69A /* MockApiClient */,
 				E6708D17292E9A6300F6A69A /* MockStorage */,
 				ABCCCC7028AA94A40005B768 /* HTTPRequestTests.swift */,
@@ -601,6 +604,14 @@
 				E6934EF1292C31A600C426DE /* MockPresentationEnvironment.swift */,
 			);
 			path = MockPresentation;
+			sourceTree = "<group>";
+		};
+		E6ED6C2E292FD25D00FF8495 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E6ED6C2F292FD27D00FF8495 /* XCTestCase+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -876,6 +887,7 @@
 				B148969C5F85480EA0B38EFD /* GameRoomViewModel.swift in Sources */,
 				B1489C86EF87C4A8132EC1BB /* GetGameRoom.swift in Sources */,
 				B1489661A6E1E501657A056C /* RoomService.swift in Sources */,
+				E6ED6C30292FD27D00FF8495 /* XCTestCase+Extensions.swift in Sources */,
 				B14898437FBCA09E3DC91291 /* RoomStore.swift in Sources */,
 				B1489FA798B32988AB752528 /* ImageStore.swift in Sources */,
 				B1489DE85417151B193E2041 /* CachedImageSource.swift in Sources */,

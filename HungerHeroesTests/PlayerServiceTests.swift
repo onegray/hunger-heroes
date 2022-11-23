@@ -11,37 +11,28 @@ import XCTest
 
 class PlayerServiceTests: XCTestCase {
 
-    var playerService: AppPlayerService!
+    var mockStorage: MockStorage!
+    var mockApiClient: MockApiClient!
 
-    let mockStorage = MockStorage()
-    let mockApiClient = MockApiClient()
+    var playerService: AppPlayerService!
 
     override func setUp() {
         super.setUp()
+        self.mockApiClient = MockApiClient()
+        self.mockStorage = MockStorage()
         self.playerService = AppPlayerService(playerId: 0, storage: self.mockStorage, httpClient: self.mockApiClient)
     }
 
     func testRequestPlayerProfileLoadingStatus() {
 
-        let loadingExp = XCTestExpectation()
-        loadingExp.expectedFulfillmentCount = 3
-        var requestingEvents = [Bool]()
+        let isLoadingPublisher = self.playerService.isRequesting.eraseToAnyPublisher()
 
-        var disposeBag = Set<AnyCancellable>()
+        let result = self.waitSequence(publisher: isLoadingPublisher, count: 3, timeout: 0.1) {
+            self.playerService.requestPlayerProfile()
+        }
 
-        self.playerService.isRequesting
-            .sink { isRequesting in
-                requestingEvents.append(isRequesting)
-                loadingExp.fulfill()
-            }
-            .store(in: &disposeBag)
-
-        self.playerService.requestPlayerProfile()
-
-        self.wait(for: [loadingExp], timeout: 0.1)
-        XCTAssertEqual(requestingEvents, [false, true, false])
+        XCTAssertEqual(result, [false, true, false])
     }
-
 
     func testRequestPlayerProfile() {
 
@@ -51,19 +42,13 @@ class PlayerServiceTests: XCTestCase {
 
         self.mockApiClient.setResponse(response, for: GetPlayerProfileRequest.self)
 
-        let loadingExp = XCTestExpectation()
-        var disposeBag = Set<AnyCancellable>()
+        let playerPublisher = self.playerService.player.eraseToAnyPublisher()
 
-        self.playerService.player
-            .compactMap { $0 }
-            .sink { _ in
-                loadingExp.fulfill()
-            }
-            .store(in: &disposeBag)
+        let result = self.waitSequence(publisher: playerPublisher, count: 2, timeout: 0.1) {
+            self.playerService.requestPlayerProfile()
+        }
 
-        self.playerService.requestPlayerProfile()
-
-        self.wait(for: [loadingExp], timeout: 0.1)
-        XCTAssertEqual(self.playerService.player.value, player)
+        XCTAssertEqual(result, [nil, player])
+        XCTAssertEqual(self.mockStorage.mockPlayer, player)
     }
 }
