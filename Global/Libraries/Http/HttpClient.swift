@@ -29,6 +29,8 @@ class HttpClient {
 
     weak var delegate: HttpClientDelegate?
 
+    let requestQueue = DispatchQueue(label: "HttpClient.queue")
+
     init(baseUrl: URL) {
         self.baseUrl = baseUrl
     }
@@ -42,35 +44,42 @@ extension HttpClient: HttpClientProtocol {
             return
         }
 
-        let urlRequest: URLRequest
-        do {
-            urlRequest = try request.createUrlRequest(baseUrl: self.baseUrl,
-                                                      defaultHeaders: self.defaultHeaders,
-                                                      defaultParamsEncoding: self.defaultParamsEncoding)
-        } catch let error {
-            assert(false, "Unable to create URLRequest: \(error)")
-            let response = request.responseType.init(error: error, code: 0)
-            request.handler(response)
-            return
-        }
+        self.requestQueue.async {
 
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, urlResponse, error in
+            let urlRequest: URLRequest
+            do {
+                urlRequest = try request.createUrlRequest(baseUrl: self.baseUrl,
+                                                          defaultHeaders: self.defaultHeaders,
+                                                          defaultParamsEncoding: self.defaultParamsEncoding)
+            } catch let error {
+                assert(false, "Unable to create URLRequest: \(error)")
 
-            let statusCode = (urlResponse as? HTTPURLResponse)?.statusCode ?? 0
-            let response: HttpResponse
+                let response = request.responseType.init(error: error, code: 0)
 
-            if error == nil {
-                response = request.responseType.init(data: data, code: statusCode)
-            } else {
-                response = request.responseType.init(error: error!, code: statusCode)
-            }
-
-            DispatchQueue.main.async {
-                if self.delegate?.shouldCompleteRequest(request) != false {
+                DispatchQueue.main.async {
                     request.handler(response)
                 }
+                return
             }
+
+            let task = URLSession.shared.dataTask(with: urlRequest) { data, urlResponse, error in
+
+                let statusCode = (urlResponse as? HTTPURLResponse)?.statusCode ?? 0
+                let response: HttpResponse
+
+                if error == nil {
+                    response = request.responseType.init(data: data, code: statusCode)
+                } else {
+                    response = request.responseType.init(error: error!, code: statusCode)
+                }
+
+                DispatchQueue.main.async {
+                    if self.delegate?.shouldCompleteRequest(request) != false {
+                        request.handler(response)
+                    }
+                }
+            }
+            task.resume()
         }
-        task.resume()
     }
 }

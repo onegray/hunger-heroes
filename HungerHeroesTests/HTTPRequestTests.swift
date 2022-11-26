@@ -51,4 +51,25 @@ class HTTPRequestTests: XCTestCase {
         let queryItems = self.request.prepareQueryItems()
         XCTAssertEqual(queryItems, [URLQueryItem(name: "q", value: "value")])
     }
+
+    func testPrepareFormDataBody() {
+        let dataParam = "Data\r\n %$^!&*()#@;".data(using: .utf8)!
+        self.request.addFormPart(data: dataParam, name: "name", filename: "filename")
+        let bodyData = try! self.request.multipartFormBody()!
+        let bodyString = String(data: bodyData, encoding: .utf8)!
+
+        let expectedString =
+            "--\(HttpRequest.boundary)\r\n" +
+            "Content-Disposition: form-data; name=\"q\"\r\n" +
+            "\r\n" +
+            "value\r\n" +
+            "--\(HttpRequest.boundary)\r\n" +
+            "Content-Disposition: form-data; name=\"name\"; filename=\"filename\"\r\n" +
+            "\r\n" +
+            String(data: dataParam, encoding: .utf8)! +
+            "\r\n" +
+            "--\(HttpRequest.boundary)--\r\n"
+
+        XCTAssertEqual(bodyString, expectedString)
+    }
 }

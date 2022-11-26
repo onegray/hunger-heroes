@@ -16,7 +16,10 @@ class HttpRequest {
 
     var headers: [String: String]?
     var params: [String: String]?
+    var formParams: [FormParam]?
     var paramsEncoding: ParamsEncoding?
+
+    static let boundary = "Boundary$0Ux8kQ3"
 
     init<Response: HttpResponse>(path: String, method: HttpMethod,
                                  handler: @escaping (Response) -> Void)
@@ -43,7 +46,7 @@ class HttpRequest {
             throw FormationError.malformedUrl
         }
 
-        if let params = self.params, !params.isEmpty, self.method != .post, self.method != .put {
+        if let params = self.params, !params.isEmpty, self.method == .get || self.method == .head {
             guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
                 throw FormationError.malformedUrl
             }
@@ -62,6 +65,9 @@ class HttpRequest {
         if let headers = self.headers {
             allHeaders.merge(headers) { $1 }
         }
+        if self.paramsEncoding == .formDataEncoding && allHeaders["Content-Type"] == nil {
+            allHeaders["Content-Type"] = "multipart/form-data; boundary=" + Self.boundary
+        }
         return allHeaders
     }
 
@@ -72,6 +78,8 @@ class HttpRequest {
                 return try self.urlEncodedBody()
             } else if paramsEncoding == .jsonEncoding {
                 return try self.jsonEncodedBody()
+            } else if paramsEncoding == .formDataEncoding {
+                return try self.multipartFormBody()
             }
         }
         return nil
@@ -99,8 +107,57 @@ class HttpRequest {
         return nil
     }
 
+    func multipartFormBody() throws -> Data? {
+        guard self.params?.isEmpty == false || self.formParams?.isEmpty == false else {
+            return nil
+        }
+
+        var body = Data()
+
+        func appendString(_ string: String) throws {
+            guard let data = string.data(using: .utf8) else {
+                throw FormationError.malformedParams
+            }
+            body.append(data)
+        }
+
+        if let params = self.params {
+            for (key, value) in params {
+                try appendString("--\(Self.boundary)\r\n")
+                try appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+                try appendString("\(value)\r\n")
+            }
+        }
+
+        if let formParams = self.formParams {
+            for partParams in formParams {
+                try appendString("--\(Self.boundary)\r\n")
+                try appendString("Content-Disposition: form-data; name=\"\(partParams.name)\"; filename=\"\(partParams.filename)\"\r\n")
+                if let mimetype = partParams.mimetype {
+                    try appendString("Content-Type: \(mimetype)\r\n")
+                }
+                try appendString("\r\n")
+                body.append(partParams.data)
+                try appendString("\r\n")
+            }
+        }
+
+        try appendString("--\(Self.boundary)--\r\n")
+
+        return body
+    }
+
     func prepareQueryItems() -> [URLQueryItem]? {
         self.params?.map { URLQueryItem(name: $0, value: $1) }
+    }
+
+    func addFormPart(data: Data, name: String, filename: String, mimetype: String? = nil) {
+        let part = FormParam(name: name, filename: filename, mimetype: mimetype, data: data)
+        if self.formParams != nil {
+            self.formParams?.append(part)
+        } else {
+            self.formParams = [part]
+        }
     }
 }
 
@@ -117,6 +174,14 @@ extension HttpRequest {
     enum ParamsEncoding {
         case urlEncoding
         case jsonEncoding
+        case formDataEncoding
+    }
+
+    struct FormParam {
+        let name: String
+        let filename: String
+        let mimetype: String?
+        let data: Data
     }
 
     enum FormationError: Error {
