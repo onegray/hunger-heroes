@@ -12,6 +12,7 @@ class TapeArchive {
     enum DecodingError: Error {
         case invalidLength(Int)
         case invalidFilename(chunkStart: Int)
+        case invalidFileSize(filename: String, size: Int)
     }
 
     func parseFiles(data: Data) throws -> [String : Data] {
@@ -36,11 +37,13 @@ class TapeArchive {
                 }
 
                 let sizeData = data[(chunkStart + 124)..<(chunkStart + 136)]
-                let size = sizeData.withUnsafeBytes { ptr in
-                    strtol(ptr.baseAddress!, nil, 8)
-                }
+                let size = strtol(String(data: sizeData, encoding: .ascii), nil, 8)
 
                 chunkStart += 512
+                guard size >= 0 && chunkStart + size < data.count else {
+                    throw DecodingError.invalidFileSize(filename: name, size: size)
+                }
+
                 let fileData = data[chunkStart..<(chunkStart + size)]
                 chunkStart += (size / 512) * 512
                 files[name] = fileData
