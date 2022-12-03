@@ -44,13 +44,17 @@ extension HttpClient: HttpClientProtocol {
             return
         }
 
+        let baseUrl = self.baseUrl
+        let baseHeaders = self.defaultHeaders
+        let baseEncoding = self.defaultParamsEncoding
+
         self.requestQueue.async {
 
             let urlRequest: URLRequest
             do {
-                urlRequest = try request.createUrlRequest(baseUrl: self.baseUrl,
-                                                          defaultHeaders: self.defaultHeaders,
-                                                          defaultParamsEncoding: self.defaultParamsEncoding)
+
+                urlRequest = try request.createUrlRequest(baseUrl: baseUrl, defaultHeaders: baseHeaders, defaultParamsEncoding: baseEncoding)
+
             } catch let error {
                 assert(false, "Unable to create URLRequest: \(error)")
 
